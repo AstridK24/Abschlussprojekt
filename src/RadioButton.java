@@ -14,12 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.SwingUtilities;
 
-/**
- * A Swing program that demonstrates how to use JRadioButton component.
- *
- * @author www.codejava.net
- *
- */
+
 public class RadioButton extends JFrame {//rb figurenauswahl
 
     private JButton buttonOK = new JButton("OK");//ok
@@ -35,7 +30,7 @@ public class RadioButton extends JFrame {//rb figurenauswahl
     private ImageIcon iconFigur3 = new ImageIcon("img/figur3.png");
 
     public RadioButton() {//konstrukter
-        super("Figur auswählen");//überschrift
+        super("Figur auswählen");//fenstertitel
 
         ButtonGroup group = new ButtonGroup();//rb gruppieren bzw nur einer wählbar
         group.add(player1);
@@ -99,27 +94,13 @@ public class RadioButton extends JFrame {//rb figurenauswahl
         public void actionPerformed(ActionEvent event) {
             JRadioButton button = (JRadioButton) event.getSource();
             if (button == player1) {
-
                 labelImage.setIcon(iconFigur1);
-
             } else if (button == player2) {
-
                 labelImage.setIcon(iconFigur2);
-
             } else if (button == player3) {
-
                 labelImage.setIcon(iconFigur3);
             }
         }
     }
 
-   /* public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-
-            @Override
-            public void run() {
-                new RadioButton().setVisible(true);
-            }
-        });
-    }*/
 }

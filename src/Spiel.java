@@ -10,26 +10,25 @@ import java.net.URL;
 public class Spiel extends JFrame {
 
     JLabel startImg;//startbild
-    ImageIcon figur1 = new ImageIcon("img/figur1.png");//rb
-    ImageIcon figur2 = new ImageIcon("img/figur2.png");//rb
-    ImageIcon figur3 = new ImageIcon("img/figur3.png");//rb
+    ImageIcon figur1 = new ImageIcon("img/figur1.png");//bild für rb
+    ImageIcon figur2 = new ImageIcon("img/figur2.png");//bild für rb
+    ImageIcon figur3 = new ImageIcon("img/figur3.png");//bild für rb
 
-    public Spiel()  {//kostruktor
+    public Spiel()  {//konstruktor
 
         Icon icon1;//icon festlegen
-        icon1 = new ImageIcon("img/hallodri2.jpg");//icon
+        icon1 = new ImageIcon("img/hallodri2.jpg");//icon pfad
         startImg = new JLabel(icon1);//startbild
 
         setTitle("Abschlussprojekt");//titel
         setSize(994,679);//grösse vom  fenster
         setLocationRelativeTo(null);//mittig
         setDefaultCloseOperation(EXIT_ON_CLOSE);//schliessen
-        this.add(startImg);
+        this.add(startImg);//starbild sichtbar
 
         JMenuBar menu = new JMenuBar();//menübar
         JMenu spielMenu = new JMenu("Spiel");//erster knopf - submit
         JMenuItem gameStart = new JMenuItem("Starten");//erster untertitel
-
 
 
         gameStart.addActionListener(new ActionListener() {//aktion
@@ -61,12 +60,12 @@ public class Spiel extends JFrame {
             }
         });
         spielMenu.add(gameStart);//submit
-        spielMenu.addSeparator();//strich zwischen der untermenüs
+        spielMenu.addSeparator();//strich zwischen den untermenüs
         spielMenu.add(gameEnd);//noch immer submit
 
 
         JMenuItem gameInstructions = new JMenuItem("Spielanleitung");     //spielanleitungbutton
-        gameInstructions.addActionListener(new ActionListener() {
+        gameInstructions.addActionListener(new ActionListener() {//aktion
             @Override
             public void actionPerformed(ActionEvent e) {
                 Desktop desktop = Desktop.getDesktop();
@@ -77,7 +76,7 @@ public class Spiel extends JFrame {
                     ex.printStackTrace();
                 }
                 try {
-                    desktop.browse(url.toURI());
+                    desktop.browse(url.toURI());//desktop öffnet browser
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 } catch (URISyntaxException ex) {
@@ -90,8 +89,6 @@ public class Spiel extends JFrame {
         menu.add(gameInstructions);//anleitung erscheinen lassen
 
         setJMenuBar(menu);//Hinzufügen der Menüleiste zum Frame
-
-
     }
 
     public static void main(String[] args) {
