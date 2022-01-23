@@ -2,20 +2,22 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
 
-public class Spiel extends JFrame {
+public class GameMain extends JFrame {
 
     JLabel startImg;//startbild
     //ImageIcon figur1 = new ImageIcon("img/figur1.png");//bild für rb
     //ImageIcon figur2 = new ImageIcon("img/figur2.png");//bild für rb
     //ImageIcon figur3 = new ImageIcon("img/figur3.png");//bild für rb
-
+    JPanel board = new JPanel();
     /////////////////////////////
-    public Spiel()  {//konstruktor
+    public GameMain()  {//konstruktor
 
         Icon icon1;//icon festlegen
         icon1 = new ImageIcon("img/hallodri2.jpg");//icon pfad
@@ -25,6 +27,7 @@ public class Spiel extends JFrame {
         setSize(994,679);//grösse vom  fenster
         setLocationRelativeTo(null);//mittig
         setDefaultCloseOperation(EXIT_ON_CLOSE);//schliessen
+
         this.add(startImg);//starbild sichtbar
 
         JMenuBar menu = new JMenuBar();//menübar
@@ -43,8 +46,18 @@ public class Spiel extends JFrame {
                    // JOptionPane.showMessageDialog(null, "Hallo " + eingabeName + ". Lass uns starten");//kontrollfenster
                     RadioButton radioButton = new RadioButton();//rb erstellen
                     radioButton.setVisible(true);//rb sichtbar
+                    radioButton.addWindowListener(new WindowAdapter(){
+                        public void windowClosed(WindowEvent e){
+                            System.out.println(radioButton.selected);
+
+                            add(board);
+                            revalidate();
+                        }
+                    });
 
                     gameStart.setEnabled(false);//startknopf auf falsch stellen
+
+
                 }
             }
         });
@@ -95,8 +108,8 @@ public class Spiel extends JFrame {
 
     public static void main(String[] args) {
 
-        Spiel spiel = new Spiel();
-        spiel.setVisible(true);//sichtbar machen
+        GameMain gameMain = new GameMain();
+        gameMain.setVisible(true);//sichtbar machen
 
 
     }

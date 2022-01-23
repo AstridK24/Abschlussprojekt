@@ -16,6 +16,9 @@ import javax.swing.JRadioButton;
 
 public class RadioButton extends JFrame {//rb figurenauswahl
 
+
+    public String selected = "";
+
     private JButton buttonOK = new JButton("OK");//ok
 
     private JRadioButton lisa = new JRadioButton("Lisa");//text
@@ -90,6 +93,8 @@ public class RadioButton extends JFrame {//rb figurenauswahl
                 }
                 JOptionPane.showMessageDialog(RadioButton.this,
                         "Du hast " + selectedOption + " gewählt. Los geht´s!");
+                selected = selectedOption;
+                dispose();
                 //hier muss das feld gelöscht werden und neu aufgebaut-spielfigur übernehmen!
             }
         });
