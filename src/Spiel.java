@@ -10,10 +10,11 @@ import java.net.URL;
 public class Spiel extends JFrame {
 
     JLabel startImg;//startbild
-    ImageIcon figur1 = new ImageIcon("img/figur1.png");//bild für rb
-    ImageIcon figur2 = new ImageIcon("img/figur2.png");//bild für rb
-    ImageIcon figur3 = new ImageIcon("img/figur3.png");//bild für rb
+    //ImageIcon figur1 = new ImageIcon("img/figur1.png");//bild für rb
+    //ImageIcon figur2 = new ImageIcon("img/figur2.png");//bild für rb
+    //ImageIcon figur3 = new ImageIcon("img/figur3.png");//bild für rb
 
+    /////////////////////////////
     public Spiel()  {//konstruktor
 
         Icon icon1;//icon festlegen
@@ -27,7 +28,7 @@ public class Spiel extends JFrame {
         this.add(startImg);//starbild sichtbar
 
         JMenuBar menu = new JMenuBar();//menübar
-        JMenu spielMenu = new JMenu("Spiel");//erster knopf - submit
+        JMenu gameMenu = new JMenu("Spiel");//erster knopf - submit
         JMenuItem gameStart = new JMenuItem("Starten");//erster untertitel
 
 
@@ -37,7 +38,7 @@ public class Spiel extends JFrame {
 
                 String enterName = JOptionPane.showInputDialog("Bitte gib deinen Namen ein:");//eingabefenster
                 if (enterName.isEmpty()){//wenn kein name wieder zurück
-                    System.out.println("aaaaaaaaaaaaaaaa");
+                    //System.out.println("aaaaaaaaaaaaaaaa");
                 }else {
                    // JOptionPane.showMessageDialog(null, "Hallo " + eingabeName + ". Lass uns starten");//kontrollfenster
                     RadioButton radioButton = new RadioButton();//rb erstellen
@@ -59,9 +60,9 @@ public class Spiel extends JFrame {
                 }
             }
         });
-        spielMenu.add(gameStart);//submit
-        spielMenu.addSeparator();//strich zwischen den untermenüs
-        spielMenu.add(gameEnd);//noch immer submit
+        gameMenu.add(gameStart);//submit
+        gameMenu.addSeparator();//strich zwischen den untermenüs
+        gameMenu.add(gameEnd);//noch immer submit
 
 
         JMenuItem gameInstructions = new JMenuItem("Spielanleitung");     //spielanleitungbutton
@@ -85,11 +86,12 @@ public class Spiel extends JFrame {
             }
         });
 
-        menu.add(spielMenu);//submit erscheinen lassen
+        menu.add(gameMenu);//submit erscheinen lassen
         menu.add(gameInstructions);//anleitung erscheinen lassen
 
         setJMenuBar(menu);//Hinzufügen der Menüleiste zum Frame
     }
+    /////////////////////////////
 
     public static void main(String[] args) {
 

@@ -12,48 +12,54 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
-import javax.swing.SwingUtilities;
 
 
 public class RadioButton extends JFrame {//rb figurenauswahl
 
     private JButton buttonOK = new JButton("OK");//ok
 
-    private JRadioButton player1 = new JRadioButton("Mädchen");//text
-    private JRadioButton player2 = new JRadioButton("Junge1");
-    private JRadioButton player3 = new JRadioButton("Junge2");
+    private JRadioButton lisa = new JRadioButton("Lisa");//text
+    private JRadioButton ken = new JRadioButton("Ken");
+    private JRadioButton fred = new JRadioButton("Fred");
+    private JRadioButton jasmin = new JRadioButton("Jasmin");
 
     private JLabel labelImage = new JLabel();//fotolabel
 
-    private ImageIcon iconFigur1= new ImageIcon("img/figur1.png");//pfad
-    private ImageIcon iconFigur2 = new ImageIcon("img/figur2.png");
-    private ImageIcon iconFigur3 = new ImageIcon("img/figur3.png");
+    private ImageIcon iconLisa = new ImageIcon("img/figuren/lisa.gif");//pfad
+    private ImageIcon iconKen = new ImageIcon("img/figuren/ken.gif");
+    private ImageIcon iconFred = new ImageIcon("img/figuren/fred.gif");
+    private ImageIcon iconJasmin = new ImageIcon("img/figuren/jasmin.gif");
 
+    ///////////////////////////
     public RadioButton() {//konstrukter
         super("Figur auswählen");//fenstertitel
 
         ButtonGroup group = new ButtonGroup();//rb gruppieren bzw nur einer wählbar
-        group.add(player1);
-        group.add(player2);
-        group.add(player3);
+        group.add(lisa);
+        group.add(ken);
+        group.add(fred);
+        group.add(jasmin);
 
-        player2.setSelected(true);//wenn junge1 gewählt ist - foto anzeigen
-        labelImage.setIcon(iconFigur2);
+        ken.setSelected(true);//wenn junge1 gewählt ist - foto anzeigen
+        labelImage.setIcon(iconKen);
 
         setLayout(new GridBagLayout());
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.gridx = 0;
         constraints.gridy = 0;
         constraints.anchor = GridBagConstraints.CENTER;
-        constraints.insets = new Insets(10, 10, 10, 10);
+        constraints.insets = new Insets(10, 10, 10, 40);
 
-        add(player1, constraints);
+        add(lisa, constraints);
         constraints.gridx = 1;
-        add(player2, constraints);
+        add(ken, constraints);
         constraints.gridx = 2;
-        add(player3, constraints);
+        add(fred, constraints);
+        constraints.gridx = 3;
+        add(jasmin, constraints);
 
-        constraints.gridx = 0;
+
+        constraints.gridx = 1;//figur pos geht leider nicht mittiger
         constraints.gridy = 1;
         constraints.gridwidth = 3;
 
@@ -63,24 +69,28 @@ public class RadioButton extends JFrame {//rb figurenauswahl
         add(buttonOK, constraints);
 
         RadioButtonActionListener actionListener = new RadioButtonActionListener();//aktion
-        player1.addActionListener(actionListener);
-        player2.addActionListener(actionListener);
-        player3.addActionListener(actionListener);
+        lisa.addActionListener(actionListener);
+        ken.addActionListener(actionListener);
+        fred.addActionListener(actionListener);
+        jasmin.addActionListener(actionListener);
 
         buttonOK.addActionListener(new ActionListener() {//aktion
 
             @Override
             public void actionPerformed(ActionEvent event) {
                 String selectedOption = "";
-                if (player1.isSelected()) {
+                if (lisa.isSelected()) {
                     selectedOption = "Lisa";
-                } else if (player2.isSelected()) {
+                } else if (ken.isSelected()) {
                     selectedOption = "Ken";
-                } else if (player3.isSelected()) {
+                } else if (fred.isSelected()) {
                     selectedOption = "Fred";
+                }else if (jasmin.isSelected()) {
+                    selectedOption = "Jasmin";
                 }
                 JOptionPane.showMessageDialog(RadioButton.this,
-                        "Das ist: " + selectedOption);
+                        "Du hast " + selectedOption + " gewählt. Los geht´s!");
+                //hier muss das feld gelöscht werden und neu aufgebaut-spielfigur übernehmen!
             }
         });
 
@@ -88,17 +98,20 @@ public class RadioButton extends JFrame {//rb figurenauswahl
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
     }
+    ///////////////////
 
     class RadioButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent event) {
             JRadioButton button = (JRadioButton) event.getSource();
-            if (button == player1) {
-                labelImage.setIcon(iconFigur1);
-            } else if (button == player2) {
-                labelImage.setIcon(iconFigur2);
-            } else if (button == player3) {
-                labelImage.setIcon(iconFigur3);
+            if (button == lisa) {
+                labelImage.setIcon(iconLisa);
+            } else if (button == ken) {
+                labelImage.setIcon(iconKen);
+            } else if (button == fred) {
+                labelImage.setIcon(iconFred);
+            }else if (button == jasmin) {
+                labelImage.setIcon(iconJasmin);
             }
         }
     }
