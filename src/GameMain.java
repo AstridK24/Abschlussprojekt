@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,27 +13,48 @@ import java.net.URL;
 public class GameMain extends JFrame {
 
     JLabel startImg;//startbild
-    //ImageIcon figur1 = new ImageIcon("img/figur1.png");//bild für rb
+    ImageIcon ditem = new ImageIcon("img/item/ditem.png");
+    ImageIcon energie = new ImageIcon("img/item/energie2.png");
+    ImageIcon herzv = new ImageIcon("img/item/herzvoll.png");
+    ImageIcon herzl = new ImageIcon("img/item/herzleer.png");
+    ImageIcon hero = new ImageIcon("img/item/superhelden.png");
+    ImageIcon smax = new ImageIcon("img/figuren/supermax/supermax v2.png");
+    ImageIcon bluki = new ImageIcon("img/figuren/batluki/batluki v2.png");
+    ImageIcon figur1 = new ImageIcon("img/figur1.png");//bild für rb
     //ImageIcon figur2 = new ImageIcon("img/figur2.png");//bild für rb
     //ImageIcon figur3 = new ImageIcon("img/figur3.png");//bild für rb
     JPanel board = new JPanel();
+    JPanel middle = new JPanel();
+    JLabel label = new JLabel("Deine Items: " + "aaaaaaaa" + "bbbbbbbbb"+ startImg + "img/biberMitAxt.png");
+
     /////////////////////////////
     public GameMain()  {//konstruktor
 
-        Icon icon1;//icon festlegen
+        ImageIcon icon1;//icon festlegen
         icon1 = new ImageIcon("img/hallodri2.jpg");//icon pfad
         startImg = new JLabel(icon1);//startbild
 
         setTitle("Abschlussprojekt");//titel
-        setSize(994,679);//grösse vom  fenster
+        setSize(994,750);//grösse vom  fenster
         setLocationRelativeTo(null);//mittig
         setDefaultCloseOperation(EXIT_ON_CLOSE);//schliessen
 
-        this.add(startImg);//starbild sichtbar
+        middle.add(startImg);//starbild sichtbar im center
+        //label.add("hhhhh");
+        //this.add(startImg);
 
         JMenuBar menu = new JMenuBar();//menübar
         JMenu gameMenu = new JMenu("Spiel");//erster knopf - submit
         JMenuItem gameStart = new JMenuItem("Starten");//erster untertitel
+        DefaultTableModel model = new DefaultTableModel();
+        JTable table = new JTable(model) {
+            public Class getColumnClass(int column) {
+                return Icon.class;
+            }
+        };
+        model.setRowCount(12);
+        model.setColumnCount(2);
+        table.setTableHeader(null);
 
 
         gameStart.addActionListener(new ActionListener() {//aktion
@@ -98,6 +120,23 @@ public class GameMain extends JFrame {
                 }
             }
         });
+        //spielfeld mitte
+        setLayout(new BorderLayout());
+        add(middle,BorderLayout.CENTER);
+
+        //leister rechts mit item, energie,...
+        table.setRowHeight(64);
+        table.setValueAt(energie,0,0);
+        table.setValueAt(herzv,0,1);
+        table.setValueAt(herzv,1,0);
+        table.setValueAt(herzl,1,1);
+        table.setValueAt(ditem,3,0);
+        table.setValueAt(figur1,3,1);
+        table.setValueAt(hero,8,0);
+        table.setValueAt(smax,8,1);
+        table.setValueAt(bluki,9,0);
+        add(table, BorderLayout.EAST);
+
 
         menu.add(gameMenu);//submit erscheinen lassen
         menu.add(gameInstructions);//anleitung erscheinen lassen
