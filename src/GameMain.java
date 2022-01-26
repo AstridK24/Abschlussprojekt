@@ -23,9 +23,9 @@ public class GameMain extends JFrame {
     ImageIcon figur1 = new ImageIcon("img/figur1.png");//bild für rb
     //ImageIcon figur2 = new ImageIcon("img/figur2.png");//bild für rb
     //ImageIcon figur3 = new ImageIcon("img/figur3.png");//bild für rb
-    JPanel board = new JPanel();
+    Board board;
     JPanel middle = new JPanel();
-    JLabel label = new JLabel("Deine Items: " + "aaaaaaaa" + "bbbbbbbbb"+ startImg + "img/biberMitAxt.png");
+    //JLabel label = new JLabel("Deine Items: " + "aaaaaaaa" + "bbbbbbbbb"+ startImg + "img/biberMitAxt.png");
 
     /////////////////////////////
     public GameMain()  {//konstruktor
@@ -46,15 +46,15 @@ public class GameMain extends JFrame {
         JMenuBar menu = new JMenuBar();//menübar
         JMenu gameMenu = new JMenu("Spiel");//erster knopf - submit
         JMenuItem gameStart = new JMenuItem("Starten");//erster untertitel
-        DefaultTableModel model = new DefaultTableModel();
+        DefaultTableModel model = new DefaultTableModel();//spalte east
         JTable table = new JTable(model) {
-            public Class getColumnClass(int column) {
+            public Class getColumnClass(int column) {//zeigt nut icons an
                 return Icon.class;
             }
         };
-        model.setRowCount(12);
-        model.setColumnCount(2);
-        table.setTableHeader(null);
+        model.setRowCount(12);//12 reihen
+        model.setColumnCount(2);//2 spalten
+        table.setTableHeader(null);//kein header
 
 
         gameStart.addActionListener(new ActionListener() {//aktion
@@ -70,20 +70,21 @@ public class GameMain extends JFrame {
                     radioButton.setVisible(true);//rb sichtbar
                     radioButton.addWindowListener(new WindowAdapter(){
                         public void windowClosed(WindowEvent e){
-                            System.out.println(radioButton.selected);
+                            System.out.println(radioButton.selected);//spielfigur
 
+                            board = new Board();
                             add(board);
                             revalidate();
                         }
                     });
-
                     gameStart.setEnabled(false);//startknopf auf falsch stellen
-
-
                 }
             }
         });
+
+
         JMenuItem gameEnd = new JMenuItem("Verlassen");//zweiter untertitel
+
 
         gameEnd.addActionListener(new ActionListener() {//aktion
             @Override
@@ -120,6 +121,7 @@ public class GameMain extends JFrame {
                 }
             }
         });
+
         //spielfeld mitte
         setLayout(new BorderLayout());
         add(middle,BorderLayout.CENTER);
@@ -149,7 +151,6 @@ public class GameMain extends JFrame {
 
         GameMain gameMain = new GameMain();
         gameMain.setVisible(true);//sichtbar machen
-
 
     }
 }
