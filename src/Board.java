@@ -11,27 +11,59 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class Board extends JPanel implements KeyListener { //spielfeld
+public class Board extends JPanel /*implements KeyListener*/ { //spielfeld
+    private class MyDispatcher implements KeyEventDispatcher {
+        @Override
+        public boolean dispatchKeyEvent(KeyEvent e) {
 
-    private ArrayList<String> boardData = new ArrayList<>();//für level zum auslesen
+            if (e.getID() == KeyEvent.KEY_PRESSED) // Taste wurde gedrückt (und noch nicht ausgelassen)
+            {
+                int keyCode = e.getKeyCode();
+                switch (keyCode) {
+                    case KeyEvent.VK_LEFT:
+                        System.out.println("links");
+                        break;
+                    case KeyEvent.VK_RIGHT:
+                        System.out.println("rechts");
+                        break;
+                    case KeyEvent.VK_UP:
+                        System.out.println("rauf");
+                        break;
+                    case KeyEvent.VK_DOWN:
+                        System.out.println("runter");
+                        break;
+                    default:
+                        System.out.println("nichts");
+                }
+            }
+            return false;
+        }
+    }
+
+    //private ArrayList<String> boardData = new ArrayList<>();//für level zum auslesen
     private Level level;
+    private Directions movement = Directions.nothing;//bewegung vom spieler
+    private Timer timer;//damit das spiel läuft(hauptschleife)
 
     Data d = new Data();
 
     /////////////////////////////////////////////
     public Board() {
         setBackground(Color.GREEN);//hintergrundfarbe
-        setFocusable(true);//aktives fenster - wahr
+        //setFocusable(true);//aktives fenster - wahr
+        //requestFocusInWindow();//verlangt fokus
 
         LoadTilesData();//lädt kacheln
 
-        d.width = 15;//weite 25*zellenweite
-        d.height = 8;//10*zellenhöhe
+        d.width = 30;//weite 25*zellenweite
+        d.height = 15;//10*zellenhöhe
         d.cellHeight = 64;//zellenhöhe in px
         d.cellWidth = 64;//zellenweite in px
 
         level = new Level("file/Level1", d);
-
+        //addKeyListener(this);//keylistener einbinden
+        KeyboardFocusManager manager = KeyboardFocusManager.getCurrentKeyboardFocusManager();
+        manager.addKeyEventDispatcher(new MyDispatcher());
 
     }
 
@@ -65,19 +97,38 @@ public class Board extends JPanel implements KeyListener { //spielfeld
 
     }
 
-
+/*
     @Override
     public void keyTyped(KeyEvent e) {
 
     }
 
     @Override
-    public void keyPressed(KeyEvent e) {
-
+    public void keyPressed(KeyEvent e) {//tastatureingabe
+        int keyCode = e.getKeyCode();
+        switch (keyCode) {
+            case KeyEvent.VK_LEFT:
+                System.out.println("links");
+                break;
+            case KeyEvent.VK_RIGHT:
+                System.out.println("rechts");
+                break;
+            case KeyEvent.VK_UP:
+                System.out.println("rauf");
+                break;
+            case KeyEvent.VK_DOWN:
+                System.out.println("runter");
+                break;
+            default:
+                System.out.println("nichts");
+        }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
 
     }
+
+*/
 }
+

@@ -54,6 +54,7 @@ public class GameMain extends JFrame {
         };
         model.setRowCount(12);//12 reihen
         model.setColumnCount(2);//2 spalten
+        table.setFocusable(false);
         table.setTableHeader(null);//kein header
 
 
@@ -138,6 +139,7 @@ public class GameMain extends JFrame {
         table.setValueAt(smax,8,1);
         table.setValueAt(bluki,9,0);
         add(table, BorderLayout.EAST);
+
 
 
         menu.add(gameMenu);//submit erscheinen lassen

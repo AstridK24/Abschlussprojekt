@@ -8,3 +8,7 @@ wwwwhhhhhhwwwwwwwhhh
 hwhhhhhinhhhhhhhhhhh
 wwwwwwwwwwthhhhhhhhh
 hhhhhhahhwhhhhhhhhhh
+
+item = 10 , 6, apfel.txt
+figure=15,1,supermax.txt
+player=0,2

@@ -3,6 +3,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Level {
@@ -12,6 +13,7 @@ public class Level {
     private int plusX = 0;//verschiebung des gesammten angezeigten bildes x
     private int plusY = 0;//y
     private ArrayList<String> boardData = new ArrayList<>();//für level zum auslesen
+    private ArrayList<Item> items = new ArrayList<>();//alle items in level
 
 
     ////////////////////////////////////////////////////
@@ -24,17 +26,56 @@ public class Level {
 
     private void Load() {//laden vom levelfile
         File file = new File(levelPath + "/data.txt");//levelpfad und inhalt
+        boolean isBoardData = true;
         boardData.clear();//brett löschen
+        items.clear();//alle alten items löschen
         Scanner scan = null;//zum einlesen vom file-level
         try {
             scan = new Scanner(file);
+            while (scan.hasNext()) {//liest leveldaten ein
+                String curLine = scan.nextLine();
+                if (curLine.isEmpty()) {//wenn leerzeile ist
+                    isBoardData = false;
+                } else {
+                    if (isBoardData) {//äpfel
+                        boardData.add(curLine);
+                    } else {//birnen
+                        ParseLine(curLine);
+                    }
+                }
+            }
+            scan.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        while (scan.hasNext()) {
-            String curLine = scan.nextLine();
-            boardData.add(curLine);
+    }
+
+    private void ParseLine(String curLine) {
+
+        if (!curLine.isEmpty()) {
+            String[] subStrings = curLine.split("=");
+            if (subStrings.length == 2) {
+                String key = subStrings[0].toLowerCase().trim();
+                String[] values = subStrings[1].split(",");
+                for (int i = 0; i < values.length; i++) {
+                    values[i] = values[i].toLowerCase().trim();
+                }
+                switch (key) {
+                    case "item":
+                        int x = Integer.parseInt(values[0]);
+                        int y = Integer.parseInt(values[1]);
+                        String fileName = levelPath + "/" + values[2];
+                        Item item = new Item(x, y, fileName);
+                        items.add(item);
+                        break;
+                    case "figure":
+                        break;
+                    case "player":
+                        break;
+                }
+            }
         }
+
     }
 
     public BufferedImage CreateBoard() {
