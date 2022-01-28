@@ -14,21 +14,25 @@ public class Level {
     private int plusY = 0;//y
     private ArrayList<String> boardData = new ArrayList<>();//für level zum auslesen
     private ArrayList<Item> items = new ArrayList<>();//alle items in level
+    private ArrayList<Figure> figures = new ArrayList<>();//alle items in level
+    private Figure player;
 
 
     ////////////////////////////////////////////////////
     public Level(String levelPath, Data d) {
         this.levelPath = levelPath;
         this.d = d;
-        Load();//methode laden
+        Load();
     }
     ////////////////////////////////////////////////////
 
-    private void Load() {//laden vom levelfile
+    public void Load() {//laden vom levelfile
         File file = new File(levelPath + "/data.txt");//levelpfad und inhalt
         boolean isBoardData = true;
         boardData.clear();//brett löschen
         items.clear();//alle alten items löschen
+        figures.clear();
+        //player.clear();
         Scanner scan = null;//zum einlesen vom file-level
         try {
             scan = new Scanner(file);
@@ -50,15 +54,15 @@ public class Level {
         }
     }
 
-    private void ParseLine(String curLine) {
+    private void ParseLine(String curLine) {//zeile zerlegen
 
-        if (!curLine.isEmpty()) {
+        if (!curLine.isEmpty()) {//wenn etwas in der zeil steht bei = spliten
             String[] subStrings = curLine.split("=");
-            if (subStrings.length == 2) {
-                String key = subStrings[0].toLowerCase().trim();
-                String[] values = subStrings[1].split(",");
-                for (int i = 0; i < values.length; i++) {
-                    values[i] = values[i].toLowerCase().trim();
+            if (subStrings.length == 2) {//kann nur 2 sein
+                String key = subStrings[0].toLowerCase().trim();//kleinschreiben und leerzeichen entf
+                String[] values = subStrings[1].split(",");//bei , zerlegen
+                for (int i = 0; i < values.length; i++) {//werte durchlaufen
+                    values[i] = values[i].toLowerCase().trim();//kleinschreiben und leerzeichen entf
                 }
                 switch (key) {
                     case "item":
@@ -69,8 +73,32 @@ public class Level {
                         items.add(item);
                         break;
                     case "figure":
+                        int x2 = Integer.parseInt(values[0]);
+                        int y2 = Integer.parseInt(values[1]);
+                        String fileName2 = levelPath + "/" + values[2];
+                        Figure curFig = new Figure(x2, y2, fileName2);
+                        figures.add(curFig);
                         break;
                     case "player":
+                        int x3 = Integer.parseInt(values[0]);
+                        int y3 = Integer.parseInt(values[1]);
+
+                        String fileName3 = "";
+                        switch (d.playerSelected) {
+                            case "Lisa":
+                                fileName3 = "file/Level1/lisa.txt";
+                                break;
+                            case "Ken":
+                                fileName3 = "file/Level1/ken.txt";
+                                break;
+                            case "Fred":
+                                fileName3 = "file/Level1/fred.txt";
+                                break;
+                            default:
+                                fileName3 = "file/Level1/jasmin.txt";
+                                break;
+                        }
+                        player = new Figure(x3,y3,fileName3);
                         break;
                 }
             }
@@ -95,6 +123,7 @@ public class Level {
                 //zeichnet cellimg an der aktuellen pos ein
             }
         }
+        g.drawImage(player.getImage(),player.getX()* d.cellWidth, player.getY()* d.cellHeight,null);
         return bufImg;
     }
 

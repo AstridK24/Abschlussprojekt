@@ -17,7 +17,7 @@ import javax.swing.JRadioButton;
 public class RadioButton extends JFrame {//rb figurenauswahl
 
 
-    public String selected = "";
+    public static String selected = "";
 
     private JButton buttonOK = new JButton("OK");//ok
 

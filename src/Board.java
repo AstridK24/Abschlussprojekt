@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Board extends JPanel /*implements KeyListener*/ { //spielfeld
-    private class MyDispatcher implements KeyEventDispatcher {
+    private class MyDispatcher implements KeyEventDispatcher {//keylistener funktioniert nicht deswegen keyeventdispatcher-wird vom keyfocusmanager aufgerufen
         @Override
         public boolean dispatchKeyEvent(KeyEvent e) {
 
@@ -45,10 +45,10 @@ public class Board extends JPanel /*implements KeyListener*/ { //spielfeld
     private Directions movement = Directions.nothing;//bewegung vom spieler
     private Timer timer;//damit das spiel läuft(hauptschleife)
 
-    Data d = new Data();
+    Data d = new Data();//gemeinsame daten
 
     /////////////////////////////////////////////
-    public Board() {
+    public Board(String playerSelected) {
         setBackground(Color.GREEN);//hintergrundfarbe
         //setFocusable(true);//aktives fenster - wahr
         //requestFocusInWindow();//verlangt fokus
@@ -59,15 +59,15 @@ public class Board extends JPanel /*implements KeyListener*/ { //spielfeld
         d.height = 15;//10*zellenhöhe
         d.cellHeight = 64;//zellenhöhe in px
         d.cellWidth = 64;//zellenweite in px
-
+        d.playerSelected  = playerSelected;
         level = new Level("file/Level1", d);
         //addKeyListener(this);//keylistener einbinden
         KeyboardFocusManager manager = KeyboardFocusManager.getCurrentKeyboardFocusManager();
-        manager.addKeyEventDispatcher(new MyDispatcher());
-
+        manager.addKeyEventDispatcher(new MyDispatcher());//tastatur einbinden
     }
 
     /////////////////////////////////////////////////
+
     public void paint(Graphics g) {//zeichne spielbrett
         //super.paint(g);
         super.paint(g);
@@ -94,7 +94,6 @@ public class Board extends JPanel /*implements KeyListener*/ { //spielfeld
         d.tiles.put("g", new Tile(path + "h4.png", false, false));
         d.tiles.put("t", new Tile(path + "tuer.png", false, true));
         d.tiles.put("i", new Tile(path + "kiste.png", false, false));
-
     }
 
 /*

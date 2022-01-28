@@ -1,0 +1,10 @@
+name = supermax
+image = img/figuren/supermax/supermax
+visible = 1
+live = 1
+bad = 0
+moveable = 1
+xLO = 0
+yLO = 0
+xRU = 100
+yRU = 100

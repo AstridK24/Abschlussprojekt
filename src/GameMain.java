@@ -13,7 +13,7 @@ import java.net.URL;
 public class GameMain extends JFrame {
 
     JLabel startImg;//startbild
-    ImageIcon ditem = new ImageIcon("img/item/ditem.png");
+    ImageIcon ditem = new ImageIcon("img/item/ditem.png");//für jtable
     ImageIcon energie = new ImageIcon("img/item/energie2.png");
     ImageIcon herzv = new ImageIcon("img/item/herzvoll.png");
     ImageIcon herzl = new ImageIcon("img/item/herzleer.png");
@@ -28,14 +28,14 @@ public class GameMain extends JFrame {
     //JLabel label = new JLabel("Deine Items: " + "aaaaaaaa" + "bbbbbbbbb"+ startImg + "img/biberMitAxt.png");
 
     /////////////////////////////
-    public GameMain()  {//konstruktor
+    public GameMain() {//konstruktor
 
         ImageIcon icon1;//icon festlegen
         icon1 = new ImageIcon("img/hallodri2.jpg");//icon pfad
         startImg = new JLabel(icon1);//startbild
 
         setTitle("Abschlussprojekt");//titel
-        setSize(994,750);//grösse vom  fenster
+        setSize(994, 750);//grösse vom  fenster
         setLocationRelativeTo(null);//mittig
         setDefaultCloseOperation(EXIT_ON_CLOSE);//schliessen
 
@@ -57,23 +57,23 @@ public class GameMain extends JFrame {
         table.setFocusable(false);
         table.setTableHeader(null);//kein header
 
-
         gameStart.addActionListener(new ActionListener() {//aktion
             @Override
             public void actionPerformed(ActionEvent e) {
 
                 String enterName = JOptionPane.showInputDialog("Bitte gib deinen Namen ein:");//eingabefenster
-                if (enterName.isEmpty()){//wenn kein name wieder zurück
+                if (enterName.isEmpty()) {//wenn kein name wieder zurück
                     //System.out.println("aaaaaaaaaaaaaaaa");
-                }else {
-                   // JOptionPane.showMessageDialog(null, "Hallo " + eingabeName + ". Lass uns starten");//kontrollfenster
+                } else {
+                    // JOptionPane.showMessageDialog(null, "Hallo " + eingabeName + ". Lass uns starten");//kontrollfenster
                     RadioButton radioButton = new RadioButton();//rb erstellen
                     radioButton.setVisible(true);//rb sichtbar
-                    radioButton.addWindowListener(new WindowAdapter(){
-                        public void windowClosed(WindowEvent e){
+                    radioButton.addWindowListener(new WindowAdapter() {
+                        public void windowClosed(WindowEvent e) {
                             System.out.println(radioButton.selected);//spielfigur
 
-                            board = new Board();
+                            board = new Board(radioButton.selected);
+
                             add(board);
                             revalidate();
                         }
@@ -83,16 +83,14 @@ public class GameMain extends JFrame {
             }
         });
 
-
         JMenuItem gameEnd = new JMenuItem("Verlassen");//zweiter untertitel
-
 
         gameEnd.addActionListener(new ActionListener() {//aktion
             @Override
             public void actionPerformed(ActionEvent e) {
                 int dialogButton = JOptionPane.YES_NO_OPTION;//ja-nein fenster
                 int dialogResult = JOptionPane.showConfirmDialog(gameEnd, "Bist du sicher?", "Spiel beenden", dialogButton);//beschriftung
-                if(dialogResult == 0) {//wenn ja - beenden
+                if (dialogResult == 0) {//wenn ja - beenden
                     System.exit(0);//beenden
                 }
             }
@@ -125,22 +123,20 @@ public class GameMain extends JFrame {
 
         //spielfeld mitte
         setLayout(new BorderLayout());
-        add(middle,BorderLayout.CENTER);
+        add(middle, BorderLayout.CENTER);
 
         //leister rechts mit item, energie,...
         table.setRowHeight(64);
-        table.setValueAt(energie,0,0);
-        table.setValueAt(herzv,0,1);
-        table.setValueAt(herzv,1,0);
-        table.setValueAt(herzl,1,1);
-        table.setValueAt(ditem,3,0);
-        table.setValueAt(figur1,3,1);
-        table.setValueAt(hero,8,0);
-        table.setValueAt(smax,8,1);
-        table.setValueAt(bluki,9,0);
+        table.setValueAt(energie, 0, 0);
+        table.setValueAt(herzv, 0, 1);
+        table.setValueAt(herzv, 1, 0);
+        table.setValueAt(herzl, 1, 1);
+        table.setValueAt(ditem, 3, 0);
+        table.setValueAt(figur1, 3, 1);
+        table.setValueAt(hero, 8, 0);
+        table.setValueAt(smax, 8, 1);
+        table.setValueAt(bluki, 9, 0);
         add(table, BorderLayout.EAST);
-
-
 
         menu.add(gameMenu);//submit erscheinen lassen
         menu.add(gameInstructions);//anleitung erscheinen lassen
