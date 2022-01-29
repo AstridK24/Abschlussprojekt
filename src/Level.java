@@ -98,7 +98,7 @@ public class Level {
                                 fileName3 = "file/Level1/jasmin.txt";
                                 break;
                         }
-                        player = new Figure(x3,y3,fileName3);
+                        player = new Figure(x3, y3, fileName3);
                         break;
                 }
             }
@@ -112,7 +112,21 @@ public class Level {
         //zellenhöhe x höhe = gesamthöhe vom level
         //type int argb = farbbild mit fähigkeit transparenten hintergrund
         Graphics g = bufImg.getGraphics();//für bild in bild
+        int curX = player.getX();
 
+        //verschiebe angezeigtes board wenn nötig
+        while (player.getX() < (plusX + 1)) {//bild nach links verschieben
+            plusX = plusX -1;
+        }
+        while (player.getX() >= (d.width + plusX - 1)) {//bild nach rechts verschieben
+            plusX = plusX +1;
+        }
+        while (player.getY() < (plusY + 1)) {//bild nach oben verschieben
+            plusY = plusY -1;
+        }
+        while (player.getY() >= (d.height + plusY - 1)) {//bild nach unen verschieben
+            plusY = plusY +1;
+        }
         //durchlaufe das gesamte spielbrett: - zeichne hintergrund
         for (int x = 0; x < d.width; x++) {//0 bis max breite
             for (int y = 0; y < d.height; y++) {//0 bis max höhe
@@ -123,8 +137,38 @@ public class Level {
                 //zeichnet cellimg an der aktuellen pos ein
             }
         }
-        g.drawImage(player.getImage(),player.getX()* d.cellWidth, player.getY()* d.cellHeight,null);
+
+        g.drawImage(player.getImage(), (player.getX()-plusX) * d.cellWidth, (player.getY()-plusY) * d.cellHeight, null);
         return bufImg;
+    }
+
+    public void MovePlayer(Directions d) {//spieler bewegung
+        if (d != Directions.nothing) {//wenn der spieler sich bewegt
+            int x = player.getX();
+            int y = player.getY();
+            switch (d) {
+                case left://nach links -1
+                    x = x - 1;
+                    break;
+                case right://nach rechts +1
+                    x = x + 1;
+                    break;
+                case up://nach oben -1
+                    y = y - 1;
+                    break;
+                case down://nach unten +1
+                    y = y + 1;
+                    break;
+            }
+
+
+
+            Checker(x,y,player);//prüft ob begehbar und wenn ja dann bewge fig nach xy
+            player.setDirection(d);//drehung animation
+            player.MakeStep();//schritte animation
+
+
+        }
     }
 
     private BufferedImage GetCellImage(String id) {//liefert kachelimg zur id-id
@@ -162,5 +206,21 @@ public class Level {
             }
         }
         return curCell;
+    }
+
+    private void Checker(int x, int y, Figure curFig) {
+        if (curFig.isMoveable()) {//wenn die figur beweglich ist
+            if ((x >= 0) && (y >= 0)) {//linkes eck oben
+                if (y < boardData.size()) {//höhe vom aktuellen level
+                    if (x < boardData.get(y).length()) {//breite vom aktuellen level
+                        String key = ""+ boardData.get(y).charAt(x);//char zu string umwandeln
+                        Tile curTile = d.tiles.get(key);//kachel aus der hashmap holen
+                        if (curTile.isWalkable()) {//wenn die kachel begehbar ist
+                            curFig.setXY(x,y);//figur setzen
+                        }
+                    }
+                }
+            }
+        }
     }
 }

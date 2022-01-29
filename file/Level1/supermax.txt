@@ -1,5 +1,5 @@
 name = supermax
-image = img/figuren/supermax/supermax
+image = img/figuren/superhelden/supermax/supermax
 visible = 1
 live = 1
 bad = 0

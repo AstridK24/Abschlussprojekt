@@ -23,8 +23,8 @@ public class Figure {
     private int yLo = 0;
     private int xRu = 100;
     private int yRu = 100;
-
-
+    private Directions direction = Directions.down;
+    private int step = 2;
 
     //////////////////////////////////
 
@@ -34,6 +34,7 @@ public class Figure {
         this.x = x;
         this.y = y;
         this.fileName = fileName;
+
         Load();
     }
     /////////////////////////////////
@@ -120,14 +121,53 @@ public class Figure {
     }
 
     public Image getImage() {
-        Image curImg = imgs.get("v1");
+        String id = "v1";
+        switch (direction) {
+            case left:
+                id = "l" + step;
+                break;
+            case right:
+                id = "r" + step;
+                break;
+            case up:
+                id = "h" + step;
+                break;
+            case down:
+                id = "v" + step;
+                break;
+        }
+        Image curImg = imgs.get(id);
+
+
+
         return curImg;
     }
+
+    public void MakeStep() {
+        step = step + 1;
+        if (step > 3) {
+            step = 1;
+        }
+    }
+
     public int getX() {
         return x;
     }
 
     public int getY() {
         return y;
+    }
+
+    public void setXY(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public boolean isMoveable() {
+        return moveable;
+    }
+
+    public void setDirection(Directions direction) {
+        this.direction = direction;
     }
 }

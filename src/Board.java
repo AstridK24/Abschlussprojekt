@@ -1,6 +1,8 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
@@ -12,33 +14,6 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Board extends JPanel /*implements KeyListener*/ { //spielfeld
-    private class MyDispatcher implements KeyEventDispatcher {//keylistener funktioniert nicht deswegen keyeventdispatcher-wird vom keyfocusmanager aufgerufen
-        @Override
-        public boolean dispatchKeyEvent(KeyEvent e) {
-
-            if (e.getID() == KeyEvent.KEY_PRESSED) // Taste wurde gedrückt (und noch nicht ausgelassen)
-            {
-                int keyCode = e.getKeyCode();
-                switch (keyCode) {
-                    case KeyEvent.VK_LEFT:
-                        System.out.println("links");
-                        break;
-                    case KeyEvent.VK_RIGHT:
-                        System.out.println("rechts");
-                        break;
-                    case KeyEvent.VK_UP:
-                        System.out.println("rauf");
-                        break;
-                    case KeyEvent.VK_DOWN:
-                        System.out.println("runter");
-                        break;
-                    default:
-                        System.out.println("nichts");
-                }
-            }
-            return false;
-        }
-    }
 
     //private ArrayList<String> boardData = new ArrayList<>();//für level zum auslesen
     private Level level;
@@ -55,8 +30,8 @@ public class Board extends JPanel /*implements KeyListener*/ { //spielfeld
 
         LoadTilesData();//lädt kacheln
 
-        d.width = 30;//weite 25*zellenweite
-        d.height = 15;//10*zellenhöhe
+        d.width = 10;//weite 25*zellenweite
+        d.height = 5;//10*zellenhöhe
         d.cellHeight = 64;//zellenhöhe in px
         d.cellWidth = 64;//zellenweite in px
         d.playerSelected  = playerSelected;
@@ -64,9 +39,54 @@ public class Board extends JPanel /*implements KeyListener*/ { //spielfeld
         //addKeyListener(this);//keylistener einbinden
         KeyboardFocusManager manager = KeyboardFocusManager.getCurrentKeyboardFocusManager();
         manager.addKeyEventDispatcher(new MyDispatcher());//tastatur einbinden
+        timer = new Timer(200, new ActionListener() {//aktion alle 200ms
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                level.MovePlayer(movement);//spieler bewegen
+                movement = Directions.nothing;//wieder zurücksetzen sonst läuft die Figur ständig
+
+                repaint();//neu zeichnen
+            }
+        });
+        timer.start();//timer starten
+
     }
 
     /////////////////////////////////////////////////
+
+    private class MyDispatcher implements KeyEventDispatcher {//keylistener funktioniert nicht deswegen keyeventdispatcher-wird vom keyfocusmanager aufgerufen
+        @Override
+        public boolean dispatchKeyEvent(KeyEvent e) {
+
+            if (e.getID() == KeyEvent.KEY_PRESSED) // Taste wurde gedrückt (und noch nicht ausgelassen)
+            {
+                int keyCode = e.getKeyCode();
+                switch (keyCode) {
+                    case KeyEvent.VK_LEFT:
+                        movement = Directions.left;
+                        System.out.println("links");
+                        break;
+                    case KeyEvent.VK_RIGHT:
+                        System.out.println("rechts");
+                        movement = Directions.right;
+                        break;
+                    case KeyEvent.VK_UP:
+                        System.out.println("rauf");
+                        movement = Directions.up;
+                        break;
+                    case KeyEvent.VK_DOWN:
+                        movement = Directions.down;
+                        System.out.println("runter");
+                        break;
+                    default:
+                        movement = Directions.nothing;
+                        System.out.println("nichts");
+                }
+            }
+            return false;
+        }
+    }
 
     public void paint(Graphics g) {//zeichne spielbrett
         //super.paint(g);
