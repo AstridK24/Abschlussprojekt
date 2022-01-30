@@ -158,6 +158,22 @@ public class Figure {
         return y;
     }
 
+    public int getxLo() {
+        return xLo;
+    }
+
+    public int getyLo() {
+        return yLo;
+    }
+
+    public int getxRu() {
+        return xRu;
+    }
+
+    public int getyRu() {
+        return yRu;
+    }
+
     public void setXY(int x, int y) {
         this.x = x;
         this.y = y;
@@ -165,6 +181,10 @@ public class Figure {
 
     public boolean isMoveable() {
         return moveable;
+    }
+
+    public boolean isVisible() {
+        return visible;
     }
 
     public void setDirection(Directions direction) {

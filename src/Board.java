@@ -32,8 +32,8 @@ public class Board extends JPanel /*implements KeyListener*/ { //spielfeld
 
         d.width = 10;//weite 25*zellenweite
         d.height = 5;//10*zellenhöhe
-        d.cellHeight = 64;//zellenhöhe in px
-        d.cellWidth = 64;//zellenweite in px
+        d.cellHeight = 32;//zellenhöhe in px
+        d.cellWidth = 32;//zellenweite in px
         d.playerSelected  = playerSelected;
         level = new Level("file/Level1", d);
         //addKeyListener(this);//keylistener einbinden
@@ -44,7 +44,8 @@ public class Board extends JPanel /*implements KeyListener*/ { //spielfeld
             public void actionPerformed(ActionEvent e) {
 
                 level.MovePlayer(movement);//spieler bewegen
-                movement = Directions.nothing;//wieder zurücksetzen sonst läuft die Figur ständig
+                movement = Directions.nothing;//wieder zurücksetzen sonst läuft die figur ständig
+                level.MoveFigures();//alle figuren bewegen
 
                 repaint();//neu zeichnen
             }
@@ -65,23 +66,23 @@ public class Board extends JPanel /*implements KeyListener*/ { //spielfeld
                 switch (keyCode) {
                     case KeyEvent.VK_LEFT:
                         movement = Directions.left;
-                        System.out.println("links");
+                       // System.out.println("links");
                         break;
                     case KeyEvent.VK_RIGHT:
-                        System.out.println("rechts");
+                      //  System.out.println("rechts");
                         movement = Directions.right;
                         break;
                     case KeyEvent.VK_UP:
-                        System.out.println("rauf");
+                       // System.out.println("rauf");
                         movement = Directions.up;
                         break;
                     case KeyEvent.VK_DOWN:
                         movement = Directions.down;
-                        System.out.println("runter");
+                       // System.out.println("runter");
                         break;
                     default:
                         movement = Directions.nothing;
-                        System.out.println("nichts");
+                       // System.out.println("nichts");
                 }
             }
             return false;

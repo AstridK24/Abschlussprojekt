@@ -12,7 +12,7 @@ public class Item {
     private int x;//pos x
     private int y;// pos y
     private String fileName;//datei mit item daten
-    private boolean isVisible = false;//sichtbar
+    private boolean isVisible = true;//sichtbar
     private String name = "";
     private Image image;
 
@@ -22,6 +22,7 @@ public class Item {
         this.x = x;
         this.y = y;
         this.fileName = fileName;
+        Load();
     }
 ////////////////////////////////
 
@@ -36,7 +37,7 @@ public class Item {
                     String[] subStrings = curLine.split("=");//bei =
                     if (subStrings.length == 2) {//kann nur 2 sein
                         String key = subStrings[0].toLowerCase().trim();
-                        String value = subStrings[1];
+                        String value = subStrings[1].trim();
 
                         switch (key) {
                             case "name":
@@ -70,5 +71,21 @@ public class Item {
             g.fillRect(0, 0, width, height);//größe des rechtecks-item
         }
         return img;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public Image getImage() {
+        return image;
+    }
+
+    public boolean isVisible() {
+        return isVisible;
     }
 }

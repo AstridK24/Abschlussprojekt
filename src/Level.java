@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Level {
@@ -116,16 +117,16 @@ public class Level {
 
         //verschiebe angezeigtes board wenn nötig
         while (player.getX() < (plusX + 1)) {//bild nach links verschieben
-            plusX = plusX -1;
+            plusX = plusX - 1;
         }
         while (player.getX() >= (d.width + plusX - 1)) {//bild nach rechts verschieben
-            plusX = plusX +1;
+            plusX = plusX + 1;
         }
         while (player.getY() < (plusY + 1)) {//bild nach oben verschieben
-            plusY = plusY -1;
+            plusY = plusY - 1;
         }
         while (player.getY() >= (d.height + plusY - 1)) {//bild nach unen verschieben
-            plusY = plusY +1;
+            plusY = plusY + 1;
         }
         //durchlaufe das gesamte spielbrett: - zeichne hintergrund
         for (int x = 0; x < d.width; x++) {//0 bis max breite
@@ -138,7 +139,25 @@ public class Level {
             }
         }
 
-        g.drawImage(player.getImage(), (player.getX()-plusX) * d.cellWidth, (player.getY()-plusY) * d.cellHeight, null);
+        for (int i = 0; i < items.size(); i++) {
+            Item cutItem = items.get(i);
+            if (cutItem.isVisible()) {
+                if ((cutItem.getX() >= plusX) && (cutItem.getY() >= plusY)) {
+                    if ((cutItem.getX() < (d.width + plusX)) && (cutItem.getY()) < (d.height + plusY)) {
+                        g.drawImage(ResizeImage(cutItem.getImage()), (cutItem.getX() - plusX) * d.cellWidth, (cutItem.getY() - plusY) * d.cellHeight, null);
+                    }
+                }
+            }
+        }
+
+        for (int i = 0; i < figures.size(); i++) {
+            Figure curFig = figures.get(i);
+            if (curFig.isVisible()) {
+                g.drawImage(ResizeImage(curFig.getImage()), (curFig.getX() - plusX) * d.cellWidth, (curFig.getY() - plusY) * d.cellHeight, null);
+            }
+        }
+
+        g.drawImage(ResizeImage(player.getImage()), (player.getX() - plusX) * d.cellWidth, (player.getY() - plusY) * d.cellHeight, null);
         return bufImg;
     }
 
@@ -161,12 +180,45 @@ public class Level {
                     break;
             }
 
-
-
-            Checker(x,y,player);//prüft ob begehbar und wenn ja dann bewge fig nach xy
+            Checker(x, y, player);//prüft ob begehbar und wenn ja dann bewge fig nach xy
             player.setDirection(d);//drehung animation
             player.MakeStep();//schritte animation
+        }
+    }
 
+    public void MoveFigures() {//sonstige figuren bewegen
+        Random random = new Random();//zufall
+        for (int i = 0; i < figures.size(); i++) {
+            Figure curFigure = figures.get(i);
+            if (curFigure.isMoveable()) {
+                int cur = random.nextInt(6);
+                int x = curFigure.getX();
+                int y = curFigure.getY();
+                Directions d = Directions.nothing;
+                switch (cur) {
+                    case 0://nach links -1
+                        x = x - 1;
+                        d = Directions.left;
+                        break;
+                    case 1://nach rechts +1
+                        x = x + 1;
+                        d = Directions.right;
+                        break;
+                    case 2://nach oben -1
+                        y = y - 1;
+                        d = Directions.up;
+                        break;
+                    case 3://nach unten +1
+                        y = y + 1;
+                        d = Directions.down;
+                        break;
+                }
+                if (d != Directions.nothing) {
+                    Checker(x, y, curFigure);//prüft ob begehbar und wenn ja dann bewge fig nach xy
+                    curFigure.setDirection(d);//drehung animation
+                    curFigure.MakeStep();//schritte animation
+                }
+            }
 
         }
     }
@@ -190,11 +242,16 @@ public class Level {
     }
 
     private BufferedImage ResizeImage(Image img) {//bildgröße anpassen
-        BufferedImage resImg = new BufferedImage(d.cellWidth, d.cellHeight, BufferedImage.TYPE_INT_ARGB);
-        Graphics2D g = resImg.createGraphics();
-        g.drawImage(img, 0, 0, d.cellWidth, d.cellHeight, null);
-        g.dispose();
-        return resImg;
+        if ((img.getWidth(null) != d.cellWidth) || (img.getHeight(null) != d.cellHeight)) {
+            BufferedImage resImg = new BufferedImage(d.cellWidth, d.cellHeight, BufferedImage.TYPE_INT_ARGB);
+            Graphics2D g = resImg.createGraphics();
+            g.drawImage(img, 0, 0, d.cellWidth, d.cellHeight, null);
+            g.dispose();
+            return resImg;
+        }
+        else{
+            return (BufferedImage)img;
+        }
     }
 
     private String GetLevelData(int x, int y) { //holt die gewünschte zelle aus den leveldaten
@@ -213,10 +270,12 @@ public class Level {
             if ((x >= 0) && (y >= 0)) {//linkes eck oben
                 if (y < boardData.size()) {//höhe vom aktuellen level
                     if (x < boardData.get(y).length()) {//breite vom aktuellen level
-                        String key = ""+ boardData.get(y).charAt(x);//char zu string umwandeln
-                        Tile curTile = d.tiles.get(key);//kachel aus der hashmap holen
-                        if (curTile.isWalkable()) {//wenn die kachel begehbar ist
-                            curFig.setXY(x,y);//figur setzen
+                        if ((x >= curFig.getxLo()) && (y >= curFig.getyLo()) && (x < curFig.getxRu()) && (y < curFig.getyRu())) {
+                            String key = "" + boardData.get(y).charAt(x);//char zu string umwandeln
+                            Tile curTile = d.tiles.get(key);//kachel aus der hashmap holen
+                            if (curTile.isWalkable()) {//wenn die kachel begehbar ist
+                                curFig.setXY(x, y);//figur setzen
+                            }
                         }
                     }
                 }

@@ -1,6 +1,6 @@
 hhhhhhhhhhhhhhhhhhhh
 hhhhhhhhhhhhhwwwwwcd
-wwwwwhhahfwwwwhhhweg
+wwwwwhhahfwwwwwwwweg
 hhhwwwwwwwwhhhhfwwwh
 wwwwphhhhhwwwwwwwhww
 whhwhhhhhhwhhhhhwhhh
@@ -9,6 +9,6 @@ hwhhhhhinhhhhhhhhhhh
 wwwwwwwwwwthhhhhhhhh
 hhhhhhahhwhhhhhhhhhh
 
-item = 10 , 6, apfel.txt
+item = 1 , 2, apfel.txt
 figure=15,1,supermax.txt
 player=0,2
