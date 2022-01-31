@@ -1,0 +1,3 @@
+name = bombe
+image = img/item/bombe.png
+visible = 1

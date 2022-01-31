@@ -13,6 +13,7 @@ public class Item {
     private int y;// pos y
     private String fileName;//datei mit item daten
     private boolean isVisible = true;//sichtbar
+    private boolean isCollectable = true;//aufsammeln
     private String name = "";
     private Image image;
 
@@ -87,5 +88,13 @@ public class Item {
 
     public boolean isVisible() {
         return isVisible;
+    }
+
+    public boolean isCollectable() {
+        return isCollectable;
+    }
+
+    public void setVisible(boolean visible) {
+        isVisible = visible;
     }
 }

@@ -161,11 +161,11 @@ public class Level {
         return bufImg;
     }
 
-    public void MovePlayer(Directions d) {//spieler bewegung
-        if (d != Directions.nothing) {//wenn der spieler sich bewegt
+    public void MovePlayer(Directions direction) {//spieler bewegung
+        if (direction != Directions.nothing) {//wenn der spieler sich bewegt
             int x = player.getX();
             int y = player.getY();
-            switch (d) {
+            switch (direction) {
                 case left://nach links -1
                     x = x - 1;
                     break;
@@ -181,8 +181,22 @@ public class Level {
             }
 
             Checker(x, y, player);//prüft ob begehbar und wenn ja dann bewge fig nach xy
-            player.setDirection(d);//drehung animation
+            player.setDirection(direction);//drehung animation
             player.MakeStep();//schritte animation
+            for (int i = 0; i < items.size(); i++) {
+                Item curItem = items.get(i);
+                if (curItem.isVisible()) {
+                    if ((curItem.getX() == player.getX()) && (curItem.getY() == player.getY())) {
+                        if (curItem.isCollectable()) {
+                            if (player.AddIdem(curItem)) {
+                                curItem.setVisible(false);
+                                d.inventory.SetItems(player.getBackpack());
+                            }
+
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -248,9 +262,8 @@ public class Level {
             g.drawImage(img, 0, 0, d.cellWidth, d.cellHeight, null);
             g.dispose();
             return resImg;
-        }
-        else{
-            return (BufferedImage)img;
+        } else {
+            return (BufferedImage) img;
         }
     }
 
@@ -274,7 +287,11 @@ public class Level {
                             String key = "" + boardData.get(y).charAt(x);//char zu string umwandeln
                             Tile curTile = d.tiles.get(key);//kachel aus der hashmap holen
                             if (curTile.isWalkable()) {//wenn die kachel begehbar ist
+
+
                                 curFig.setXY(x, y);//figur setzen
+
+
                             }
                         }
                     }

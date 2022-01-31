@@ -8,5 +8,5 @@ public class Data {
 
     public String playerSelected;
     public HashMap<String, Tile> tiles = new HashMap<String, Tile>();//weg usw - kacheln
-
+    public Inventory inventory;
 }

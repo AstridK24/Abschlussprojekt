@@ -10,5 +10,11 @@ wwwwwwwwwwthhhhhhhhh
 hhhhhhahhwhhhhhhhhhh
 
 item = 1 , 2, apfel.txt
+item = 2 , 2, apfel.txt
+item = 3 , 2, apfel.txt
+item = 4 , 2, apfel.txt
+item = 4 , 3, bombe.txt
+item = 5 , 3, bombe.txt
+item = 6 , 3, bombe.txt
 figure=15,1,supermax.txt
 player=0,2

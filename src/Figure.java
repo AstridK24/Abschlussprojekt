@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -15,16 +16,31 @@ public class Figure {
     private int x = 0;//position breite start
     private int y = 0;//position höhe start
     private String name;
-    private boolean visible = true;
-    private int live = 1;
-    private boolean bad = false;
-    private boolean moveable = true;
-    private int xLo = 0;
-    private int yLo = 0;
-    private int xRu = 100;
-    private int yRu = 100;
+    private boolean visible = true;//sichtbar
+    private int live = 1;//energie - herzen
+    private boolean bad = false;//gut oder böse
+    private boolean moveable = true;//beweglich
+    private int xLo = 0;//poslio
+    private int yLo = 0;//poslio
+    private int xRu = 100;//posreu
+    private int yRu = 100;//posreu
     private Directions direction = Directions.down;
-    private int step = 2;
+    private int step = 2;//li mitte rechts
+
+    private String text1= "";
+    private String text2= "";
+    private String option1= "";//nein
+    private String option2= "";//ja
+    private String need = "";//braucht
+    private String give = "";//gibt
+    private boolean vanish = false;//verschwindet
+    private int strength = 1;//stärke
+    private int gold = 0;//kohle
+    private boolean follow = false;
+
+
+    private ArrayList<Item> backpack = new ArrayList<>(); // rucksack für items
+    private int backpackMax = 5; // maximale anzahl der items die im rucksack sein dürfen
 
     //////////////////////////////////
 
@@ -85,29 +101,59 @@ public class Figure {
                             case "image":
                                 LoadImages(value);
                                 break;
-                            case "visible":
+                            case "visible"://sichtbar
                                 visible = value.equals("1");
                                 break;
-                            case "live":
+                            case "live"://energieherzen
                                 live  = Integer.parseInt(value);
                                 break;
-                            case "bad":
+                            case "bad"://gut - böse
                                 bad = value.equals("1");
                                 break;
-                            case "moveable":
+                            case "moveable"://beweglich
                                 moveable =value.equals("1");
                                 break;
-                            case "xlo":
+                            case "xlo"://breite li o
                                 xLo = Integer.parseInt(value);
                                 break;
-                            case "ylo":
+                            case "ylo"://höhe li o
                                 yLo = Integer.parseInt(value);
                                 break;
-                            case "xru":
+                            case "xru"://breite re u
                                 xRu = Integer.parseInt(value);
                                 break;
-                            case "yru":
+                            case "yru"://höhe re u
                                 yRu = Integer.parseInt(value);
+                                break;
+                            case "text1":
+                                text1 = value;
+                                break;
+                            case "text2":
+                                text2 = value;
+                                break;
+                            case "option1"://nein
+                                option1 = value;
+                                break;
+                            case "option2"://ja
+                                option2 = value;
+                                break;
+                            case "need"://tauschobjekt apfel
+                                need = value;
+                                break;
+                            case "give"://tauschobjekt schlüssel
+                                text2 = give;
+                                break;
+                            case "vanish"://verschwindet
+                                vanish = value.equals("1");
+                                break;
+                            case "strength"://stärke
+                                strength = Integer.parseInt(value);
+                                break;
+                            case "gold"://hat geld
+                                gold = Integer.parseInt(value);
+                                break;
+                            case "follow"://hero folgt
+                                follow = value.equals("1");
                                 break;
                         }
                     }
@@ -150,6 +196,18 @@ public class Figure {
         }
     }
 
+    public boolean AddIdem(Item item){ // items in rucksack geben, liefert false wenn rucksack schon voll ist
+        boolean retVal = false;
+        
+        if (backpack.size() < backpackMax){
+            retVal = true;
+            backpack.add(item);
+        }
+
+        return retVal;
+    }
+
+
     public int getX() {
         return x;
     }
@@ -172,6 +230,10 @@ public class Figure {
 
     public int getyRu() {
         return yRu;
+    }
+
+    public ArrayList<Item> getBackpack() {
+        return backpack;
     }
 
     public void setXY(int x, int y) {

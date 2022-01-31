@@ -28,14 +28,21 @@ public class Board extends JPanel /*implements KeyListener*/ { //spielfeld
         //setFocusable(true);//aktives fenster - wahr
         //requestFocusInWindow();//verlangt fokus
 
+
         LoadTilesData();//lädt kacheln
 
         d.width = 10;//weite 25*zellenweite
         d.height = 5;//10*zellenhöhe
-        d.cellHeight = 32;//zellenhöhe in px
-        d.cellWidth = 32;//zellenweite in px
+        d.cellHeight = 64;//zellenhöhe in px
+        d.cellWidth = 64;//zellenweite in px
         d.playerSelected  = playerSelected;
+        d.inventory = new Inventory(); // klasse zum anzeigen vom backpack
         level = new Level("file/Level1", d);
+
+        setLayout(new BorderLayout());
+        JPanel backGround = new JPanel();
+        backGround.setMinimumSize(new Dimension(d.width*d.cellWidth,d.height*d.cellHeight));
+        add(backGround,BorderLayout.CENTER);add(d.inventory,BorderLayout.EAST);
         //addKeyListener(this);//keylistener einbinden
         KeyboardFocusManager manager = KeyboardFocusManager.getCurrentKeyboardFocusManager();
         manager.addKeyEventDispatcher(new MyDispatcher());//tastatur einbinden
@@ -96,6 +103,13 @@ public class Board extends JPanel /*implements KeyListener*/ { //spielfeld
         g.drawImage(img, 0, 0, this);//zeigt bild bei 0_0 im jframe an
     }
 
+    @Override
+    public Dimension getPreferredSize() { // gib größe des spielfeldes zurück
+
+        int width = d.cellWidth *d.width + d.inventory.getWidth(); // breite vom spielfeldbild + breite vom inventar
+        int height = d.cellHeight*d.height; // höhe des spielfeldes
+        return new Dimension(width, height);
+    }
 
     private void LoadTilesData() {//level objekte namen geben und nach eigenschafeten festlegen
         String path = "img/map/";

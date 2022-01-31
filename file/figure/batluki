@@ -1,0 +1,12 @@
+text1=Hallo, ich bin Batluki. Soll ich dich begleiten?
+option1=Nein,danke
+option2=Ja,gerne
+text2=
+need=
+give=
+bad=0
+vanish=1
+live=2
+strength=2
+gold=0
+follow=1
