@@ -1,3 +1,5 @@
+name = Sebastian der Biber
+image = img/figuren/biber1/biber1
 text1=Hallo, ich bin Sebastian. Ich brauche dringend einen Apfen. Bitte bring mir einen.
 option1=Okay, ich suche für dich einen Apfel.
 option2=Ich habe den Apfel für dich.

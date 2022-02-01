@@ -9,12 +9,12 @@ hwhhhhhinhhhhhhhhhhh
 wwwwwwwwwwthhhhhhhhh
 hhhhhhahhwhhhhhhhhhh
 
-item = 1 , 2, apfel.txt
-item = 2 , 2, apfel.txt
-item = 3 , 2, apfel.txt
-item = 4 , 2, apfel.txt
-item = 4 , 3, bombe.txt
-item = 5 , 3, bombe.txt
-item = 6 , 3, bombe.txt
-figure=15,1,supermax.txt
+item = 1 , 2, file/items/apfel.txt
+item = 2 , 2, file/items/apfel.txt
+item = 3 , 2, file/items/apfel.txt
+item = 4 , 2, file/items/apfel.txt
+item = 4 , 3, file/items/bombe.txt
+item = 5 , 3, file/items/bombe.txt
+item = 6 , 3, file/items/bombe.txt
+figure=15,1,file/figure/supermax.txt
 player=0,2

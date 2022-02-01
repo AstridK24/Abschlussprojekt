@@ -18,8 +18,8 @@ public class GameMain extends JFrame {
     ImageIcon herzv = new ImageIcon("img/item/herzvoll.png");
     ImageIcon herzl = new ImageIcon("img/item/herzleer.png");
     ImageIcon hero = new ImageIcon("img/item/superhelden.png");
-    ImageIcon smax = new ImageIcon("img/figuren/supermax/supermax v2.png");
-    ImageIcon bluki = new ImageIcon("img/figuren/batluki/batluki v2.png");
+    ImageIcon smax = new ImageIcon("img/figuren/supermax.txt/supermax.txt v2.png");
+    ImageIcon bluki = new ImageIcon("img/figuren/batluki.txt/batluki.txt v2.png");
     ImageIcon figur1 = new ImageIcon("img/figur1.png");//bild für rb
     //ImageIcon figur2 = new ImageIcon("img/figur2.png");//bild für rb
     //ImageIcon figur3 = new ImageIcon("img/figur3.png");//bild für rb

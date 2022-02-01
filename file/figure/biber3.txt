@@ -1,3 +1,5 @@
+name = Stefan der Biber
+image = img/figuren/biber3/biber3
 text1=Hallo, ich bin Stefan. Ich brauche dringend einen Stern. Bitte bring mir einen.
 option1=Okay, ich suche für dich einen Stern.
 option2=Ich habe den Stern für dich.

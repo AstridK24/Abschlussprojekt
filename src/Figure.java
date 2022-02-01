@@ -27,10 +27,10 @@ public class Figure {
     private Directions direction = Directions.down;
     private int step = 2;//li mitte rechts
 
-    private String text1= "";
-    private String text2= "";
-    private String option1= "";//nein
-    private String option2= "";//ja
+    private String[] text = {"",""}; // texte die die figur sagen kann
+
+    private String[] option = {"","","",""};  // antwortmöglichkeiten
+
     private String need = "";//braucht
     private String give = "";//gibt
     private boolean vanish = false;//verschwindet
@@ -126,22 +126,28 @@ public class Figure {
                                 yRu = Integer.parseInt(value);
                                 break;
                             case "text1":
-                                text1 = value;
+                                text[0] = value;
                                 break;
                             case "text2":
-                                text2 = value;
+                                text[1] = value;
                                 break;
                             case "option1"://nein
-                                option1 = value;
+                                option[0] = value;
                                 break;
-                            case "option2"://ja
-                                option2 = value;
+                            case "option2"://nein
+                                option[1] = value;
+                                break;
+                            case "option3"://nein
+                                option[2] = value;
+                                break;
+                            case "option4"://nein
+                                option[3] = value;
                                 break;
                             case "need"://tauschobjekt apfel
                                 need = value;
                                 break;
                             case "give"://tauschobjekt schlüssel
-                                text2 = give;
+                                give = value;
                                 break;
                             case "vanish"://verschwindet
                                 vanish = value.equals("1");
@@ -230,6 +236,26 @@ public class Figure {
 
     public int getyRu() {
         return yRu;
+    }
+
+    public String[] getTexts() {
+        return text;
+    }
+
+    public String[] getOptions() {
+        return option;
+    }
+
+    public String getNeed() {
+        return need;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setNeed(String need) {
+        this.need = need;
     }
 
     public ArrayList<Item> getBackpack() {

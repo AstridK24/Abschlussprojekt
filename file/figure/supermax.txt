@@ -1,0 +1,13 @@
+name = Supermax
+image = img/figuren/superhelden/supermax/supermax
+text2=Hallo, ich bin Supermax. Soll ich dich begleiten?
+option3=Ja,gerne
+option4=Nein,danke
+give=self
+vanish=1
+live=2
+strength=2
+follow=1
+
+
+

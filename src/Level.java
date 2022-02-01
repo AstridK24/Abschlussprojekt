@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -7,7 +8,7 @@ import java.util.Locale;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Level {
+public class Level extends Component {
 
     private String levelPath;//pfad vom level
     private Data d;//gemeinsame daten für level und board
@@ -69,14 +70,14 @@ public class Level {
                     case "item":
                         int x = Integer.parseInt(values[0]);
                         int y = Integer.parseInt(values[1]);
-                        String fileName = levelPath + "/" + values[2];
+                        String fileName = values[2];
                         Item item = new Item(x, y, fileName);
                         items.add(item);
                         break;
                     case "figure":
                         int x2 = Integer.parseInt(values[0]);
                         int y2 = Integer.parseInt(values[1]);
-                        String fileName2 = levelPath + "/" + values[2];
+                        String fileName2 = values[2];
                         Figure curFig = new Figure(x2, y2, fileName2);
                         figures.add(curFig);
                         break;
@@ -87,16 +88,16 @@ public class Level {
                         String fileName3 = "";
                         switch (d.playerSelected) {
                             case "Lisa":
-                                fileName3 = "file/Level1/lisa.txt";
+                                fileName3 = "file/figure/lisa.txt";
                                 break;
                             case "Ken":
-                                fileName3 = "file/Level1/ken.txt";
+                                fileName3 = "file/figure/ken.txt";
                                 break;
                             case "Fred":
-                                fileName3 = "file/Level1/fred.txt";
+                                fileName3 = "file/figure/fred.txt";
                                 break;
                             default:
-                                fileName3 = "file/Level1/jasmin.txt";
+                                fileName3 = "file/figure/jasmin.txt";
                                 break;
                         }
                         player = new Figure(x3, y3, fileName3);
@@ -287,16 +288,45 @@ public class Level {
                             String key = "" + boardData.get(y).charAt(x);//char zu string umwandeln
                             Tile curTile = d.tiles.get(key);//kachel aus der hashmap holen
                             if (curTile.isWalkable()) {//wenn die kachel begehbar ist
-
-
-                                curFig.setXY(x, y);//figur setzen
-
-
+                                if (CheckFigures(x, y)) {
+                                    curFig.setXY(x, y);//figur setzen
+                                }
                             }
                         }
                     }
                 }
             }
         }
+    }
+
+    private boolean CheckFigures(int x, int y) {
+        boolean retVal = true;
+        for (int i = 0; i < figures.size(); i++) {
+            Figure curFig = figures.get(i);
+            if ((curFig.getX() == x) && (curFig.getY() == y)) {
+                Object[] choices;
+                Object defaultChoice;
+                if (curFig.getNeed().isEmpty()) {
+                    choices = new Object[2];
+                    choices[0] = curFig.getOptions()[2];
+                    choices[1] = curFig.getOptions()[3];
+                    defaultChoice = curFig.getOptions()[3];
+                    String message = curFig.getTexts()[1];
+                    int choice = JOptionPane.showOptionDialog(this,
+                            message,
+                            curFig.getName()+" sagt:",
+                            JOptionPane.YES_NO_OPTION,
+                            JOptionPane.QUESTION_MESSAGE,
+                            new ImageIcon(curFig.getImage()),
+                            choices,
+                            defaultChoice);
+                    System.out.println(choice);
+                }
+
+
+
+            }
+        }
+        return retVal;
     }
 }

@@ -1,3 +1,5 @@
+name = Batluki
+image = img/figuren/superhelden/batluki/batluki
 text1=Hallo, ich bin Batluki. Soll ich dich begleiten?
 option1=Nein,danke
 option2=Ja,gerne

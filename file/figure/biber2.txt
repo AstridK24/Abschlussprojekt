@@ -1,3 +1,5 @@
+name = Michael der Biber
+image = img/figuren/biber2/biber2
 text1=Hallo, ich bin Michael. Ich brauche dringend einen Hammer. Bitte bring mir einen.
 option1=Okay, ich suche für dich einen Hammer.
 option2=Ich habe den Hammer für dich.

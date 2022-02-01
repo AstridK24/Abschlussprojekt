@@ -1,3 +1,5 @@
+name = Superjenny
+image = img/figuren/superhelden/superjenny/superjenny
 text1=Hallo, ich bin Superjenny. Soll ich dich begleiten?
 option1=Nein,danke
 option2=Ja,gerne

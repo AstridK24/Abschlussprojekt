@@ -1,3 +1,5 @@
+name = Wolfgang der Türwächter
+image = img/figuren/feind1/feind1
 text1=Hallo, ich bin Wolfgang. Du hast mich gestört. Lass uns kämpfen!
 option1=Schnell weg!
 option2=Zeig was du kannst!

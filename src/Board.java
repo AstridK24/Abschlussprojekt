@@ -31,8 +31,8 @@ public class Board extends JPanel /*implements KeyListener*/ { //spielfeld
 
         LoadTilesData();//lädt kacheln
 
-        d.width = 10;//weite 25*zellenweite
-        d.height = 5;//10*zellenhöhe
+        d.width = 15;//weite 25*zellenweite
+        d.height = 10;//10*zellenhöhe
         d.cellHeight = 64;//zellenhöhe in px
         d.cellWidth = 64;//zellenweite in px
         d.playerSelected  = playerSelected;
