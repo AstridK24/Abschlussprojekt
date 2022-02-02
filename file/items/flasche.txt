@@ -1,0 +1,3 @@
+name = flasche
+image = img/item/flasche.png
+visible = 1

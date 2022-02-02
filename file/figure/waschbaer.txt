@@ -1,0 +1,2 @@
+name=Waschbär
+image=img/figuren/wbaerbraun/wbaerbraun

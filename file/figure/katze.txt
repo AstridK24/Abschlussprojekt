@@ -1,0 +1,2 @@
+name=Katze
+image=img/figuren/katze/katze

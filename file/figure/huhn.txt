@@ -1,0 +1,2 @@
+name=Huhn
+image=img/figuren/huhn/huhn

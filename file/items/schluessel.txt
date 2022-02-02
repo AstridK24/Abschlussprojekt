@@ -1,0 +1,3 @@
+name = schluessel
+image = img/item/schluessel.png
+visible = 1

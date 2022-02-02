@@ -19,7 +19,7 @@ public class RadioButton extends JFrame {//rb figurenauswahl
 
     public static String selected = "";
 
-    private JButton buttonOK = new JButton("OK");//ok
+    private JButton buttonOK = new JButton("Los geht`s");//ok
 
     private JRadioButton lisa = new JRadioButton("Lisa");//text
     private JRadioButton ken = new JRadioButton("Ken");
@@ -35,7 +35,7 @@ public class RadioButton extends JFrame {//rb figurenauswahl
 
     ///////////////////////////
     public RadioButton() {//konstrukter
-        super("Figur auswählen");//fenstertitel
+        super("Wähle deine Spielfigur aus");//fenstertitel
 
         ButtonGroup group = new ButtonGroup();//rb gruppieren bzw nur einer wählbar
         group.add(lisa);
@@ -91,8 +91,8 @@ public class RadioButton extends JFrame {//rb figurenauswahl
                 }else if (jasmin.isSelected()) {
                     selectedOption = "Jasmin";
                 }
-                JOptionPane.showMessageDialog(RadioButton.this,
-                        "Du hast " + selectedOption + " gewählt. Los geht´s!");
+                //JOptionPane.showMessageDialog(RadioButton.this,
+                       // "Du hast " + selectedOption + " gewählt. Los geht´s!");
                 selected = selectedOption;
                 dispose();
                 //hier muss das feld gelöscht werden und neu aufgebaut-spielfigur übernehmen!

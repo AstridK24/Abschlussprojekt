@@ -1,0 +1,2 @@
+name=Bruno
+image=img/figuren/bbaer/bbaer

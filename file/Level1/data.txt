@@ -6,15 +6,19 @@ wwwwphhhhhwwwwwwwhww
 whhwhhhhhhwhhhhhwhhh
 wwwwhhhhhhwwwwwwwhhh
 hwhhhhhinhhhhhhhhhhh
-wwwwwwwwwwthhhhhhhhh
-hhhhhhahhwhhhhhhhhhh
+wwwwwwwwwwtwwwwwwwww
+hhhhhhahhwhhwwwwwwww
 
 item = 1 , 2, file/items/apfel.txt
-item = 2 , 2, file/items/apfel.txt
-item = 3 , 2, file/items/apfel.txt
-item = 4 , 2, file/items/apfel.txt
+item = 2 , 2, file/items/schwert.txt
 item = 4 , 3, file/items/bombe.txt
-item = 5 , 3, file/items/bombe.txt
-item = 6 , 3, file/items/bombe.txt
+item = 6 , 3, file/items/blume1.txt
+item = 9 , 3, file/items/stern.txt
 figure=15,1,file/figure/supermax.txt
 player=0,2
+figure=19,3,file/figure/biber1.txt
+figure=5,8,file/figure/feind1.txt
+figure=16,8,file/figure/katze.txt
+figure=13,8,file/figure/hund.txt
+figure=15,8,file/figure/zentaur.txt
+figure=5,3,file/figure/schmetterling.txt

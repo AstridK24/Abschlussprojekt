@@ -1,0 +1,2 @@
+name=Einhorn
+image=img/figuren/einhorn/einhorn

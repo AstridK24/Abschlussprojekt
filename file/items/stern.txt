@@ -1,0 +1,3 @@
+name = stern
+image = img/item/stern.png
+visible = 1

@@ -8,6 +8,3 @@ vanish=1
 live=2
 strength=2
 follow=1
-
-
-

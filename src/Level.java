@@ -4,11 +4,10 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Level extends Component {
+public class Level extends Component {//component wird für JOptionPane.showOptionDialog gebraucht
 
     private String levelPath;//pfad vom level
     private Data d;//gemeinsame daten für level und board
@@ -67,26 +66,26 @@ public class Level extends Component {
                     values[i] = values[i].toLowerCase().trim();//kleinschreiben und leerzeichen entf
                 }
                 switch (key) {
-                    case "item":
-                        int x = Integer.parseInt(values[0]);
-                        int y = Integer.parseInt(values[1]);
-                        String fileName = values[2];
+                    case "item"://items
+                        int x = Integer.parseInt(values[0]);//x
+                        int y = Integer.parseInt(values[1]);//y
+                        String fileName = values[2];//item.txt
                         Item item = new Item(x, y, fileName);
-                        items.add(item);
+                        items.add(item);//in itemliste hinzufügen
                         break;
                     case "figure":
-                        int x2 = Integer.parseInt(values[0]);
-                        int y2 = Integer.parseInt(values[1]);
-                        String fileName2 = values[2];
+                        int x2 = Integer.parseInt(values[0]);//x
+                        int y2 = Integer.parseInt(values[1]);//y
+                        String fileName2 = values[2];//figure.txt
                         Figure curFig = new Figure(x2, y2, fileName2);
-                        figures.add(curFig);
+                        figures.add(curFig);//in figurenliste hinzufügen
                         break;
                     case "player":
-                        int x3 = Integer.parseInt(values[0]);
-                        int y3 = Integer.parseInt(values[1]);
+                        int x3 = Integer.parseInt(values[0]);//x
+                        int y3 = Integer.parseInt(values[1]);//y
 
                         String fileName3 = "";
-                        switch (d.playerSelected) {
+                        switch (d.playerSelected) {//data-playerauswahl
                             case "Lisa":
                                 fileName3 = "file/figure/lisa.txt";
                                 break;
@@ -105,10 +104,9 @@ public class Level extends Component {
                 }
             }
         }
-
     }
 
-    public BufferedImage CreateBoard() {
+    public BufferedImage CreateBoard() {//baut das bild auf
         BufferedImage bufImg = new BufferedImage(d.cellWidth * d.width, d.cellHeight * d.height, BufferedImage.TYPE_INT_ARGB);
         //bufimg = zellenweite x weite = gesamtbreite vom level
         //zellenhöhe x höhe = gesamthöhe vom level
@@ -139,25 +137,24 @@ public class Level extends Component {
                 //zeichnet cellimg an der aktuellen pos ein
             }
         }
-
-        for (int i = 0; i < items.size(); i++) {
-            Item cutItem = items.get(i);
-            if (cutItem.isVisible()) {
-                if ((cutItem.getX() >= plusX) && (cutItem.getY() >= plusY)) {
-                    if ((cutItem.getX() < (d.width + plusX)) && (cutItem.getY()) < (d.height + plusY)) {
+        for (int i = 0; i < items.size(); i++) {//itemsarray durchlaufen
+            Item cutItem = items.get(i);//holt ein item aus der liste
+            if (cutItem.isVisible()) {//wenn das item sichtbar ist
+                if ((cutItem.getX() >= plusX) && (cutItem.getY() >= plusY)) {//wenn es im sichtbaren bereich ist
+                    if ((cutItem.getX() < (d.width + plusX)) && (cutItem.getY()) < (d.height + plusY)) {//wenn es im sichtbaren bereich ist
                         g.drawImage(ResizeImage(cutItem.getImage()), (cutItem.getX() - plusX) * d.cellWidth, (cutItem.getY() - plusY) * d.cellHeight, null);
                     }
                 }
             }
         }
 
-        for (int i = 0; i < figures.size(); i++) {
-            Figure curFig = figures.get(i);
-            if (curFig.isVisible()) {
+        for (int i = 0; i < figures.size(); i++) {//figurenarray durchlaufen
+            Figure curFig = figures.get(i);//holt die nächste figur
+            if (curFig.isVisible()) {//wenn fig sichtbar
                 g.drawImage(ResizeImage(curFig.getImage()), (curFig.getX() - plusX) * d.cellWidth, (curFig.getY() - plusY) * d.cellHeight, null);
             }
         }
-
+//todo nur zeichnen im sichtbaren bereich- wie items
         g.drawImage(ResizeImage(player.getImage()), (player.getX() - plusX) * d.cellWidth, (player.getY() - plusY) * d.cellHeight, null);
         return bufImg;
     }
@@ -184,16 +181,16 @@ public class Level extends Component {
             Checker(x, y, player);//prüft ob begehbar und wenn ja dann bewge fig nach xy
             player.setDirection(direction);//drehung animation
             player.MakeStep();//schritte animation
-            for (int i = 0; i < items.size(); i++) {
+            //prüfen ob player auf einem item steht
+            for (int i = 0; i < items.size(); i++) {//itemarray durchlaufen
                 Item curItem = items.get(i);
-                if (curItem.isVisible()) {
-                    if ((curItem.getX() == player.getX()) && (curItem.getY() == player.getY())) {
-                        if (curItem.isCollectable()) {
-                            if (player.AddIdem(curItem)) {
-                                curItem.setVisible(false);
-                                d.inventory.SetItems(player.getBackpack());
+                if (curItem.isVisible()) {//item sichtbar
+                    if ((curItem.getX() == player.getX()) && (curItem.getY() == player.getY())) {//gleiches x und y
+                        if (curItem.isCollectable()) {//aufhebbar
+                            if (player.AddItem(curItem)) {//item in rucksack
+                                curItem.setVisible(false);//item verschwindet
+                                d.inventory.SetItems(player.getBackpack());//item im rucksack
                             }
-
                         }
                     }
                 }
@@ -205,8 +202,8 @@ public class Level extends Component {
         Random random = new Random();//zufall
         for (int i = 0; i < figures.size(); i++) {
             Figure curFigure = figures.get(i);
-            if (curFigure.isMoveable()) {
-                int cur = random.nextInt(6);
+            if (curFigure.isMoveable()) {//ist beweglich
+                int cur = random.nextInt(10);//10 damit er öfters stehen bleibt
                 int x = curFigure.getX();
                 int y = curFigure.getY();
                 Directions d = Directions.nothing;
@@ -234,7 +231,6 @@ public class Level extends Component {
                     curFigure.MakeStep();//schritte animation
                 }
             }
-
         }
     }
 
@@ -270,16 +266,16 @@ public class Level extends Component {
 
     private String GetLevelData(int x, int y) { //holt die gewünschte zelle aus den leveldaten
         String curCell = "";//curcell am anfang leer
-        if ((boardData.size() > y) && (y >= 0)) {//wenn größe vom level grösser als höhe ist
-            String curLine = boardData.get(y);//größe vom level soll max höhe bekommen
-            if ((curLine.length() > x) && (x >= 0)) {//wenn höhe vom level größer als höhe ist
-                curCell = Character.toString(curLine.charAt(x));//????
+        if ((boardData.size() > y) && (y >= 0)) {//wenn größe vom level grösser als pos y ist
+            String curLine = boardData.get(y);//holt zeile y aus boarddaten
+            if ((curLine.length() > x) && (x >= 0)) {//wenn höhe vom level größer als pos x ist
+                curCell = Character.toString(curLine.charAt(x));//holt buchstaben an pos x aus zeile- wird zu string
             }
         }
         return curCell;
     }
 
-    private void Checker(int x, int y, Figure curFig) {
+    private void Checker(int x, int y, Figure curFig) {//checkt ob figur am aktuellen feld stehen darf
         if (curFig.isMoveable()) {//wenn die figur beweglich ist
             if ((x >= 0) && (y >= 0)) {//linkes eck oben
                 if (y < boardData.size()) {//höhe vom aktuellen level
@@ -288,7 +284,7 @@ public class Level extends Component {
                             String key = "" + boardData.get(y).charAt(x);//char zu string umwandeln
                             Tile curTile = d.tiles.get(key);//kachel aus der hashmap holen
                             if (curTile.isWalkable()) {//wenn die kachel begehbar ist
-                                if (CheckFigures(x, y)) {
+                                if (CheckFigures(x, y)) {//check ob gespräch oder kampf
                                     curFig.setXY(x, y);//figur setzen
                                 }
                             }
@@ -299,32 +295,29 @@ public class Level extends Component {
         }
     }
 
-    private boolean CheckFigures(int x, int y) {
+    private boolean CheckFigures(int x, int y) {//checkt gespräch der figur
         boolean retVal = true;
-        for (int i = 0; i < figures.size(); i++) {
-            Figure curFig = figures.get(i);
-            if ((curFig.getX() == x) && (curFig.getY() == y)) {
-                Object[] choices;
-                Object defaultChoice;
-                if (curFig.getNeed().isEmpty()) {
-                    choices = new Object[2];
+        for (int i = 0; i < figures.size(); i++) {//figurenarray durchlaufen
+            Figure curFig = figures.get(i);//holt nächste fig
+            if ((curFig.getX() == x) && (curFig.getY() == y)) {//wenn kollidieren
+                Object[] choices;//button - auswahl
+                Object defaultChoice;//standardauswahl
+                if (curFig.getNeed().isEmpty()) {//will die fig nichts haben
+                    choices = new Object[2];//2 buttons
                     choices[0] = curFig.getOptions()[2];
                     choices[1] = curFig.getOptions()[3];
                     defaultChoice = curFig.getOptions()[3];
-                    String message = curFig.getTexts()[1];
-                    int choice = JOptionPane.showOptionDialog(this,
-                            message,
-                            curFig.getName()+" sagt:",
-                            JOptionPane.YES_NO_OPTION,
-                            JOptionPane.QUESTION_MESSAGE,
+                    String message = curFig.getTexts()[1];//text vom data(html)
+                    int choice = JOptionPane.showOptionDialog(this,//auswahldialog
+                            message,//text
+                            curFig.getName() + " sagt:",//biber sagt:
+                            JOptionPane.YES_NO_OPTION,//ja nein
+                            JOptionPane.QUESTION_MESSAGE,//fragebutton
                             new ImageIcon(curFig.getImage()),
-                            choices,
-                            defaultChoice);
+                            choices,//auswahl
+                            defaultChoice);//standardauswahl
                     System.out.println(choice);
                 }
-
-
-
             }
         }
         return retVal;

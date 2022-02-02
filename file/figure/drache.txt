@@ -1,0 +1,2 @@
+name=Drache
+image=img/figuren/drache/drache

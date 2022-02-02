@@ -1,0 +1,3 @@
+name = blume6
+image = img/item/blume6.png
+visible = 1

@@ -1,0 +1,2 @@
+name=Hirsch
+image=img/figuren/hirsch/hirsch

@@ -7,38 +7,37 @@ import java.util.ArrayList;
 public class Inventory extends JTable {
 
     private ArrayList<Item> items = new ArrayList<>();
-    private int maxItem = 5;
-    private int cellWidth = 64;
-    private int cellHeight =64;
+    private int maxItem = 5;//inhalt vom rucksack
+    private int cellWidth = 64;//größe der anzeige
+    private int cellHeight =64;//größe der anzeige
+
     //////////////////////////////////
     public Inventory() {
         DefaultTableModel model = new DefaultTableModel();//spalte east
 
-        int rows = maxItem/2;
-        if ((maxItem % 2) > 0){
+        int rows = maxItem/2;//maximale doppelspalte
+        if ((maxItem % 2) > 0){//wenn ungerade zahl
             rows++;
         }
         model.setRowCount(rows);//12 reihen
         model.setColumnCount(2);//2 spalten
         setFocusable(false);
         setTableHeader(null);//kein header
-        setModel(model);
+        setModel(model);//spalte east anzeigen
         setRowHeight(cellHeight);
 
     }
     /////////////////////////////////
 
 
-    public void SetItems(ArrayList<Item> items){
+    public void SetItems(ArrayList<Item> items){//setter für itemsarray
         this.items = items;
         repaint();
     }
 
     public void paint(Graphics g) {//zeichne spielbrett
-
         int row = 0;
         int col = 0;
-
         for (int i = 0; i < items.size(); i++) { // gehe alle items in inventarliste durch
             if (row < this.getRowCount()) { // inventarliste noch lang genug zum anzeigen?
                 Item curItem = items.get(i); // hole item aus inventarliste
@@ -53,7 +52,8 @@ public class Inventory extends JTable {
         super.paint(g); // zeichne alles was jtable sonst noch so zeichnen würde (striche etc)
     }
 
-    public Class getColumnClass(int column) {//zeigt nur icons an (kein text möglich)
+    @Override
+    public Class getColumnClass(int column) {//zeigt nur icons an (kein text möglich), wird von jtable.setValueAt gebraucht
         return Icon.class;
     }
 

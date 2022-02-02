@@ -202,7 +202,7 @@ public class Figure {
         }
     }
 
-    public boolean AddIdem(Item item){ // items in rucksack geben, liefert false wenn rucksack schon voll ist
+    public boolean AddItem(Item item){ // items in rucksack geben, liefert false wenn rucksack schon voll ist
         boolean retVal = false;
         
         if (backpack.size() < backpackMax){

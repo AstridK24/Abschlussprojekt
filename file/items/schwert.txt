@@ -1,0 +1,3 @@
+name = schwert
+image = img/item/schwert.png
+visible = 1

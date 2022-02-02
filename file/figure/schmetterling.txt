@@ -1,0 +1,2 @@
+name=Schmetterling
+image=img/figuren/schmliblau/schmliblau

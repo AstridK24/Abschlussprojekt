@@ -1,0 +1,2 @@
+name=Minotaur
+image=img/figuren/minotaur/minotaur

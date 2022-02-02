@@ -1,0 +1,14 @@
+name =Türwächter
+image = img/figuren/feind2/feind2
+text1=Hallo, ich bin... Du hast mich gestört. Lass uns kämpfen!
+option1=Schnell weg!
+option2=Zeig was du kannst!
+text2=
+need=
+give=
+bad=1
+vanish=1
+live=2
+strength=2
+gold=5
+follow=0

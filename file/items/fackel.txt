@@ -1,0 +1,3 @@
+name = fackel
+image = img/item/fackel.png
+visible = 1
