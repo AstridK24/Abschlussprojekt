@@ -13,16 +13,6 @@ import java.net.URL;
 public class GameMain extends JFrame {
 
     JLabel startImg;//startbild
-    ImageIcon ditem = new ImageIcon("img/item/ditem.png");//für jtable
-    ImageIcon energie = new ImageIcon("img/item/energie2.png");
-    ImageIcon herzv = new ImageIcon("img/item/herzvoll.png");
-    ImageIcon herzl = new ImageIcon("img/item/herzleer.png");
-    ImageIcon hero = new ImageIcon("img/item/superhelden.png");
-    ImageIcon smax = new ImageIcon("img/figuren/supermax.txt/supermax.txt v2.png");
-    ImageIcon bluki = new ImageIcon("img/figuren/batluki.txt/batluki.txt v2.png");
-    ImageIcon figur1 = new ImageIcon("img/figur1.png");//bild für rb
-    //ImageIcon figur2 = new ImageIcon("img/figur2.png");//bild für rb
-    //ImageIcon figur3 = new ImageIcon("img/figur3.png");//bild für rb
     Board board;
     JPanel middle = new JPanel();
     //JLabel label = new JLabel("Deine Items: " + "aaaaaaaa" + "bbbbbbbbb"+ startImg + "img/biberMitAxt.png");
@@ -40,22 +30,10 @@ public class GameMain extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);//schliessen
 
         middle.add(startImg);//starbild sichtbar im center
-        //label.add("hhhhh");
-        //this.add(startImg);
 
         JMenuBar menu = new JMenuBar();//menübar
         JMenu gameMenu = new JMenu("Spiel");//erster knopf - submit
         JMenuItem gameStart = new JMenuItem("Starten");//erster untertitel
-        /*DefaultTableModel model = new DefaultTableModel();//spalte east
-        JTable table = new JTable(model) {
-            public Class getColumnClass(int column) {//zeigt nut icons an
-                return Icon.class;
-            }
-        };
-        model.setRowCount(12);//12 reihen
-        model.setColumnCount(2);//2 spalten
-        table.setFocusable(false);
-        table.setTableHeader(null);//kein header*/
 
         gameStart.addActionListener(new ActionListener() {//aktion
             @Override
@@ -126,19 +104,6 @@ public class GameMain extends JFrame {
         //spielfeld mitte
         setLayout(new BorderLayout());
         add(middle, BorderLayout.CENTER);
-
-        //leister rechts mit item, energie,...
-       /* table.setRowHeight(64);
-        table.setValueAt(energie, 0, 0);
-        table.setValueAt(herzv, 0, 1);
-        table.setValueAt(herzv, 1, 0);
-        table.setValueAt(herzl, 1, 1);
-        table.setValueAt(ditem, 3, 0);
-        table.setValueAt(figur1, 3, 1);
-        table.setValueAt(hero, 8, 0);
-        table.setValueAt(smax, 8, 1);
-        table.setValueAt(bluki, 9, 0);
-        add(table, BorderLayout.EAST);*/
 
 
         menu.add(gameMenu);//submit erscheinen lassen

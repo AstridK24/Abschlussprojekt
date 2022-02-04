@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -196,13 +197,14 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
                 }
             }
         }
+        d.status.SetStatus(d.points, player.getLive(), player.getPower(), d.time);
     }
 
     public void MoveFigures() {//sonstige figuren bewegen
         Random random = new Random();//zufall
         for (int i = 0; i < figures.size(); i++) {
             Figure curFigure = figures.get(i);
-            if (curFigure.isMoveable()) {//ist beweglich
+            if ((curFigure.isMoveable()) && (curFigure.isVisible())) {//ist beweglich und sichtbar
                 int cur = random.nextInt(10);//10 damit er öfters stehen bleibt
                 int x = curFigure.getX();
                 int y = curFigure.getY();
@@ -280,12 +282,15 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
             if ((x >= 0) && (y >= 0)) {//linkes eck oben
                 if (y < boardData.size()) {//höhe vom aktuellen level
                     if (x < boardData.get(y).length()) {//breite vom aktuellen level
-                        if ((x >= curFig.getxLo()) && (y >= curFig.getyLo()) && (x < curFig.getxRu()) && (y < curFig.getyRu())) {
+                        if ((x >= curFig.getxLo()) && (y >= curFig.getyLo()) && (x <= curFig.getxRu()) && (y <= curFig.getyRu())) {
                             String key = "" + boardData.get(y).charAt(x);//char zu string umwandeln
                             Tile curTile = d.tiles.get(key);//kachel aus der hashmap holen
-                            if (curTile.isWalkable()) {//wenn die kachel begehbar ist
-                                if (CheckFigures(x, y)) {//check ob gespräch oder kampf
-                                    curFig.setXY(x, y);//figur setzen
+                            if (curTile != null) {
+                                if (curTile.isWalkable()) {//wenn die kachel begehbar ist
+                                    boolean isPlayer = (curFig == player);
+                                    if (CheckFigures(x, y, isPlayer)) {//check ob gespräch oder kampf
+                                        curFig.setXY(x, y);//figur setzen
+                                    }
                                 }
                             }
                         }
@@ -295,30 +300,82 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
         }
     }
 
-    private boolean CheckFigures(int x, int y) {//checkt gespräch der figur
+
+    private boolean CheckFigures(int x, int y, boolean isPlayer) {//checkt gespräch der figur
         boolean retVal = true;
         for (int i = 0; i < figures.size(); i++) {//figurenarray durchlaufen
-            Figure curFig = figures.get(i);//holt nächste fig
-            if ((curFig.getX() == x) && (curFig.getY() == y)) {//wenn kollidieren
-                Object[] choices;//button - auswahl
-                Object defaultChoice;//standardauswahl
-                if (curFig.getNeed().isEmpty()) {//will die fig nichts haben
-                    choices = new Object[2];//2 buttons
-                    choices[0] = curFig.getOptions()[2];
-                    choices[1] = curFig.getOptions()[3];
-                    defaultChoice = curFig.getOptions()[3];
-                    String message = curFig.getTexts()[1];//text vom data(html)
-                    int choice = JOptionPane.showOptionDialog(this,//auswahldialog
-                            message,//text
-                            curFig.getName() + " sagt:",//biber sagt:
-                            JOptionPane.YES_NO_OPTION,//ja nein
-                            JOptionPane.QUESTION_MESSAGE,//fragebutton
-                            new ImageIcon(curFig.getImage()),
-                            choices,//auswahl
-                            defaultChoice);//standardauswahl
-                    System.out.println(choice);
+            Figure curFig = figures.get(i);//holt nächste figur
+            if (curFig.isVisible()) { //ist figur überhaupt sichtbar?
+                if ((curFig.getX() == x) && (curFig.getY() == y)) {//wenn kollidieren
+                    if (isPlayer) {//wenn die aktuelle checker-figur der spieler selbst ist
+                        if (curFig.isBad()) { //figur ist böse
+                            // TODO: dialog und kampf
+                        } else {
+                            if (curFig.getNeed().isEmpty()) {//will die fig nichts haben
+                                if (curFig.isFollowing()) {//figur will zum club
+                                    int choice = Talk(curFig, curFig.getTexts()[1], Arrays.copyOfRange(curFig.getOptions(), 2, 4));
+                                    if (choice == 0) {//spieler hat die option 1 gewählt
+                                        if (player.AddClubMember(curFig)) {//figur zum club hinzufügen
+                                            curFig.setVisible(false);//figur verschwindet
+                                            d.club.SetFigures(player.getClubmembers());//clubmembers anzeigen
+                                        }
+                                    }
+                                } else {
+                                    int choise = Talk(curFig, curFig.getTexts()[1], Arrays.copyOfRange(curFig.getOptions(), 2, 4));
+                                }
+                            } else {//figur will etwas haben
+
+                                if (player.hasItem(curFig.getNeed()) > -1) {//spieler hat das item
+                                    int choice = Talk(curFig, curFig.getTexts()[0], Arrays.copyOfRange(curFig.getOptions(), 0, 2));
+                                    if (choice == 1) {
+                                        player.RemoveItem(curFig.getNeed());
+                                        curFig.setNeed("");
+                                        if (!curFig.getGive().isEmpty()) {//biber gibt etwas her
+                                            Item curItem = new Item(0, 0, curFig.getGive());//curitem ist schlüssel
+                                            player.AddItem(curItem);//spieler bekommt schlüssel
+                                        }
+                                        d.inventory.SetItems(player.getBackpack());//wird im rucksack angezeigt
+                                    }
+                                } else {//spieler hat das item nicht
+                                    Talk(curFig, curFig.getTexts()[0], Arrays.copyOfRange(curFig.getOptions(), 0, 1));
+                                }
+
+                            }
+                        }
+                    }
                 }
             }
+        }
+        return retVal;
+    }
+
+    private int Talk(Figure curFig, String message, String[] options) {
+        int retVal = -1;
+
+        if ((!message.isEmpty()) && (options.length > 0)) {
+
+            int count = 0;
+            boolean noMoreOptions = false;
+            while ((!noMoreOptions) && (count < options.length)) {
+                if (options[count].isEmpty()) {
+                    noMoreOptions = true;
+                } else {
+                    count++;
+                }
+            }
+            String[] choices = new String[count];
+            for (int i = 0; i < count; i++) {
+                choices[i] = options[i];
+            }
+
+            retVal = JOptionPane.showOptionDialog(this,//auswahldialog
+                    message,//text
+                    curFig.getName() + " sagt:",//biber sagt:
+                    JOptionPane.YES_NO_OPTION,//ja nein
+                    JOptionPane.QUESTION_MESSAGE,//fragebutton
+                    new ImageIcon(curFig.getImage()),
+                    choices,//auswahl
+                    choices[0]);//standardauswahl
         }
         return retVal;
     }

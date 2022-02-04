@@ -9,38 +9,40 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Figure {
+
     private HashMap<String, BufferedImage> imgs = new HashMap<String, BufferedImage>();
+    private ArrayList<Item> backpack = new ArrayList<>(); // rucksack für items
+    private ArrayList<Figure> clubmembers = new ArrayList<>();//alles figuren die mit dem spieler im club sind
+
+    private String fileName;//name der bilddatei
+    private String name;//name der figur
+    private String need = "";//braucht
+    private String give = "";//gibt
+    private String[] text = {"",""};//texte die die figur sagen kann
+    private String[] option = {"","","",""};//antwortmöglichkeiten
+
     private int width;//breite der figur
     private int height;//höhe der figur
-    private String fileName;//name der bilddatei
     private int x = 0;//position breite start
     private int y = 0;//position höhe start
-    private String name;
-    private boolean visible = true;//sichtbar
-    private int live = 1;//energie - herzen
-    private boolean bad = false;//gut oder böse
-    private boolean moveable = true;//beweglich
+    private int step = 2;//li mitte rechts
     private int xLo = 0;//poslio
     private int yLo = 0;//poslio
     private int xRu = 100;//posreu
     private int yRu = 100;//posreu
-    private Directions direction = Directions.down;
-    private int step = 2;//li mitte rechts
-
-    private String[] text = {"",""}; // texte die die figur sagen kann
-
-    private String[] option = {"","","",""};  // antwortmöglichkeiten
-
-    private String need = "";//braucht
-    private String give = "";//gibt
-    private boolean vanish = false;//verschwindet
-    private int strength = 1;//stärke
-    private int gold = 0;//kohle
-    private boolean follow = false;
-
-
-    private ArrayList<Item> backpack = new ArrayList<>(); // rucksack für items
     private int backpackMax = 5; // maximale anzahl der items die im rucksack sein dürfen
+    private int clubmembersMax = 4; // maximale anzahl der figuren die dem spieler im club folgen können
+    private int gold = 0;//kohle
+    private int live = 1;//energie - herzen
+    private int power = 1;//kraft beim kampf
+
+    private boolean vanish = false;//verschwindet
+    private boolean visible = true;//sichtbar
+    private boolean bad = false;//gut oder böse
+    private boolean moveable = true;//beweglich
+    private boolean following = false;//figur kann zum club beitreten
+
+    private Directions direction = Directions.down;//richtung in die die figur gerade schaut
 
     //////////////////////////////////
 
@@ -152,14 +154,14 @@ public class Figure {
                             case "vanish"://verschwindet
                                 vanish = value.equals("1");
                                 break;
-                            case "strength"://stärke
-                                strength = Integer.parseInt(value);
+                            case "power"://stärke
+                                power = Integer.parseInt(value);
                                 break;
                             case "gold"://hat geld
                                 gold = Integer.parseInt(value);
                                 break;
                             case "follow"://hero folgt
-                                follow = value.equals("1");
+                                following = value.equals("1");
                                 break;
                         }
                     }
@@ -213,6 +215,37 @@ public class Figure {
         return retVal;
     }
 
+    public boolean RemoveItem(String itemName) {//item aus rucksack löschen
+        boolean retVal = false;
+        int index = hasItem(itemName);
+        if (index > -1) {
+           backpack.remove(index);
+        }
+        return retVal;
+    }
+
+    public boolean AddClubMember(Figure figure){ // items in rucksack geben, liefert false wenn rucksack schon voll ist
+        boolean retVal = false;
+
+        if (clubmembers.size() < clubmembersMax){
+            retVal = true;
+            clubmembers.add(figure);
+        }
+
+        return retVal;
+    }
+
+    public int hasItem(String itemName) {
+        int retVal = -1;
+        for (int i = 0; i < backpack.size(); i++) {
+            Item item = backpack.get(i);
+            if (itemName.equalsIgnoreCase(item.getName())) {
+                retVal = i;
+            }
+        }
+        return retVal;
+    }
+
 
     public int getX() {
         return x;
@@ -250,6 +283,14 @@ public class Figure {
         return need;
     }
 
+    public int getLive() {
+        return live;
+    }
+
+    public int getPower() { return power; }
+
+
+
     public String getName() {
         return name;
     }
@@ -258,8 +299,16 @@ public class Figure {
         this.need = need;
     }
 
+    public String getGive() {
+        return give;
+    }
+
     public ArrayList<Item> getBackpack() {
         return backpack;
+    }
+
+    public ArrayList<Figure> getClubmembers() {
+        return clubmembers;
     }
 
     public void setXY(int x, int y) {
@@ -271,11 +320,23 @@ public class Figure {
         return moveable;
     }
 
+    public boolean isBad() {
+        return bad;
+    }
+
     public boolean isVisible() {
         return visible;
     }
 
+    public boolean isFollowing() {
+        return following;
+    }
+
     public void setDirection(Directions direction) {
         this.direction = direction;
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
     }
 }

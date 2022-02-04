@@ -50,6 +50,8 @@ public class Item {
                             case "visible":
                                 isVisible = value.equals("1");
                                 break;
+                            case "collectable":
+                                isCollectable = value.equals("1");
                         }
                     }
                 }
@@ -84,6 +86,10 @@ public class Item {
 
     public Image getImage() {
         return image;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public boolean isVisible() {

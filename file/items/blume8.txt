@@ -1,3 +1,3 @@
 name = blume8
-image = img/item/blume8.png
+image = img/item/blumen8.png
 visible = 1
