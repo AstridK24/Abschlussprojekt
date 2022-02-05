@@ -1,0 +1,7 @@
+name = tele
+image = img/item/tele.png
+visible = 1
+tele=8,9
+vip=ken
+
+

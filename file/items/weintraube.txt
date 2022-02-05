@@ -1,0 +1,3 @@
+name = weintraube
+image = img/item/weintraube.png
+visible = 1

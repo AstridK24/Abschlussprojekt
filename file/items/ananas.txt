@@ -1,0 +1,3 @@
+name = ananas
+image = img/item/ananas.png
+visible = 1

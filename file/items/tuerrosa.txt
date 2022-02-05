@@ -1,0 +1,3 @@
+name = tuerrosa
+image = img/item/tuerrosa.png
+visible = 1

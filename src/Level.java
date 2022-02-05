@@ -186,11 +186,30 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
             for (int i = 0; i < items.size(); i++) {//itemarray durchlaufen
                 Item curItem = items.get(i);
                 if (curItem.isVisible()) {//item sichtbar
-                    if ((curItem.getX() == player.getX()) && (curItem.getY() == player.getY())) {//gleiches x und y
-                        if (curItem.isCollectable()) {//aufhebbar
-                            if (player.AddItem(curItem)) {//item in rucksack
-                                curItem.setVisible(false);//item verschwindet
-                                d.inventory.SetItems(player.getBackpack());//item im rucksack
+                    if ((curItem.getX() == player.getX()) && (curItem.getY() == player.getY())) {//Player steht am item,gleiches x und y
+                       boolean action = false;
+                        if (curItem.getVips().size() == 0) {//item für alle
+                            action = true;
+                        }
+                        else {//item nur für vips
+                            ArrayList<String>vips = curItem.getVips();
+                            for (int j = 0; j < vips.size(); j++) {
+                                if (player.getName().equalsIgnoreCase(vips.get(j))) {
+                                    action = true; //player ist ein vip
+                                }
+                            }
+                        }
+                        if (action) {
+                            if (curItem.getTelex() > -1) {
+                                player.setXY(curItem.getTelex(), curItem.getTeley());
+                            } else {
+                                if (curItem.isCollectable()) {//aufhebbar
+
+                                    if (player.AddItem(curItem)) {//item in rucksack
+                                        curItem.setVisible(false);//item verschwindet
+                                        d.inventory.SetItems(player.getBackpack());//item im rucksack
+                                    }
+                                }
                             }
                         }
                     }
@@ -309,19 +328,33 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
                 if ((curFig.getX() == x) && (curFig.getY() == y)) {//wenn kollidieren
                     if (isPlayer) {//wenn die aktuelle checker-figur der spieler selbst ist
                         if (curFig.isBad()) { //figur ist böse
-                            // TODO: dialog und kampf
+                            int choice = Talk(curFig, curFig.getTexts()[0], Arrays.copyOfRange(curFig.getOptions(), 0, 2));
+                            if (choice == 0) {
+                                //boolean moveable = curFig.isMoveable();
+                                retVal = Fight(curFig);
+                            /*    if (!retVal){
+                                    curFig.setMoveable(moveable);
+                                }
+*/
+
+                            } else {
+                                retVal = false;
+                            }
+
+
                         } else {
                             if (curFig.getNeed().isEmpty()) {//will die fig nichts haben
                                 if (curFig.isFollowing()) {//figur will zum club
                                     int choice = Talk(curFig, curFig.getTexts()[1], Arrays.copyOfRange(curFig.getOptions(), 2, 4));
                                     if (choice == 0) {//spieler hat die option 1 gewählt
                                         if (player.AddClubMember(curFig)) {//figur zum club hinzufügen
+                                            curFig.setDirection(Directions.down);//damit das richtige bild angezeigt wird
                                             curFig.setVisible(false);//figur verschwindet
                                             d.club.SetFigures(player.getClubmembers());//clubmembers anzeigen
                                         }
                                     }
                                 } else {
-                                    int choise = Talk(curFig, curFig.getTexts()[1], Arrays.copyOfRange(curFig.getOptions(), 2, 4));
+                                    int choice = Talk(curFig, curFig.getTexts()[1], Arrays.copyOfRange(curFig.getOptions(), 2, 4));
                                 }
                             } else {//figur will etwas haben
 
@@ -339,7 +372,6 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
                                 } else {//spieler hat das item nicht
                                     Talk(curFig, curFig.getTexts()[0], Arrays.copyOfRange(curFig.getOptions(), 0, 1));
                                 }
-
                             }
                         }
                     }
@@ -363,6 +395,7 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
                     count++;
                 }
             }
+
             String[] choices = new String[count];
             for (int i = 0; i < count; i++) {
                 choices[i] = options[i];
@@ -376,6 +409,18 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
                     new ImageIcon(curFig.getImage()),
                     choices,//auswahl
                     choices[0]);//standardauswahl
+        }
+        return retVal;
+    }
+
+    private boolean Fight(Figure badFig) {
+        boolean retVal = false;
+
+        Fight fight = new Fight(player,badFig);
+        fight.setVisible(true);
+        d.club.SetFigures(player.getClubmembers());
+        if (fight.retVal == 1){ //spieler hat gewonnen
+            retVal = true;
         }
         return retVal;
     }

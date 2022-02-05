@@ -235,6 +235,23 @@ public class Figure {
         return retVal;
     }
 
+    public boolean RemoveClubMember(String memberName){
+        boolean retVal = false;
+        int index = -1;
+        for (int i = 0; i < clubmembers.size(); i++){
+            if (clubmembers.get(i).getName().equalsIgnoreCase(memberName))
+            {
+                index = i;
+            }
+        }
+
+        if (index > -1){
+            retVal = true;
+            clubmembers.remove(index);
+        }
+        return  retVal;
+    }
+
     public int hasItem(String itemName) {
         int retVal = -1;
         for (int i = 0; i < backpack.size(); i++) {
@@ -297,6 +314,14 @@ public class Figure {
 
     public void setNeed(String need) {
         this.need = need;
+    }
+
+    public void setMoveable(boolean moveable) {
+        this.moveable = moveable;
+    }
+
+    public void setLive(int live) {
+        this.live = live;
     }
 
     public String getGive() {

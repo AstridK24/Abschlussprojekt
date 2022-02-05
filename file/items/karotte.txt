@@ -1,0 +1,3 @@
+name = karotte
+image = img/item/karotte.png
+visible = 1

@@ -1,0 +1,3 @@
+name = kraft7
+image = img/item/kraft7.png
+visible = 1

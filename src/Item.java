@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Item {
@@ -14,8 +15,11 @@ public class Item {
     private String fileName;//datei mit item daten
     private boolean isVisible = true;//sichtbar
     private boolean isCollectable = true;//aufsammeln
+    private int telex = -1;
+    private int teley = -1;
     private String name = "";
     private Image image;
+    private ArrayList<String> vips = new ArrayList<>();
 
 
     ////////////////////////////////7
@@ -52,6 +56,17 @@ public class Item {
                                 break;
                             case "collectable":
                                 isCollectable = value.equals("1");
+                                break;
+                            case "tele":
+                                String[] coordinates = value.split(",");//bei ,
+                                if (coordinates.length == 2) {
+                                    telex = Integer.parseInt(coordinates[0].trim());
+                                    teley = Integer.parseInt(coordinates[1].trim());
+                                }
+                                break;
+                            case "vip":
+                                vips.add(value);
+                                break;
                         }
                     }
                 }
@@ -90,6 +105,18 @@ public class Item {
 
     public String getName() {
         return name;
+    }
+
+    public int getTelex() {
+        return telex;
+    }
+
+    public int getTeley() {
+        return teley;
+    }
+
+    public ArrayList<String> getVips() {
+        return vips;
     }
 
     public boolean isVisible() {

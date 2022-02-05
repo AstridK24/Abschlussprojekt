@@ -1,0 +1,3 @@
+name = w4
+image = img/item/w4.png
+visible = 1

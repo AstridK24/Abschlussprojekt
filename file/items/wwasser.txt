@@ -1,0 +1,4 @@
+name = wwasser
+image = img/item/wwasser.png
+visible = 1
+collectable = 0

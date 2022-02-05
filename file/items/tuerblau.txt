@@ -1,0 +1,3 @@
+name = tuerblau
+image = img/item/tuerblau.png
+visible = 1

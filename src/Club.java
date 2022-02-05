@@ -10,17 +10,12 @@ public class Club extends JTable {
         private int maxFigure = 4;//inhalt vom rucksack
         private int cellWidth = 64;//größe der anzeige
         private int cellHeight =64;//größe der anzeige
-
+        private DefaultTableModel model = new DefaultTableModel();
         //////////////////////////////////
         public Club() {
-            DefaultTableModel model = new DefaultTableModel();//spalte east
 
-            int rows = maxFigure/2;//maximale doppelspalte
-            if ((maxFigure % 2) > 0){//wenn ungerade zahl
-                rows++;
-            }
-            model.setRowCount(rows);//12 reihen
-            model.setColumnCount(2);//2 spalten
+            ClearAll();
+
             setFocusable(false);
             setTableHeader(null);//kein header
             setModel(model);//spalte east anzeigen
@@ -36,6 +31,7 @@ public class Club extends JTable {
         }
 
         public void paint(Graphics g) {//zeichne spielbrett
+            ClearAll();
             int row = 0;
             int col = 0;
             for (int i = 0; i < figures.size(); i++) { // gehe alle items in inventarliste durch
@@ -68,6 +64,20 @@ public class Club extends JTable {
             else{ // bild war schon in der richtigen größe
                 return (BufferedImage)img; // typeumwandlung von Image nach BufferedImage
             }
+        }
+
+        private void ClearAll(){
+            //löschen
+            model.setColumnCount(0);
+            model.setRowCount(0);
+
+            //neu dimensionieren
+            int rows = maxFigure/2;//maximale doppelspalte
+            if ((maxFigure % 2) > 0){//wenn ungerade zahl
+                rows++;
+            }
+            model.setRowCount(rows);//12 reihen
+            model.setColumnCount(2);//2 spalten
         }
 
 

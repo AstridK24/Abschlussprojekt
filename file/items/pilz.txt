@@ -1,0 +1,3 @@
+name = pilz
+image = img/item/pilz.png
+visible = 1

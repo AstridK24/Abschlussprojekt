@@ -1,0 +1,3 @@
+name = münze1
+image = img/item/münze1.png
+visible = 1

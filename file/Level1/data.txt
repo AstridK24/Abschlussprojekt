@@ -4,31 +4,40 @@ fyyyyyy23yyyhhhwwwwwabf
 fhhhhhhhhhhwwwW1wwwwcdf
 fwwwwwwwwwwwhhhhfwwwwhf
 fwwwwwhK45Hwwwwwwwhwwwf
-fwhhwThhhhhwhhFShwhhhwf
+fwwwwThhhhhwhhFShwhhhwf
 fwwww6hhhhwwwwwwwwhhhwf
 fhw78hhhwwwhhhhhhhhhhwf
 fwwwwwwwwwwtwwwwwwwwwwf
 fhhhhhhwhhwhhwwwwwwwwwf
 fffffffffffffffffffffff
 
-item = 3, 4, file/items/apfel.txt
-item = 2, 4, file/items/schwert.txt
-item = 4, 4, file/items/bombe.txt
-item = 5, 1, file/items/blume2.txt
-item = 6, 1, file/items/blume5.txt
-item = 7, 1, file/items/blume6.txt
-item = 4, 1, file/items/blume7.txt
-item = 8, 1, file/items/blume8.txt
-item = 9, 4, file/items/stern.txt
-figure=15, 3, file/figure/supermax.txt
+item = 3, 4, file/items/wwasser.txt
+item = 2, 4, file/items/weintraube.txt
+item = 4, 4, file/items/weintraube2.txt
+item = 5, 4, file/items/pilz3.txt
+item = 6, 4, file/items/pilz2.txt
+item = 7, 4, file/items/pilz.txt
+item = 8, 4, file/items/paprika.txt
+item = 9, 4, file/items/münze10.txt
+item = 10, 4, file/items/münze5.txt
+item = 11, 4, file/items/münze1.txt
+item = 3, 5, file/items/stern.txt
+item = 2, 5, file/items/seerose.txt
+item = 4, 5, file/items/schwert.txt
+item = 3, 6, file/items/schluessel.txt
+item = 2, 6, file/items/tele.txt
+item = 4, 6, file/items/pilz4.txt
+item = 5, 1, file/items/w1.txt
+item = 6, 1, file/items/w2.txt
+item = 5, 2, file/items/w3.txt
+item = 6, 2, file/items/w4.txt
+item = 7, 1, file/items/turm.txt
+item = 4, 1, file/items/tuerrosa.txt
+item = 8, 1, file/items/tele.txt
+item = 9, 4, file/items/tuer.txt
+mfigure=15, 3, file/figure/supermax.txt
+mfigure=14, 3, file/figure/superjenny.txt
 player=18, 4
-figure=19, 4, file/figure/biber1.txt
-figure= 5, 9, file/figure/feind1.txt
-figure=16, 8, file/figure/katze.txt
-figure=13, 8, file/figure/hund.txt
-figure=15, 8, file/figure/zentaur.txt
-figure= 5, 3, file/figure/schmetterling.txt
-figure=14, 8, file/figure/einhorn.txt
-figure= 2, 1, file/figure/schafrosa.txt
-figure= 3, 1, file/figure/schafblau.txt
+nfigure= 17, 4, file/figure/feind1.txt
+
 

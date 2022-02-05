@@ -5,6 +5,6 @@ option3=Ja,gerne
 option4=Nein,danke
 give=self
 vanish=1
-live=2
+live=5
 strength=2
 follow=1

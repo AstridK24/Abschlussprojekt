@@ -1,14 +1,14 @@
 name = Wolfgang der Türwächter
 image = img/figuren/feind1/feind1
 text1=Hallo, ich bin Wolfgang. Du hast mich gestört. Lass uns kämpfen!
-option1=Schnell weg!
-option2=Zeig was du kannst!
+option1=Zeig was du kannst!
+option2=Schnell weg!
 text2=
 need=
 give=
 bad=1
 vanish=1
-live=2
+live=20
 strength=2
 gold=5
 follow=0

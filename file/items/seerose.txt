@@ -1,3 +1,3 @@
 name = seerose
-image = img/item/seerose.png
+image = img/item/seerosen1.png
 visible = 1
