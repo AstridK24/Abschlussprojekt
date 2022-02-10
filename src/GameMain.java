@@ -51,7 +51,6 @@ public class GameMain extends JFrame {
                             System.out.println(radioButton.selected);//spielfigur
 
                             board = new Board(radioButton.selected);
-
                             add(board);
                             revalidate();
                             pack();
@@ -79,6 +78,7 @@ public class GameMain extends JFrame {
         gameMenu.addSeparator();//strich zwischen den untermenüs
         gameMenu.add(gameEnd);//noch immer submit
 
+        JMenuItem highscore = new JMenuItem("Highscore");
 
         JMenuItem gameInstructions = new JMenuItem("Spielanleitung");     //spielanleitungbutton
         gameInstructions.addActionListener(new ActionListener() {//aktion
@@ -107,6 +107,7 @@ public class GameMain extends JFrame {
 
 
         menu.add(gameMenu);//submit erscheinen lassen
+        menu.add(highscore);
         menu.add(gameInstructions);//anleitung erscheinen lassen
 
         setJMenuBar(menu);//Hinzufügen der Menüleiste zum Frame

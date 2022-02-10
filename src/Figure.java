@@ -42,7 +42,7 @@ public class Figure {
     private boolean moveable = true;//beweglich
     private boolean following = false;//figur kann zum club beitreten
 
-    private Directions direction = Directions.down;//richtung in die die figur gerade schaut
+    private Directions direction = Directions.DOWN;//richtung in die die figur gerade schaut
 
     //////////////////////////////////
 
@@ -177,16 +177,16 @@ public class Figure {
     public Image getImage() {
         String id = "v1";
         switch (direction) {
-            case left:
+            case LEFT:
                 id = "l" + step;
                 break;
-            case right:
+            case RIGHT:
                 id = "r" + step;
                 break;
-            case up:
+            case UP:
                 id = "h" + step;
                 break;
-            case down:
+            case DOWN:
                 id = "v" + step;
                 break;
         }
@@ -306,7 +306,9 @@ public class Figure {
 
     public int getPower() { return power; }
 
-
+    public int getGold() {
+        return gold;
+    }
 
     public String getName() {
         return name;
@@ -322,6 +324,18 @@ public class Figure {
 
     public void setLive(int live) {
         this.live = live;
+    }
+
+    public void setImgs(HashMap<String, BufferedImage> imgs) {
+        this.imgs = imgs;
+    }
+
+    public void setGold(int gold) {
+        this.gold = gold;
+    }
+
+    public void setPower(int power) {
+        this.power = power;
     }
 
     public String getGive() {

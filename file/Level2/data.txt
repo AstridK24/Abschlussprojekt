@@ -8,3 +8,5 @@ hhhhhhhhhhhwhhhhhwhh
 hhhhhhhhhhhwhhhhhwhh
 hhhhwwwahwwwwwwwhwhh
 wwwwwhwwwwahhhhwwwih
+
+player=5,0

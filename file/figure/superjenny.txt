@@ -1,8 +1,8 @@
 name = Superjenny
 image = img/figuren/superhelden/superjenny/superjenny
-text2=Hallo, ich bin Superjenny. Soll ich dich begleiten?
-option3=Ja,gerne
-option4=Nein,danke
+text2=<html>Hallo, ich bin Superjenny<br>Soll ich dich begleiten?</html>
+option3=Warum nicht :)
+option4=Ich bin lieber alleine
 give=self
 vanish=1
 live=5

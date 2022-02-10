@@ -15,9 +15,18 @@ public class Item {
     private String fileName;//datei mit item daten
     private boolean isVisible = true;//sichtbar
     private boolean isCollectable = true;//aufsammeln
+
     private int telex = -1;
     private int teley = -1;
+    private int gold = 0;//kohle
+    private int live = 0;//energie - herzen
+    private int power = 0;//kraft beim kampf
+    private int time = 0;//zusätzliche zeit
+
     private String name = "";
+    private String need = "";
+    private String level = "";
+
     private Image image;
     private ArrayList<String> vips = new ArrayList<>();
 
@@ -67,6 +76,25 @@ public class Item {
                             case "vip":
                                 vips.add(value);
                                 break;
+                            case "gold":
+                                gold = Integer.parseInt(value);
+                                break;
+                            case "live":
+                                live = Integer.parseInt(value);
+                                break;
+                            case "power":
+                                power = Integer.parseInt(value);
+                                break;
+                            case "time":
+                                time = Integer.parseInt(value);
+                                break;
+                            case "need":
+                                need = value;
+                                break;
+                            case "level":
+                                level = value;
+                                break;
+
                         }
                     }
                 }
@@ -113,6 +141,30 @@ public class Item {
 
     public int getTeley() {
         return teley;
+    }
+
+    public int getGold() {
+        return gold;
+    }
+
+    public int getLive() {
+        return live;
+    }
+
+    public int getPower() {
+        return power;
+    }
+
+    public int getTime() {
+        return time;
+    }
+
+    public String getNeed() {
+        return need;
+    }
+
+    public String getLevel() {
+        return level;
     }
 
     public ArrayList<String> getVips() {

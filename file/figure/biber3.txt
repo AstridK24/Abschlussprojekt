@@ -1,11 +1,13 @@
 name = Stefan der Biber
 image = img/figuren/biber3/biber3
-text1=Hallo, ich bin Stefan. Ich brauche dringend einen Stern. Bitte bring mir einen.
-option1=Okay, ich suche für dich einen Stern.
+text1=<html>Stefan ist mein Name<br>Es ist ein Stern vom Himmel gefallen,<br>den ich gerne hätte</html>
+option1=Okay, ich suche für dich den Stern.
 option2=Ich habe den Stern für dich.
-text2=Danke für den Stern.
+text2=<html>Ich bin glücklich>br>Danke für den Stern</html>
+option3=Viel Spass damit!
 need=stern
-give=key
+give=file/items/stern.txt
 live=1
 strength=1
 moveable=0
+

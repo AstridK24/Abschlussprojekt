@@ -1,8 +1,8 @@
 name = Supermax
 image = img/figuren/superhelden/supermax/supermax
-text2=Hallo, ich bin Supermax. Soll ich dich begleiten?
-option3=Ja,gerne
-option4=Nein,danke
+text2=<html>Hallo, ich bin Supermax der Retter in der Not.<br>Es ist momentan keiner da der hilfe braucht,<br>lass uns um die Häuser ziehn</html>
+option3=Cool, gerne
+option4=Lieber nicht
 give=self
 vanish=1
 live=5

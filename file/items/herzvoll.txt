@@ -1,3 +1,4 @@
 name = herzvoll
 image = img/item/herzvoll.png
 visible = 1
+live = 1

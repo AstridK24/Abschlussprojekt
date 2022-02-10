@@ -1,23 +1,14 @@
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
 
 public class Board extends JPanel /*implements KeyListener*/ { //spielfeld
 
     //private ArrayList<String> boardData = new ArrayList<>();//für level zum auslesen
     private Level level;
-    private Directions movement = Directions.nothing;//bewegung vom spieler
+    private Directions movement = Directions.NOTHING;//bewegung vom spieler
     private Timer timer;//damit das spiel läuft(hauptschleife)
     private int count = 0;
     Data d = new Data();//gemeinsame daten
@@ -65,8 +56,13 @@ public class Board extends JPanel /*implements KeyListener*/ { //spielfeld
                     d.time--;
                 }
                 level.MovePlayer(movement);//spieler bewegen
-                movement = Directions.nothing;//wieder zurücksetzen sonst läuft die figur ständig
+                movement = Directions.NOTHING;//wieder zurücksetzen sonst läuft die figur ständig
                 level.MoveFigures();//alle figuren bewegen
+                String nextLevel = level.nextLevel;
+                if (!nextLevel.isEmpty()){
+                    level = new Level(nextLevel, d);
+                }
+
 
                 repaint();//neu zeichnen
             }
@@ -86,29 +82,30 @@ public class Board extends JPanel /*implements KeyListener*/ { //spielfeld
                 int keyCode = e.getKeyCode();
                 switch (keyCode) {
                     case KeyEvent.VK_LEFT:
-                        movement = Directions.left;
+                        movement = Directions.LEFT;
                        // System.out.println("links");
                         break;
                     case KeyEvent.VK_RIGHT:
                       //  System.out.println("rechts");
-                        movement = Directions.right;
+                        movement = Directions.RIGHT;
                         break;
                     case KeyEvent.VK_UP:
                        // System.out.println("rauf");
-                        movement = Directions.up;
+                        movement = Directions.UP;
                         break;
                     case KeyEvent.VK_DOWN:
-                        movement = Directions.down;
+                        movement = Directions.DOWN;
                        // System.out.println("runter");
                         break;
                     default:
-                        movement = Directions.nothing;
+                        movement = Directions.NOTHING;
                        // System.out.println("nichts");
                 }
             }
             return false;
         }
     }
+
 
     public void paint(Graphics g) {//zeichne spielbrett
         //super.paint(g);

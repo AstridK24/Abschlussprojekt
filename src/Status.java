@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class Status extends JPanel {
 /*    ImageIcon pointIcon = new ImageIcon("img/spieler.png");
@@ -18,6 +19,10 @@ public class Status extends JPanel {
 
     public Status() {
 
+        pointLabel.setFont(new Font("Serif", Font.PLAIN, 24));
+        liveLabel.setFont(new Font("Serif", Font.PLAIN, 24));
+        powerLabel.setFont(new Font("Serif", Font.PLAIN, 24));
+        timeLabel.setFont(new Font("Serif", Font.PLAIN, 24));
         //pointLabel.setFont();
         setLayout( new BoxLayout(this,BoxLayout.Y_AXIS ) );
         add(pointLabel);
@@ -29,10 +34,10 @@ public class Status extends JPanel {
     }
 
     public void SetStatus(int point, int live, int power, int time) {
-       pointLabel.setText("point x "+point);
-        liveLabel.setText("live x "+live);
-        powerLabel.setText("power x "+power);
-        timeLabel.setText("time x "+time);
+       pointLabel.setText("Punkte x "+point);
+        liveLabel.setText("Leben x "+live);
+        powerLabel.setText("Kraft x "+power);
+        timeLabel.setText("Zeit x "+time);
         repaint();
 
     }

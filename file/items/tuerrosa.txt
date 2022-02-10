@@ -1,3 +1,6 @@
 name = tuerrosa
 image = img/item/tuerrosa.png
 visible = 1
+tele=13,24
+vip=lisa
+vip=jasmin

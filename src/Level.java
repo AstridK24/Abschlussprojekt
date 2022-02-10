@@ -18,7 +18,7 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
     private ArrayList<Item> items = new ArrayList<>();//alle items in level
     private ArrayList<Figure> figures = new ArrayList<>();//alle items in level
     private Figure player;
-
+    public String nextLevel = "";
 
     ////////////////////////////////////////////////////
     public Level(String levelPath, Data d) {
@@ -46,7 +46,7 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
                     if (isBoardData) {//äpfel
                         boardData.add(curLine);
                     } else {//birnen
-                        ParseLine(curLine);
+                        parseLine(curLine);
                     }
                 }
             }
@@ -56,7 +56,7 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
         }
     }
 
-    private void ParseLine(String curLine) {//zeile zerlegen
+    private void parseLine(String curLine) {//zeile zerlegen
 
         if (!curLine.isEmpty()) {//wenn etwas in der zeil steht bei = spliten
             String[] subStrings = curLine.split("=");
@@ -161,20 +161,20 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
     }
 
     public void MovePlayer(Directions direction) {//spieler bewegung
-        if (direction != Directions.nothing) {//wenn der spieler sich bewegt
+        if (direction != Directions.NOTHING) {//wenn der spieler sich bewegt
             int x = player.getX();
             int y = player.getY();
             switch (direction) {
-                case left://nach links -1
+                case LEFT://nach links -1
                     x = x - 1;
                     break;
-                case right://nach rechts +1
+                case RIGHT://nach rechts +1
                     x = x + 1;
                     break;
-                case up://nach oben -1
+                case UP://nach oben -1
                     y = y - 1;
                     break;
-                case down://nach unten +1
+                case DOWN://nach unten +1
                     y = y + 1;
                     break;
             }
@@ -187,27 +187,67 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
                 Item curItem = items.get(i);
                 if (curItem.isVisible()) {//item sichtbar
                     if ((curItem.getX() == player.getX()) && (curItem.getY() == player.getY())) {//Player steht am item,gleiches x und y
-                       boolean action = false;
+                       boolean action1 = false;
+                       boolean action2 = true;
+
                         if (curItem.getVips().size() == 0) {//item für alle
-                            action = true;
+                            action1 = true;
                         }
                         else {//item nur für vips
                             ArrayList<String>vips = curItem.getVips();
                             for (int j = 0; j < vips.size(); j++) {
                                 if (player.getName().equalsIgnoreCase(vips.get(j))) {
-                                    action = true; //player ist ein vip
+                                    action1 = true; //player ist ein vip
                                 }
                             }
                         }
-                        if (action) {
-                            if (curItem.getTelex() > -1) {
-                                player.setXY(curItem.getTelex(), curItem.getTeley());
-                            } else {
-                                if (curItem.isCollectable()) {//aufhebbar
+                        if (!curItem.getNeed().isEmpty()) {//wenn need nicht leer ist
+                            action2 = false;
+                            if (player.hasItem(curItem.getNeed()) > -1 ) {//spieler hat das item
+                                player.RemoveItem(curItem.getNeed());//schlüssel gelöscht
+                                d.inventory.SetItems(player.getBackpack());//wird im rucksack angezeigt
+                                action2 = true;
+                            }
+                        }
+                        if (action1 && action2) {
+                            if (!curItem.getLevel().isEmpty()){//spieler kommt zum nächsten level
+                                nextLevel = curItem.getLevel();
 
-                                    if (player.AddItem(curItem)) {//item in rucksack
-                                        curItem.setVisible(false);//item verschwindet
-                                        d.inventory.SetItems(player.getBackpack());//item im rucksack
+
+                            }
+                            else {
+                                if (curItem.getTelex() > -1) {//spieler wird teleportiert
+                                    player.setXY(curItem.getTelex(), curItem.getTeley());
+                                } else {
+
+                                    boolean modified = false; //verändert etwas beim spieler(gold,leben,zeit,kraft)
+                                    if (curItem.getGold() != 0) {
+                                        modified = true;
+                                        d.points = d.points + curItem.getGold();//geldbörse plus neue kohle
+                                    }
+                                    if (curItem.getLive() != 0) {
+                                        modified = true;
+                                        player.setLive(player.getLive() + curItem.getLive());//leben plus neues herz
+                                    }
+                                    if (curItem.getPower() != 0) {
+                                        modified = true;
+                                        player.setPower(player.getPower() + curItem.getPower());//kraft plus neue kraft
+                                    }
+                                    if (curItem.getTime() != 0) {
+                                        modified = true;
+                                        d.time = d.time + curItem.getTime();//zeit plus neue sekunden
+                                    }
+
+
+                                    if (curItem.isCollectable()) {//aufhebbar
+                                        if (modified) {
+                                            curItem.setVisible(false);
+                                        } else {
+                                            if (player.AddItem(curItem)) {//item in rucksack
+                                                curItem.setVisible(false);//item verschwindet
+                                                d.inventory.SetItems(player.getBackpack());//item im rucksack
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -216,7 +256,24 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
                 }
             }
         }
-        d.status.SetStatus(d.points, player.getLive(), player.getPower(), d.time);
+        ////////////////
+        /*float faktor = 1.5f;
+
+        JTextField tf = new JTextField();
+
+        d.status.setFont(tf.getFont().deriveFont(faktor*tf.getFont().getSize()));
+        d.status.setFont(new Font("Dialog", 0, 100));
+        d.status.setFont(new Font("Serif", Font.PLAIN, 14));
+        d.status= new JLabel("<html><span style='font-size:20px'>"+(d.points)+( player.getLive())))+( player.getPower())+( d.time))+"</span></html>");*/
+
+        //d.status = new JLabel(d.points, player.getLive(), player.getPower(), d.time);
+        //d.status.setFont(new Font("Serif", Font.PLAIN, 24));
+
+
+        ////////////////////////
+       d.status.SetStatus(d.points, player.getLive(), player.getPower(), d.time);
+
+
     }
 
     public void MoveFigures() {//sonstige figuren bewegen
@@ -224,29 +281,29 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
         for (int i = 0; i < figures.size(); i++) {
             Figure curFigure = figures.get(i);
             if ((curFigure.isMoveable()) && (curFigure.isVisible())) {//ist beweglich und sichtbar
-                int cur = random.nextInt(10);//10 damit er öfters stehen bleibt
+                int cur = random.nextInt(30);//10 damit er öfters stehen bleibt
                 int x = curFigure.getX();
                 int y = curFigure.getY();
-                Directions d = Directions.nothing;
+                Directions d = Directions.NOTHING;
                 switch (cur) {
                     case 0://nach links -1
                         x = x - 1;
-                        d = Directions.left;
+                        d = Directions.LEFT;
                         break;
                     case 1://nach rechts +1
                         x = x + 1;
-                        d = Directions.right;
+                        d = Directions.RIGHT;
                         break;
                     case 2://nach oben -1
                         y = y - 1;
-                        d = Directions.up;
+                        d = Directions.UP;
                         break;
                     case 3://nach unten +1
                         y = y + 1;
-                        d = Directions.down;
+                        d = Directions.DOWN;
                         break;
                 }
-                if (d != Directions.nothing) {
+                if (d != Directions.NOTHING) {
                     Checker(x, y, curFigure);//prüft ob begehbar und wenn ja dann bewge fig nach xy
                     curFigure.setDirection(d);//drehung animation
                     curFigure.MakeStep();//schritte animation
@@ -348,7 +405,7 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
                                     int choice = Talk(curFig, curFig.getTexts()[1], Arrays.copyOfRange(curFig.getOptions(), 2, 4));
                                     if (choice == 0) {//spieler hat die option 1 gewählt
                                         if (player.AddClubMember(curFig)) {//figur zum club hinzufügen
-                                            curFig.setDirection(Directions.down);//damit das richtige bild angezeigt wird
+                                            curFig.setDirection(Directions.DOWN);//damit das richtige bild angezeigt wird
                                             curFig.setVisible(false);//figur verschwindet
                                             d.club.SetFigures(player.getClubmembers());//clubmembers anzeigen
                                         }

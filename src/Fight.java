@@ -35,10 +35,10 @@ public class Fight extends JDialog {
         this.enemy = enemy;
         this.setModal(true);
 
-        setSize(300, 300);
+        setSize(500, 300);
         setTitle("Der große Kampf!!!");
         setLocationRelativeTo(null);//mittig
-        fight = new JButton("Angriff");
+        fight = new JButton("Angriff!");
         fight.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 DoFight();
@@ -69,8 +69,10 @@ public class Fight extends JDialog {
         this.setLayout(new BorderLayout());
 
         JPanel panel = new JPanel(new BorderLayout());
+        panel.setBackground(Color.YELLOW);
         //panel.setLayout(new BorderLayout());
         comboBox = new JComboBox(herosNames);
+        comboBox.setBackground(Color.GREEN);
         comboBox.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 DoSelect();
@@ -81,29 +83,40 @@ public class Fight extends JDialog {
         panel.add(comboBox, BorderLayout.CENTER);
         panel.add(labelClub, BorderLayout.EAST);
 
-        enemyName = new JLabel("Name:" + enemy.getName());
-        enemyLive = new JLabel("Leben:" + enemy.getLive());
-        enemyPower = new JLabel("Kraft:" + enemy.getPower());
+        enemyName = new JLabel("Name: " + enemy.getName(), SwingConstants.CENTER);
+        //enemyName.setVerticalAlignment(JLabel.CENTER);
+        enemyLive = new JLabel("Leben: " + enemy.getLive(), SwingConstants.CENTER);
+        enemyPower = new JLabel("Kraft: " + enemy.getPower(), SwingConstants.CENTER);
 
-        playerName = new JLabel("Name:" + player.getName());
-        playerLive = new JLabel("Leben:" + player.getLive());
-        playerPower = new JLabel("Kraft:" + player.getPower());
+        playerName = new JLabel("Name: "+ player.getName(), SwingConstants.CENTER);
+        //playerName.setVerticalAlignment(JLabel.CENTER);
+        playerLive = new JLabel("Leben: " + player.getLive(), SwingConstants.CENTER);
+        playerPower = new JLabel("Kraft: " + player.getPower(), SwingConstants.CENTER);
+
+        //int size1 = 800;
+        //int size2 = 800;
 
         JPanel panelEnemy = new JPanel(new BorderLayout());
+        panelEnemy.setBackground(Color.CYAN);
+        panelEnemy.setPreferredSize(new Dimension(200,150));
         panelEnemy.add(enemyName, BorderLayout.NORTH);
         panelEnemy.add(enemyLive, BorderLayout.CENTER);
         panelEnemy.add(enemyPower, BorderLayout.SOUTH);
 
         JPanel panelPlayer = new JPanel(new BorderLayout());
+        panelPlayer.setBackground(Color.CYAN);
+        panelPlayer.setPreferredSize(new Dimension(200,150));
         panelPlayer.add(playerName, BorderLayout.NORTH);
         panelPlayer.add(playerLive, BorderLayout.CENTER);
         panelPlayer.add(playerPower, BorderLayout.SOUTH);
 
 
         JPanel panel2 = new JPanel(new BorderLayout());
+        panel2.setBackground(Color.YELLOW);
         //panel2.setLayout(new BorderLayout());
+        panel2.setMinimumSize(new Dimension(100,150));
         panel2.add(panelEnemy, BorderLayout.WEST);
-        panel2.add(new JLabel("vs"), BorderLayout.CENTER);
+        panel2.add(new JLabel("vs", SwingConstants.CENTER), BorderLayout.CENTER);//vs ist mittig
         panel2.add(panelPlayer, BorderLayout.EAST);
 
         JPanel panel3 = new JPanel();
@@ -118,11 +131,17 @@ public class Fight extends JDialog {
     }
     //////////////////////////////
 
+    /***
+     *
+     */
     public void DoRunaway() {
         retVal = -1;
         dispose();
     }
 
+    /***
+     *
+     */
     public void DoFight() {
         Figure good; // spieler oder club
 
@@ -154,11 +173,13 @@ public class Fight extends JDialog {
             } else {
                 player.RemoveClubMember(good.getName());
                 comboBox.removeItemAt(selected);
-
             }
         }
     }
 
+    /***
+     *
+     */
     public void DoSelect() { //figur auswählen die kämpfen soll
         int selected = comboBox.getSelectedIndex();
         if (selected == 0) { //spieler ist ausgewählt
@@ -174,7 +195,4 @@ public class Fight extends JDialog {
         }
         repaint();
     }
-
-
-
 }

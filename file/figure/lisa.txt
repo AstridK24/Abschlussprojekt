@@ -1,8 +1,7 @@
-name = lisa
+name = Lisa
 image = img/figuren/lisa/lisa
 visible = 1
-live = 1
-bad = 0
+live = 2
 moveable = 1
 xLO = 0
 yLO = 0

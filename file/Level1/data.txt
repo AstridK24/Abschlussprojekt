@@ -10,34 +10,88 @@ fhw78hhhwwwhhhhhhhhhhwf
 fwwwwwwwwwwtwwwwwwwwwwf
 fhhhhhhwhhwhhwwwwwwwwwf
 fffffffffffffffffffffff
+.
+.
+.
+.
+.
+.
+FFFFFFFFFFFFFFFFFFFFFFFFF
+FHHHHHZZZZZZZZZZZZZZZFZZF
+FWWWWWWWWWWWWWWWWFFFFFZZF
+FKKHHKWWWWWWWWWWFZZZZZZZF
+FWWWWWWWHHHHHHWWFZZZZZZZF
+FWWKKZZZZZZZZZZKKKKKFFFFF
+FWHHHHWWWWWWWWWWWWWWWWWWF
+FWWWWWWWWKHKHKHWWWWWWWWWF
+FFFFFFFFFFFFFFFFFFFFFFFFF
+.
+.
+.
+.
+.
+.
+6666666666666666666666666
+6444444333333333333336336
+6111111111111116666666336
+6646411111111166663333336
+6111111144441166663333336
+6666333333333366666666666
+6644444111111111111111116
+6111111115454545111111116
+6666666666666666666666666
 
-item = 3, 4, file/items/wwasser.txt
-item = 2, 4, file/items/weintraube.txt
-item = 4, 4, file/items/weintraube2.txt
-item = 5, 4, file/items/pilz3.txt
-item = 6, 4, file/items/pilz2.txt
-item = 7, 4, file/items/pilz.txt
-item = 8, 4, file/items/paprika.txt
-item = 9, 4, file/items/münze10.txt
-item = 10, 4, file/items/münze5.txt
-item = 11, 4, file/items/münze1.txt
-item = 3, 5, file/items/stern.txt
-item = 2, 5, file/items/seerose.txt
-item = 4, 5, file/items/schwert.txt
+xitem = 3, 4, file/items/wwasser.txt
+xitem = 2, 4, file/items/weintraube.txt
+xitem = 4, 4, file/items/weintraube2.txt
+xitem = 5, 4, file/items/pilz3.txt
+xitem = 6, 4, file/items/pilz2.txt
+xitem = 7, 4, file/items/pilz.txt
+xitem = 8, 4, file/items/paprika.txt
+xitem = 9, 4, file/items/münze10.txt
+xitem = 10, 4, file/items/münze5.txt
+xitem = 11, 4, file/items/münze1.txt
+xitem = 3, 5, file/items/stern.txt
+xitem = 2, 5, file/items/seerose.txt
+xitem = 4, 5, file/items/schwert.txt
 item = 3, 6, file/items/schluessel.txt
 item = 2, 6, file/items/tele.txt
-item = 4, 6, file/items/pilz4.txt
-item = 5, 1, file/items/w1.txt
-item = 6, 1, file/items/w2.txt
-item = 5, 2, file/items/w3.txt
-item = 6, 2, file/items/w4.txt
-item = 7, 1, file/items/turm.txt
-item = 4, 1, file/items/tuerrosa.txt
+xitem = 4, 6, file/items/pilz4.txt
+xitem = 5, 1, file/items/w1.txt
+xitem = 6, 1, file/items/w2.txt
+xitem = 5, 2, file/items/w3.txt
+xitem = 6, 2, file/items/w4.txt
+xitem = 7, 1, file/items/turm.txt
+xitem = 4, 1, file/items/herzvoll.txt
+xitem = 3, 1, file/items/tuerblau.txt
 item = 8, 1, file/items/tele.txt
-item = 9, 4, file/items/tuer.txt
+item = 11,24, file/items/tele1.txt
+item = 11, 35, file/items/tele1.txt
+xitem = 9, 4, file/items/tuer.txt
 mfigure=15, 3, file/figure/supermax.txt
 mfigure=14, 3, file/figure/superjenny.txt
 player=18, 4
 nfigure= 17, 4, file/figure/feind1.txt
+
+# das sind alle meine schafe
+figure=22,19,file/figure/schafrosa.txt
+figure=22,19, file/figure/schafrosa.txt
+figure=22,19, file/figure/schafrosa.txt
+figure=22,19,file/figure/schafblau.txt
+figure=22,19, file/figure/schafblau.txt
+figure=22,19, file/figure/schafblau.txt
+figure=20,24, file/figure/eichhoernchen.txt
+figure=20,24, file/figure/einhorn.txt
+figure=20,24, file/figure/huhn.txt
+figure=20,24, file/figure/waschbaer.txt
+f
+figure=19, 4, file/figure/biber1.txt
+figure= 5, 9, file/figure/feind1.txt
+figure= 19, 4, file/figure/supermax.txt
+figure= 19, 3, file/figure/superjenny.txt
+figure= 19, 2, file/figure/batluki.txt
+item = 18,3, file/items/tuerblau.txt
+item = 17,3, file/items/tuerrosa.txt
+item = 16,3, file/items/tuer.txt
 
 

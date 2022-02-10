@@ -1,8 +1,7 @@
-name = jasmin
+name = Jasmin
 image = img/figuren/jasmin/jasmin
 visible = 1
-live = 1
-bad = 0
+live = 2
 moveable = 1
 xLO = 0
 yLO = 0

@@ -1,9 +1,9 @@
 name = Sebastian der Biber
 image = img/figuren/biber1/biber1
-text1=Hallo, ich bin Sebastian. Ich brauche dringend einen Apfen. Bitte bring mir einen.
-option1=Okay, ich suche für dich einen Apfel.
+text1=<html>Hallo, ich bin Sebastian.<br>Ich verhungere gleich.<br> Kannst du mir bitte einen Apfel bringen?</html>
+option1=Klar doch, ich suche für dich einen Apfel.
 option2=Ich habe den Apfel für dich.
-text2=Danke für den Apfel.
+text2=<html>Danke, für den Apfel.<br>Du bist ein wahrer Freund</html>
 option3=Viel Spass damit!
 need=apfel
 give=file/items/schluessel.txt

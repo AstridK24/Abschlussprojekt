@@ -1,3 +1,4 @@
 name = münze5
 image = img/item/münze5.png
 visible = 1
+gold=5

@@ -1,6 +1,6 @@
-name = Wolfgang der Türwächter
+name = Wolfgang der Wächter
 image = img/figuren/feind1/feind1
-text1=Hallo, ich bin Wolfgang. Du hast mich gestört. Lass uns kämpfen!
+text1= <html>Hallo, ich bin Wolfgang. Du hast mich gestört.<br>Ich werd dich vernichten, lass uns kämpfen!</html>
 option1=Zeig was du kannst!
 option2=Schnell weg!
 text2=
@@ -8,7 +8,7 @@ need=
 give=
 bad=1
 vanish=1
-live=20
+live=10
 strength=2
 gold=5
 follow=0
