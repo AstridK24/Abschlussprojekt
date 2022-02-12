@@ -1,0 +1,10 @@
+name = Captain Christian
+image = img/figuren/superhelden/kam/kam
+text2=<html>Captain Christian eilt zur Hilfe<br>soll ich dir helfen?</html>
+option3=Ja, auf geht´s!
+option4=Ich schaff das alleine
+give=self
+vanish=1
+live=5
+strength=2
+follow=1

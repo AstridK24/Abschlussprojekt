@@ -1,0 +1,4 @@
+name = baum2
+image = img/item/baum2.png
+visible = 1
+collectable=0

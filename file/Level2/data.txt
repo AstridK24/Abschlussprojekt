@@ -1,12 +1,36 @@
-hhtwwwwwwwwwwwwwwhhh
-hhhhhhhhhiwhhhhhhfhh
-hhhhhhhhhwwhhhhhwwwh
-hcdhhhhhwwhhhhhhhwhh
-heghhhhhwfhhhhhhhwih
-hwwwwwwwwwwwhhhhhwhh
-hhhhhhhhhhhwhhhhhwhh
-hhhhhhhhhhhwhhhhhwhh
-hhhhwwwahwwwwwwwhwhh
-wwwwwhwwwwahhhhwwwih
+whhtwwwwwwwwwwwwwwhhh
+whwwwwwwwwwwhhhhhhfhh
+whhhhhhwwwwwhhhhhwwwh
+whwwwwhwwwwwwwwwwwwhh
+whwwwwhwwwwwwhhhhhwih
+whwwwwhwwwwwwhhhhhwhh
+whwwwwhwwwwwwhhhhhwhh
+whhhhhhhhhhhwhhhhhwhh
+whwwwwwwahwwwwwwwhwhh
+wwwwwwhwwwwahhhhwwwih
 
 player=5,0
+figure = 4, 4, file/figure/mj1.txt
+figure = 4, 4, file/figure/mj2.txt
+figure = 4, 4, file/figure/schwan.txt
+figure = 4, 4, file/figure/surfer.txt
+item = 2, 3, file/items/teich1.txt
+item = 3, 3, file/items/teich2.txt
+item = 4, 3, file/items/teich3.txt
+item = 5, 3, file/items/teich4.txt
+item = 2, 4, file/items/teich5.txt
+item = 3, 4, file/items/teich6.txt
+item = 4, 4, file/items/teich7.txt
+item = 5, 4, file/items/teich8.txt
+item = 2, 5, file/items/teich9.txt
+item = 3, 5, file/items/teich10.txt
+item = 4, 5, file/items/teich11.txt
+item = 5, 5, file/items/teich12.txt
+item = 2, 6, file/items/teich13.txt
+item = 3, 6, file/items/teich14.txt
+item = 4, 6, file/items/teich15.txt
+item = 5, 6, file/items/teich16.txt
+item = 5, 3, file/items/seerose.txt
+item = 5, 4, file/items/seerose.txt
+item = 5, 6, file/items/seerose.txt
+

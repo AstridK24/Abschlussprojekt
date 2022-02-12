@@ -1,3 +1,4 @@
 name = w3
 image = img/item/w3.png
 visible = 1
+collectable=0

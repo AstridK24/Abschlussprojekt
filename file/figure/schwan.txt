@@ -1,0 +1,2 @@
+name=schwan
+image=img/figuren/schwan/schwan

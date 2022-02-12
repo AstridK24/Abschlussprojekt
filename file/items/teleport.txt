@@ -1,0 +1,4 @@
+name = teleport
+image = img/item/teleport.png
+visible = 1
+tele = 1, 1

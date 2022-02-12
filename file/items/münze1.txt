@@ -2,4 +2,3 @@ name = münze1
 image = img/item/münze1.png
 visible = 1
 gold=1
-need=schluessel

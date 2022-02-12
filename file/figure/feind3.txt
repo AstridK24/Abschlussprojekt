@@ -1,8 +1,8 @@
-name =Türwächter
+name =Türwächter Mikey
 image = img/figuren/feind3/feind3
-text1=Hallo, ich bin... Du hast mich gestört. Lass uns kämpfen!
-option1=Schnell weg!
-option2=Zeig was du kannst!
+text1=<html>Hallo, ich bin Mikey<br>Du hast mich gestört<br>Lass uns kämpfen!</html>
+option1=Zeig was du kannst!
+option2=Schnell weg!
 text2=
 need=
 give=

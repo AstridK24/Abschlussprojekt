@@ -1,0 +1,2 @@
+name=pegasus
+image=img/figuren/pegasus/pegasus

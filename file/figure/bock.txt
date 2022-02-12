@@ -1,0 +1,2 @@
+name=bock
+image=img/figuren/bock/bock

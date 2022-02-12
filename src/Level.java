@@ -101,6 +101,11 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
                                 break;
                         }
                         player = new Figure(x3, y3, fileName3);
+                        if (d.playerBackup != null) {
+                            player.setLive(d.playerBackup.getLive());
+                            player.setPower(d.playerBackup.getPower());
+                        }
+
                         break;
                 }
             }
@@ -211,6 +216,9 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
                         }
                         if (action1 && action2) {
                             if (!curItem.getLevel().isEmpty()){//spieler kommt zum nächsten level
+                                d.playerBackup = player;
+                                d.playerBackup.clearClubmembers();
+                                d.playerBackup.clearBackpack();
                                 nextLevel = curItem.getLevel();
 
 
@@ -238,16 +246,22 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
                                         d.time = d.time + curItem.getTime();//zeit plus neue sekunden
                                     }
 
-
-                                    if (curItem.isCollectable()) {//aufhebbar
+                                 /*   if (curItem.isWalkable2()) {//item begehbar
                                         if (modified) {
                                             curItem.setVisible(false);
-                                        } else {
-                                            if (player.AddItem(curItem)) {//item in rucksack
-                                                curItem.setVisible(false);//item verschwindet
-                                                d.inventory.SetItems(player.getBackpack());//item im rucksack
+                                        }*/
+
+
+                                        if (curItem.isCollectable()) {//aufhebbar
+                                            if (modified) {
+                                                curItem.setVisible(false);
+                                            } else {
+                                                if (player.AddItem(curItem)) {//item in rucksack
+                                                    curItem.setVisible(false);//item verschwindet
+                                                    d.inventory.SetItems(player.getBackpack());//item im rucksack
+                                                }
                                             }
-                                        }
+                                      //  }
                                     }
                                 }
                             }
@@ -480,5 +494,9 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
             retVal = true;
         }
         return retVal;
+    }
+
+    public boolean noLife() {
+        return (player.getLive() < 1);
     }
 }

@@ -3,6 +3,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Board extends JPanel /*implements KeyListener*/ { //spielfeld
 
@@ -14,12 +20,12 @@ public class Board extends JPanel /*implements KeyListener*/ { //spielfeld
     Data d = new Data();//gemeinsame daten
 
     /////////////////////////////////////////////
-    public Board(String playerSelected) {
+    public Board(String playerSelected, String playerName) {
         setBackground(Color.GREEN);//hintergrundfarbe
 
 
         LoadTilesData();//lädt kacheln
-
+        d.playerName = playerName;
         d.width = 15;//weite 25*zellenweite
         d.height = 10;//10*zellenhöhe
         d.cellHeight = 64;//zellenhöhe in px
@@ -50,21 +56,39 @@ public class Board extends JPanel /*implements KeyListener*/ { //spielfeld
         timer = new Timer(200, new ActionListener() {//aktion alle 200ms
             @Override
             public void actionPerformed(ActionEvent e) {
-                count++;
-                if (count >=5){
-                    count = 0;
-                    d.time--;
-                }
-                level.MovePlayer(movement);//spieler bewegen
-                movement = Directions.NOTHING;//wieder zurücksetzen sonst läuft die figur ständig
-                level.MoveFigures();//alle figuren bewegen
-                String nextLevel = level.nextLevel;
-                if (!nextLevel.isEmpty()){
-                    level = new Level(nextLevel, d);
-                }
+
+                if (isVisible()) {
+                    count++;
+                    if (count >= 5) {
+                        count = 0;
+                        d.time--;
+                    }
+                    boolean gameOver = false;
+                    if ((d.time < 1)) {
+                        gameOver = true;
+                    }
+                    if (level.noLife()) {
+                        gameOver = true;
+                    }
+                    if (!gameOver) {
+
+                        level.MovePlayer(movement);//spieler bewegen
+                        movement = Directions.NOTHING;//wieder zurücksetzen sonst läuft die figur ständig
+                        level.MoveFigures();//alle figuren bewegen
+                        String nextLevel = level.nextLevel;
+                        if (!nextLevel.isEmpty()) {
+                            level = new Level(nextLevel, d);
+                        }
+                    } else {
+
+                        setHighscore();
+                        setVisible(false);
+
+                    }
 
 
-                repaint();//neu zeichnen
+                    repaint();//neu zeichnen
+                }
             }
         });
         timer.start();//timer starten
@@ -132,6 +156,7 @@ public class Board extends JPanel /*implements KeyListener*/ { //spielfeld
         d.tiles.put("1", new Tile(pathBlau + "wegblau.png", true, false));
         d.tiles.put("x", new Tile(path + "wegStein.png", true, false));
         d.tiles.put("y", new Tile(path + "wiese2.png", true, false));
+        d.tiles.put("z", new Tile(path + "wiese3.png", true, false));
         d.tiles.put("Y", new Tile(pathRosa + "wieserosa.png", true, false));
         d.tiles.put("Z", new Tile(pathRosa + "wieserosa2.png", true, false));
         d.tiles.put("2", new Tile(pathBlau + "wieseblau.png", true, false));
@@ -156,6 +181,67 @@ public class Board extends JPanel /*implements KeyListener*/ { //spielfeld
         d.tiles.put("b", new Tile(path + "h2.png", false, false));
         d.tiles.put("c", new Tile(path + "h3.png", false, false));
         d.tiles.put("d", new Tile(path + "h4.png", false, false));
+
+    }
+
+    private void setHighscore() {
+        ArrayList<String>highscores = new ArrayList<>();
+        String fileName = "data/highscore.txt";
+        String highscoreString = d.points+" "+d.playerName;
+        File file;
+
+        try {
+            file = new File(fileName);
+            Scanner myReader = new Scanner(file);
+            while (myReader.hasNextLine()) {
+                highscores.add(myReader.nextLine());
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+           highscores.clear();
+        }
+
+        if (!highscores.isEmpty()) {
+            highscores.remove(highscores.size()-1);
+        }
+        int index = -1;
+        int i = 0;
+        while ((i < highscores.size())&& (index < 0)){
+            String[] subStrings = highscores.get(i).split(" ");
+            if (subStrings.length == 2) {
+                int cur = Integer.parseInt(subStrings[0]);
+                if (cur < d.points) {
+                   index = i;
+                }
+            }
+            i++;
+        }
+
+        if (index < 0) {
+            highscores.add(highscoreString);
+        } else {
+            highscores.add(index,highscoreString);
+        }
+
+    /*    file = new File(fileName);
+        file.delete();*/
+
+        file = new File(fileName);
+        try {
+            FileWriter f2 = new FileWriter(file, false);
+
+            for (int j = 0; j < 10; j++) {
+                if (highscores.size() > j) {
+                    f2.write(highscores.get(j)+"\n");
+                }
+            }
+            f2.write(highscoreString+"\n");
+
+            f2.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
     }
 

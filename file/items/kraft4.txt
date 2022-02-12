@@ -1,3 +1,4 @@
 name = kraft4
 image = img/item/kraft4.png
 visible = 1
+power = 1

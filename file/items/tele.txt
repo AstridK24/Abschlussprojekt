@@ -1,7 +1,7 @@
 name = tele
-image = img/item/tele.png
+image = img/item/teleport.png
 visible = 1
-tele=12,19
+tele = 12, 19
 xvip=ken
 
 

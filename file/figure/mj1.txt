@@ -1,0 +1,2 @@
+name=mj1
+image=img/figuren/mj1/mj1

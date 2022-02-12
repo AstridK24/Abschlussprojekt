@@ -22,6 +22,7 @@ public class Item {
     private int live = 0;//energie - herzen
     private int power = 0;//kraft beim kampf
     private int time = 0;//zusätzliche zeit
+    //private boolean walkable2 = true;//item begehbar
 
     private String name = "";
     private String need = "";
@@ -94,6 +95,9 @@ public class Item {
                             case "level":
                                 level = value;
                                 break;
+                           /* case "walkable2":
+                                walkable2 = value.equals("1");
+                                break;*/
 
                         }
                     }
@@ -174,6 +178,10 @@ public class Item {
     public boolean isVisible() {
         return isVisible;
     }
+
+    /*public boolean isWalkable2() {
+        return isWalkable2();
+    }*/
 
     public boolean isCollectable() {
         return isCollectable;

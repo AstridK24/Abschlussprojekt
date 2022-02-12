@@ -1,3 +1,4 @@
 name = seerose
 image = img/item/seerosen1.png
 visible = 1
+collectable=0

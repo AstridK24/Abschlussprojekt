@@ -1,3 +1,4 @@
 name = paprika
 image = img/item/paprika.png
 visible = 1
+live = 1

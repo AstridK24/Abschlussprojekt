@@ -1,0 +1,14 @@
+name = Schmidsi the Cat
+image = img/figuren/feind4/feind4
+text1= <html>Schmidsi the Cat ist mein Name<br>An mir kommt keiner vorbei</html>
+option1=Das glaubst nur du
+option2=Hab was vergessen...
+text2=
+need=
+give=
+bad=1
+vanish=1
+live=10
+strength=2
+gold=5
+follow=0

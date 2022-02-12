@@ -1,0 +1,4 @@
+name = teich15
+image = img/item/teich15.png
+visible = 1
+collectable=0

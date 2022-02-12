@@ -1,0 +1,10 @@
+name = Thor
+image = img/figuren/superhelden/thor/thor
+text2=<html>Ich bin Thor der Donnergott<br>Ich komm mit dir mit</html>
+option3=Ja, auf geht´s!
+option4=Nein, danke.
+give=self
+vanish=1
+live=5
+strength=2
+follow=1

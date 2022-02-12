@@ -1,3 +1,4 @@
 name = banane
 image = img/item/banane.png
 visible = 1
+live = 1

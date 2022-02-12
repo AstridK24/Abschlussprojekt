@@ -1,10 +1,7 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
@@ -50,7 +47,19 @@ public class GameMain extends JFrame {
                         public void windowClosed(WindowEvent e) {
                             System.out.println(radioButton.selected);//spielfigur
 
-                            board = new Board(radioButton.selected);
+                            board = new Board(radioButton.selected,enterName);
+
+                            board.addComponentListener ( new ComponentAdapter()
+                            {
+                                public void componentHidden ( ComponentEvent e )
+                                {
+                                    JOptionPane.showMessageDialog(null,"Du hast leider verloren. GAME OVER");
+
+                                    gameStart.setEnabled(true);//startknopf wieder aktivieren
+                                    middle.setVisible(true);
+                                }
+                            } );
+
                             add(board);
                             revalidate();
                             pack();

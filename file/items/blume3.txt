@@ -1,3 +1,4 @@
 name = blume3
 image = img/item/blume3.png
 visible = 1
+collectable=0

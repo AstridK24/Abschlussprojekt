@@ -1,0 +1,5 @@
+name = feuer
+image = img/item/feuer.png
+visible = 1
+collectable=0
+live = -1

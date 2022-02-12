@@ -1,3 +1,4 @@
 name = weintraube2
 image = img/item/weintraube2.png
 visible = 1
+live = 1

@@ -1,0 +1,4 @@
+name = uhr
+image = img/item/uhr.png
+visible = 1
+time = 20

@@ -14,6 +14,7 @@ public class Figure {
     private ArrayList<Item> backpack = new ArrayList<>(); // rucksack für items
     private ArrayList<Figure> clubmembers = new ArrayList<>();//alles figuren die mit dem spieler im club sind
 
+
     private String fileName;//name der bilddatei
     private String name;//name der figur
     private String need = "";//braucht
@@ -53,7 +54,7 @@ public class Figure {
         this.y = y;
         this.fileName = fileName;
 
-        Load();
+        load();
     }
     /////////////////////////////////
 
@@ -83,7 +84,7 @@ public class Figure {
         }
     }
 
-    private void Load() {//laden
+    private void load() {//laden
         File file = new File(fileName);// datei mit itemdaten öffnen
         Scanner scan = null;//zum einlesen vom z.b. apfel.txt
         try {
@@ -172,6 +173,14 @@ public class Figure {
             e.printStackTrace();
         }
 
+    }
+
+    public void clearClubmembers() {
+        clubmembers.clear();
+    }
+
+    public void clearBackpack() {
+        backpack.clear();
     }
 
     public Image getImage() {

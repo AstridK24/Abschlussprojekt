@@ -1,0 +1,5 @@
+name = stachelnormal
+image = img/item/stachelnnn.png
+visible = 1
+collectable = 0
+live = -1

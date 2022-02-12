@@ -1,3 +1,4 @@
 name = w1
 image = img/item/w1.png
 visible = 1
+collectable=0

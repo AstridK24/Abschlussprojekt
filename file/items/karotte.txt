@@ -1,3 +1,4 @@
 name = karotte
 image = img/item/karotte.png
 visible = 1
+live = 1

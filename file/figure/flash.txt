@@ -1,0 +1,10 @@
+name = Flash-Gregor
+image = img/figuren/superhelden/flash/flash
+text2=<html>Hallo, ich bin Flash-Gregor<br>Kann ich dir helfen?</html>
+option3=Komm mit
+option4=Vergiss es
+give=self
+vanish=1
+live=5
+strength=2
+follow=1
