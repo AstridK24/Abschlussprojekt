@@ -17,13 +17,14 @@ ffffffffffffffffffffffffff
 .
 .
 FFFFFFFFFFFFFFFFFFFFFFFFF
-FHHHHHZZZZZZZZZZZZZZZFZZF
-FWWWWWWWWWWWWWWWWFFFFFZZF
-FKKHHKWWWWWWWWWWFZZZZZZZF
-FWWWWWWWHHHHHHWWFZZZZZZZF
-FWWKKZZZZZZZZZZKKKKKFFFFF
-FWHHHHWWWWWWWWWWWWWWWWWWF
-FWWWWWWWWKHKHKHWWWWWWWWWF
+FHHZZZZZZZZHZZZHZZZZZFZZF
+FHZZYKKKKYZZZZZZZFFFFFZZF
+FZHZKZZZZKZZZZHZFZZZZZZZF
+FZZZKZZZZKZZZZZZFZZZZZZZF
+FZKZKZZZZKZZZZZKKKKKFFFFF
+FZZZKZZZZKWWWWWWWHWWWWWHF
+FWWWYKKKKKHKHKHWWWWWWWHHF
+FHWWWWWWWWWWWWWWWWWWWHHHF
 FFFFFFFFFFFFFFFFFFFFFFFFF
 .
 .
@@ -31,15 +32,16 @@ FFFFFFFFFFFFFFFFFFFFFFFFF
 .
 .
 .
-6666666666666666666666666
-6444444333333333333336336
-6111111111111116666666336
-6646411111111166663333336
-6111111144441166663333336
-6666333333333366666666666
-6644444111111111111111116
-6111111115454545111111116
-6666666666666666666666666
+66666666666666666666666666
+64445333333333334333336336
+64433325555233333336666336
+64333353333533533363333336
+65343353333533333663333336
+63333353333533333666666666
+64335353333533333111111146
+61151125555454545111111446
+61141111111111111141514446
+66666666666666666666666666
 
 #die figuren
 player=18, 5
@@ -56,7 +58,7 @@ item = 10, 10, file/items/tuer.txt
 item = 14, 1, file/items/tuerblau.txt
 item = 23, 7, file/items/tuerrosa.txt
 item = 11,24, file/items/tele1.txt
-item = 11, 35, file/items/tele1.txt
+item = 11, 36, file/items/tele1.txt
 item = 2, 6, file/items/tele1.txt
 
 #der apfel
@@ -133,13 +135,17 @@ figure = 22, 19, file/figure/schafrosa.txt
 figure = 22, 19, file/figure/schafrosa.txt
 figure = 11, 19, file/figure/eichhoernchen.txt
 figure = 20, 24, file/figure/einhorn.txt
-figure = 8, 20, file/figure/pegasus.txt
+figure = 3, 20, file/figure/pegasus.txt
 figure = 20, 24, file/figure/waschbaer.txt
-item = 11, 19, file/items/ananas.txt
-item = 8, 20, file/items/banane.txt
+item = 10, 19, file/items/ananas.txt
+item = 8, 19, file/items/banane.txt
 item = 22, 19, file/items/blume7.txt
+item = 18, 21, file/items/blume6.txt
+item = 22, 21, file/items/blume8.txt
+item = 20, 22, file/items/blume6.txt
+item = 17, 22, file/items/blume7.txt
 item = 22, 22, file/items/pilz4.txt
-item = 23, 25, file/items/münze10.txt
+item = 21, 25, file/items/münze10.txt
 item = 2, 22, file/items/münze10.txt
 item = 9, 19, file/items/münze10.txt
 item = 4, 25, file/items/münze10.txt
@@ -148,25 +154,69 @@ item = 14, 22, file/items/münze5.txt
 item = 19, 19, file/items/münze5.txt
 item = 15, 25, file/items/münze5.txt
 item = 15, 21, file/items/kraft4.txt
+item = 5, 21, file/items/teich1.txt
+item = 6, 21, file/items/teich2.txt
+item = 7, 21, file/items/teich3.txt
+item = 8, 21, file/items/teich4.txt
+item = 5, 22, file/items/teich5.txt
+item = 6, 22, file/items/teich6.txt
+item = 7, 22, file/items/teich7.txt
+item = 8, 22, file/items/teich8.txt
+item = 5, 23, file/items/teich9.txt
+item = 6, 23, file/items/teich10.txt
+item = 7, 23, file/items/teich11.txt
+item = 8, 23, file/items/teich12.txt
+item = 5, 24, file/items/teich13.txt
+item = 6, 24, file/items/teich14.txt
+item = 7, 24, file/items/teich15.txt
+item = 8, 24, file/items/teich16.txt
+figure = 6, 23, file/figure/schwan.txt
+figure = 7, 22, file/figure/schwan.txt
+figure = 5, 21, file/figure/mj1.txt
+item = 7, 21, file/items/seerose.txt
+item = 6, 22, file/items/seerose.txt
+item = 7, 23, file/items/seerose.txt
 
 #blau
-figure = 21, 36,file/figure/schafblau.txt
-figure = 21, 36, file/figure/schafblau.txt
-figure = 21, 36, file/figure/schafblau.txt
-figure = 22, 39, file/figure/zentaur.txt
-figure = 22, 36, file/figure/minotaur.txt
+figure = 22, 37,file/figure/schafblau.txt
+figure = 22, 37, file/figure/schafblau.txt
+figure = 22, 37, file/figure/schafblau.txt
+figure = 18, 39, file/figure/zentaur.txt
+figure = 18, 36, file/figure/minotaur.txt
 figure = 3, 39, file/figure/hirsch.txt
-figure = 9, 39, file/figure/braunerbaer.txt
-item = 11, 38, file/items/melone.txt
-item = 8, 36, file/items/weintraube.txt
-item = 21, 36, file/items/blume7.txt
-item = 22, 36, file/items/pilz4.txt
-item = 23, 39, file/items/münze10.txt
-item = 2, 35, file/items/münze10.txt
-item = 9, 36, file/items/münze10.txt
-item = 4, 38, file/items/münze10.txt
+figure = 5, 39, file/figure/braunerbaer.txt
+figure = 7, 40, file/figure/schwan.txt
+figure = 8, 38, file/figure/schwan.txt
+figure = 9, 37, file/figure/mj2.txt
+item = 22, 38, file/items/blume8.txt
+item = 20, 38, file/items/blume6.txt
+item = 19, 38, file/items/blume7.txt
+item = 12, 38, file/items/melone.txt
+item = 8, 35, file/items/weintraube.txt
+item = 21, 37, file/items/blume7.txt
+item = 22, 37, file/items/pilz4.txt
+item = 23, 40, file/items/münze10.txt
+item = 1, 41, file/items/münze10.txt
+item = 9, 35, file/items/münze10.txt
+item = 4, 36, file/items/münze10.txt
 item = 3, 40, file/items/münze5.txt
 item = 13, 36, file/items/münze5.txt
-item = 19, 34, file/items/münze5.txt
+item = 19, 35, file/items/münze5.txt
 item = 15, 39, file/items/münze5.txt
 item = 14, 39, file/items/kraft4.txt
+item = 7, 37, file/items/teich1.txt
+item = 8, 37, file/items/teich2.txt
+item = 9, 37, file/items/teich3.txt
+item = 10, 37, file/items/teich4.txt
+item = 7, 38, file/items/teich5.txt
+item = 8, 38, file/items/teich6.txt
+item = 9, 38, file/items/teich7.txt
+item = 10, 38, file/items/teich8.txt
+item = 7, 39, file/items/teich9.txt
+item = 8, 39, file/items/teich10.txt
+item = 9, 39, file/items/teich11.txt
+item = 10, 39, file/items/teich12.txt
+item = 7, 40, file/items/teich13.txt
+item = 8, 40, file/items/teich14.txt
+item = 9, 40, file/items/teich15.txt
+item = 10, 40, file/items/teich16.txt

@@ -1,6 +1,6 @@
 name = tuerblau
 image = img/item/tuerblau.png
 visible = 1
-tele=18,39
+tele=18,40
 vip=ken
 vip=fred

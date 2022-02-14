@@ -1,6 +1,6 @@
-name = Son-Elias-Goku
+name = Son_Elias_Goku
 image = img/figuren/superhelden/goku/goku
-text2=<html>Ich bin Son-Elias-Goku..<br>Mir ist langweilig,<br>nimmst du mich mit?</html>
+text2=<html>Ich bin Son_Elias_Goku..<br>Mir ist langweilig,<br>nimmst du mich mit?</html>
 option3=Okay
 option4=Such dir eine Beschäfftigung
 give=self

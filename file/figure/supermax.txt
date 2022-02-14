@@ -1,6 +1,6 @@
 name = Supermax
 image = img/figuren/superhelden/supermax/supermax
-text2=<html>Hallo, ich bin Supermax der Retter in der Not.<br>Es ist momentan keiner da der hilfe braucht,<br>lass uns um die Häuser ziehn</html>
+text2=<html>Hallo, ich bin Supermax der Retter in der Not<br>Es ist momentan keiner da der Hilfe braucht,<br>lass uns um die Häuser ziehn</html>
 option3=Cool, gerne
 option4=Lieber nicht
 give=self
