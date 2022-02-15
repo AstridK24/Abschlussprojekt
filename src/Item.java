@@ -37,11 +37,11 @@ public class Item {
         this.x = x;
         this.y = y;
         this.fileName = fileName;
-        Load();
+        load();
     }
-////////////////////////////////
+    ////////////////////////////////
 
-    private void Load() {//laden
+    private void load() {//laden
         File file = new File(fileName);// datei mit itemdaten öffnen
         Scanner scan = null;//zum einlesen vom z.b. apfel.txt
         try {
@@ -59,7 +59,7 @@ public class Item {
                                 name = value;
                                 break;
                             case "image":
-                                image = ReadImage(value);
+                                image = readImage(value);
                                 break;
                             case "visible":
                                 isVisible = value.equals("1");
@@ -98,7 +98,6 @@ public class Item {
                            /* case "walkable2":
                                 walkable2 = value.equals("1");
                                 break;*/
-
                         }
                     }
                 }
@@ -107,10 +106,9 @@ public class Item {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
     }
 
-    private BufferedImage ReadImage(String fileName) {//holt das bild
+    private BufferedImage readImage(String fileName) {//holt das bild
         BufferedImage img = null;
         try {
             img = ImageIO.read(new File(fileName));
@@ -123,58 +121,114 @@ public class Item {
         return img;
     }
 
+    /***
+     *
+     * @return x position of item
+     */
     public int getX() {
         return x;
     }
 
+    /***
+     *
+     * @return y position of item
+     */
     public int getY() {
         return y;
     }
 
+    /***
+     *
+     * @return image of item
+     */
     public Image getImage() {
         return image;
     }
 
+    /***
+     *
+     * @return name of item
+     */
     public String getName() {
         return name;
     }
 
+    /***
+     *
+     * @return x position of teleportation
+     */
     public int getTelex() {
         return telex;
     }
 
+    /***
+     *
+     * @return y position of teleportation
+     */
     public int getTeley() {
         return teley;
     }
 
+    /***
+     *
+     * @return value of points the user gets
+     */
     public int getGold() {
         return gold;
     }
 
+    /***
+     *
+     * @return value of energy the user gets
+     */
     public int getLive() {
         return live;
     }
 
+    /***
+     *
+     * @return value of power the user gets
+     */
     public int getPower() {
         return power;
     }
 
+    /***
+     *
+     * @return value of time the user gets
+     */
     public int getTime() {
         return time;
     }
 
+    /***
+     *
+     * @return name of item the item needs to switch on
+     */
     public String getNeed() {
         return need;
     }
 
+    /***
+     *
+     * @return get filename of next level
+     */
     public String getLevel() {
         return level;
     }
 
+    /***
+     *
+     * @return get list of playernames the item needs to switch on
+     */
     public ArrayList<String> getVips() {
         return vips;
     }
 
+    /***
+     *
+     * @return true if item is visible
+     */
     public boolean isVisible() {
         return isVisible;
     }
@@ -183,10 +237,18 @@ public class Item {
         return isWalkable2();
     }*/
 
+    /***
+     *
+     * @return true if item is collectable
+     */
     public boolean isCollectable() {
         return isCollectable;
     }
 
+    /***
+     *
+     * @param visible true if item is visible
+     */
     public void setVisible(boolean visible) {
         isVisible = visible;
     }

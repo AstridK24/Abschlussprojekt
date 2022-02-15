@@ -24,7 +24,7 @@ public class Board extends JPanel /*implements KeyListener*/ { //spielfeld
         setBackground(Color.GREEN);//hintergrundfarbe
 
 
-        LoadTilesData();//lädt kacheln
+        loadTilesData();//lädt kacheln
         d.playerName = playerName;
         d.width = 15;//weite 25*zellenweite
         d.height = 10;//10*zellenhöhe
@@ -36,7 +36,7 @@ public class Board extends JPanel /*implements KeyListener*/ { //spielfeld
         d.status = new Status();
         d.time = 1000;
         d.points = 0;
-        level = new Level("file/Level1", d);
+        level = new Level("file/Level2", d);
 
         setLayout(new BorderLayout());
         JPanel backGround = new JPanel();
@@ -72,27 +72,22 @@ public class Board extends JPanel /*implements KeyListener*/ { //spielfeld
                     }
                     if (!gameOver) {
 
-                        level.MovePlayer(movement);//spieler bewegen
+                        level.movePlayer(movement);//spieler bewegen
                         movement = Directions.NOTHING;//wieder zurücksetzen sonst läuft die figur ständig
-                        level.MoveFigures();//alle figuren bewegen
+                        level.moveFigures();//alle figuren bewegen
                         String nextLevel = level.nextLevel;
                         if (!nextLevel.isEmpty()) {
                             level = new Level(nextLevel, d);
                         }
                     } else {
-
                         setHighscore();
                         setVisible(false);
-
                     }
-
-
                     repaint();//neu zeichnen
                 }
             }
         });
         timer.start();//timer starten
-
     }
 
     /////////////////////////////////////////////////
@@ -131,13 +126,22 @@ public class Board extends JPanel /*implements KeyListener*/ { //spielfeld
     }
 
 
+    /***
+     *
+     * @param g graphics handler
+     * @return void
+     */
     public void paint(Graphics g) {//zeichne spielbrett
         //super.paint(g);
         super.paint(g);
-        Image img = level.CreateBoard();//zeichne spielbrett in bild ein
+        Image img = level.createBoard();//zeichne spielbrett in bild ein
         g.drawImage(img, 0, 0, this);//zeigt bild bei 0_0 im jframe an
     }
 
+    /***
+     *
+     * @return size of board
+     */
     @Override
     public Dimension getPreferredSize() { // gib größe des spielfeldes zurück
 
@@ -146,7 +150,7 @@ public class Board extends JPanel /*implements KeyListener*/ { //spielfeld
         return new Dimension(width, height);
     }
 
-    private void LoadTilesData() {//level objekte namen geben und nach eigenschafeten festlegen
+    private void loadTilesData() {//level objekte namen geben und nach eigenschafeten festlegen
         String path = "img/map/";
         String pathRosa = "img/mapRosa/";
         String pathBlau = "img/mapBlau/";
@@ -162,7 +166,6 @@ public class Board extends JPanel /*implements KeyListener*/ { //spielfeld
         d.tiles.put("2", new Tile(pathBlau + "wieseblau.png", true, false));
         d.tiles.put("3", new Tile(pathBlau + "wieseblau2.png", true, false));
 
-
         d.tiles.put("h", new Tile(path + "strauch3.png", false, false));
         d.tiles.put("H", new Tile(pathRosa + "baumrosa.png", false, false));
         d.tiles.put("K", new Tile(pathRosa + "kugellila.png", false, false));
@@ -176,12 +179,10 @@ public class Board extends JPanel /*implements KeyListener*/ { //spielfeld
         d.tiles.put("7", new Tile(pathBlau + "stachelblau.png", false, false));
         d.tiles.put("8", new Tile(pathBlau + "wasserblau.png", false, false));
 
-
         d.tiles.put("a", new Tile(path + "h1.png", false, false));
         d.tiles.put("b", new Tile(path + "h2.png", false, false));
         d.tiles.put("c", new Tile(path + "h3.png", false, false));
         d.tiles.put("d", new Tile(path + "h4.png", false, false));
-
     }
 
     private void setHighscore() {
@@ -241,8 +242,6 @@ public class Board extends JPanel /*implements KeyListener*/ { //spielfeld
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 
 /*

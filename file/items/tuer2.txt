@@ -1,0 +1,5 @@
+name = tuer
+image = img/item/tuer.png
+visible = 1
+need=schluessel
+level=file/Level3

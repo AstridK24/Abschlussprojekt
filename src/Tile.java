@@ -1,5 +1,4 @@
 import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -17,13 +16,13 @@ public class Tile {//kacheln
 
         width = 64;//breite
         height = 64;//höhe
-        img = ReadImage(fileName);//bildpfad
+        img = readImage(fileName);//bildpfad
         this.walkable = walkable;//begehbar
         this.dangerous = dangerous;//gefährlich
     }
 //////////////////////////////////////////////////////////////////
 
-    private BufferedImage ReadImage(String fileName) {//holt das bild
+    private BufferedImage readImage(String fileName) {//holt das bild
         BufferedImage img = null;
         try {
             img = ImageIO.read(new File(fileName));
@@ -36,26 +35,45 @@ public class Tile {//kacheln
         return img;
     }
 
-    public BufferedImage GetImage() {
+    /***
+     *
+     * @return get image of tile
+     */
+    public BufferedImage getImage() {
         return img;
     }
 
+    /***
+     *
+     * @return true if tile is walkable
+     */
     public boolean isWalkable() {//begebar
         return walkable;
     }
 
+    /***
+     *
+     * @param walkable set true if tile is walkable
+     */
     public void setWalkable(boolean walkable) {
         this.walkable = walkable;
     }
 
+  /*  *//***
+     *
+     * @return
+     *//*
     public boolean isDangerous() {//gefährlich
         return dangerous;
     }
 
+    *//***
+     *
+     * @param dangerous
+     *//*
     public void setDangerous(boolean dangerous) {
         this.dangerous = dangerous;
     }
-
-
+*/
 }
 

@@ -24,11 +24,14 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
     public Level(String levelPath, Data d) {
         this.levelPath = levelPath;
         this.d = d;
-        Load();
+        load();
     }
     ////////////////////////////////////////////////////
 
-    public void Load() {//laden vom levelfile
+    /***
+     * loads levelfile
+     */
+    public void load() {//laden vom levelfile
         File file = new File(levelPath + "/data.txt");//levelpfad und inhalt
         boolean isBoardData = true;
         boardData.clear();//brett löschen
@@ -102,17 +105,20 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
                         }
                         player = new Figure(x3, y3, fileName3);
                         if (d.playerBackup != null) {
-                            player.setLive(d.playerBackup.getLive());
+                            player.setLife(d.playerBackup.getLife());
                             player.setPower(d.playerBackup.getPower());
                         }
-
                         break;
                 }
             }
         }
     }
 
-    public BufferedImage CreateBoard() {//baut das bild auf
+    /***
+     *
+     * @return image of created board
+     */
+    public BufferedImage createBoard() {//baut das bild auf
         BufferedImage bufImg = new BufferedImage(d.cellWidth * d.width, d.cellHeight * d.height, BufferedImage.TYPE_INT_ARGB);
         //bufimg = zellenweite x weite = gesamtbreite vom level
         //zellenhöhe x höhe = gesamthöhe vom level
@@ -136,9 +142,9 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
         //durchlaufe das gesamte spielbrett: - zeichne hintergrund
         for (int x = 0; x < d.width; x++) {//0 bis max breite
             for (int y = 0; y < d.height; y++) {//0 bis max höhe
-                String curCell = GetLevelData(x + plusX, y + plusY);//curcell bekommt die id der kachel an der koorrdinate x,y
+                String curCell = getLevelData(x + plusX, y + plusY);//curcell bekommt die id der kachel an der koorrdinate x,y
 
-                BufferedImage cellImg = GetCellImage(curCell);//cellimg= bild der curcell
+                BufferedImage cellImg = getCellImage(curCell);//cellimg= bild der curcell
                 g.drawImage(cellImg, x * d.cellWidth, y * d.cellHeight, null);
                 //zeichnet cellimg an der aktuellen pos ein
             }
@@ -148,7 +154,7 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
             if (cutItem.isVisible()) {//wenn das item sichtbar ist
                 if ((cutItem.getX() >= plusX) && (cutItem.getY() >= plusY)) {//wenn es im sichtbaren bereich ist
                     if ((cutItem.getX() < (d.width + plusX)) && (cutItem.getY()) < (d.height + plusY)) {//wenn es im sichtbaren bereich ist
-                        g.drawImage(ResizeImage(cutItem.getImage()), (cutItem.getX() - plusX) * d.cellWidth, (cutItem.getY() - plusY) * d.cellHeight, null);
+                        g.drawImage(resizeImage(cutItem.getImage()), (cutItem.getX() - plusX) * d.cellWidth, (cutItem.getY() - plusY) * d.cellHeight, null);
                     }
                 }
             }
@@ -157,15 +163,19 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
         for (int i = 0; i < figures.size(); i++) {//figurenarray durchlaufen
             Figure curFig = figures.get(i);//holt die nächste figur
             if (curFig.isVisible()) {//wenn fig sichtbar
-                g.drawImage(ResizeImage(curFig.getImage()), (curFig.getX() - plusX) * d.cellWidth, (curFig.getY() - plusY) * d.cellHeight, null);
+                g.drawImage(resizeImage(curFig.getImage()), (curFig.getX() - plusX) * d.cellWidth, (curFig.getY() - plusY) * d.cellHeight, null);
             }
         }
 //todo nur zeichnen im sichtbaren bereich- wie items
-        g.drawImage(ResizeImage(player.getImage()), (player.getX() - plusX) * d.cellWidth, (player.getY() - plusY) * d.cellHeight, null);
+        g.drawImage(resizeImage(player.getImage()), (player.getX() - plusX) * d.cellWidth, (player.getY() - plusY) * d.cellHeight, null);
         return bufImg;
     }
 
-    public void MovePlayer(Directions direction) {//spieler bewegung
+    /***
+     *
+     * @param direction direction of player
+     */
+    public void movePlayer(Directions direction) {//spieler bewegung
         if (direction != Directions.NOTHING) {//wenn der spieler sich bewegt
             int x = player.getX();
             int y = player.getY();
@@ -184,9 +194,9 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
                     break;
             }
 
-            Checker(x, y, player);//prüft ob begehbar und wenn ja dann bewge fig nach xy
+            checker(x, y, player);//prüft ob begehbar und wenn ja dann bewge fig nach xy
             player.setDirection(direction);//drehung animation
-            player.MakeStep();//schritte animation
+            player.makeStep();//schritte animation
             //prüfen ob player auf einem item steht
             for (int i = 0; i < items.size(); i++) {//itemarray durchlaufen
                 Item curItem = items.get(i);
@@ -209,8 +219,8 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
                         if (!curItem.getNeed().isEmpty()) {//wenn need nicht leer ist
                             action2 = false;
                             if (player.hasItem(curItem.getNeed()) > -1 ) {//spieler hat das item
-                                player.RemoveItem(curItem.getNeed());//schlüssel gelöscht
-                                d.inventory.SetItems(player.getBackpack());//wird im rucksack angezeigt
+                                player.removeItem(curItem.getNeed());//schlüssel gelöscht
+                                d.inventory.setItems(player.getBackpack());//wird im rucksack angezeigt
                                 action2 = true;
                             }
                         }
@@ -220,8 +230,6 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
                                 d.playerBackup.clearClubmembers();
                                 d.playerBackup.clearBackpack();
                                 nextLevel = curItem.getLevel();
-
-
                             }
                             else {
                                 if (curItem.getTelex() > -1) {//spieler wird teleportiert
@@ -235,7 +243,7 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
                                     }
                                     if (curItem.getLive() != 0) {
                                         modified = true;
-                                        player.setLive(player.getLive() + curItem.getLive());//leben plus neues herz
+                                        player.setLife(player.getLife() + curItem.getLive());//leben plus neues herz
                                     }
                                     if (curItem.getPower() != 0) {
                                         modified = true;
@@ -256,9 +264,9 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
                                             if (modified) {
                                                 curItem.setVisible(false);
                                             } else {
-                                                if (player.AddItem(curItem)) {//item in rucksack
+                                                if (player.addItem(curItem)) {//item in rucksack
                                                     curItem.setVisible(false);//item verschwindet
-                                                    d.inventory.SetItems(player.getBackpack());//item im rucksack
+                                                    d.inventory.setItems(player.getBackpack());//item im rucksack
                                                 }
                                             }
                                       //  }
@@ -285,12 +293,13 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
 
 
         ////////////////////////
-       d.status.SetStatus(d.points, player.getLive(), player.getPower(), d.time);
-
-
+       d.status.setStatus(d.points, player.getLife(), player.getPower(), d.time);
     }
 
-    public void MoveFigures() {//sonstige figuren bewegen
+    /***
+     * moves figures
+     */
+    public void moveFigures() {//sonstige figuren bewegen
         Random random = new Random();//zufall
         for (int i = 0; i < figures.size(); i++) {
             Figure curFigure = figures.get(i);
@@ -318,20 +327,20 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
                         break;
                 }
                 if (d != Directions.NOTHING) {
-                    Checker(x, y, curFigure);//prüft ob begehbar und wenn ja dann bewge fig nach xy
+                    checker(x, y, curFigure);//prüft ob begehbar und wenn ja dann bewge fig nach xy
                     curFigure.setDirection(d);//drehung animation
-                    curFigure.MakeStep();//schritte animation
+                    curFigure.makeStep();//schritte animation
                 }
             }
         }
     }
 
-    private BufferedImage GetCellImage(String id) {//liefert kachelimg zur id-id
+    private BufferedImage getCellImage(String id) {//liefert kachelimg zur id-id
 
         BufferedImage img;//rückgabebild
 
         if (d.tiles.containsKey(id)) {//gibt es id in der kachelmap
-            img = d.tiles.get(id).GetImage();//img wird zum img von der id in der kachelmap
+            img = d.tiles.get(id).getImage();//img wird zum img von der id in der kachelmap
         } else {//gibt es die id nicht - mache schwarzes bild
             img = new BufferedImage(d.cellWidth, d.cellHeight, BufferedImage.TYPE_INT_ARGB);//höhe und breite der zelle
             ///////////////////////////////////////////
@@ -340,11 +349,11 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
             g.fillRect(0, 0, d.cellWidth, d.cellHeight);
         }
 
-        img = ResizeImage(img); //img.getSubimage(0,0,cellWidth,cellHeight);
+        img = resizeImage(img); //img.getSubimage(0,0,cellWidth,cellHeight);
         return img;
     }
 
-    private BufferedImage ResizeImage(Image img) {//bildgröße anpassen
+    private BufferedImage resizeImage(Image img) {//bildgröße anpassen
         if ((img.getWidth(null) != d.cellWidth) || (img.getHeight(null) != d.cellHeight)) {
             BufferedImage resImg = new BufferedImage(d.cellWidth, d.cellHeight, BufferedImage.TYPE_INT_ARGB);
             Graphics2D g = resImg.createGraphics();
@@ -356,7 +365,7 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
         }
     }
 
-    private String GetLevelData(int x, int y) { //holt die gewünschte zelle aus den leveldaten
+    private String getLevelData(int x, int y) { //holt die gewünschte zelle aus den leveldaten
         String curCell = "";//curcell am anfang leer
         if ((boardData.size() > y) && (y >= 0)) {//wenn größe vom level grösser als pos y ist
             String curLine = boardData.get(y);//holt zeile y aus boarddaten
@@ -367,7 +376,7 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
         return curCell;
     }
 
-    private void Checker(int x, int y, Figure curFig) {//checkt ob figur am aktuellen feld stehen darf
+    private void checker(int x, int y, Figure curFig) {//checkt ob figur am aktuellen feld stehen darf
         if (curFig.isMoveable()) {//wenn die figur beweglich ist
             if ((x >= 0) && (y >= 0)) {//linkes eck oben
                 if (y < boardData.size()) {//höhe vom aktuellen level
@@ -378,7 +387,7 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
                             if (curTile != null) {
                                 if (curTile.isWalkable()) {//wenn die kachel begehbar ist
                                     boolean isPlayer = (curFig == player);
-                                    if (CheckFigures(x, y, isPlayer)) {//check ob gespräch oder kampf
+                                    if (checkFigures(x, y, isPlayer)) {//check ob gespräch oder kampf
                                         curFig.setXY(x, y);//figur setzen
                                     }
                                 }
@@ -391,7 +400,7 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
     }
 
 
-    private boolean CheckFigures(int x, int y, boolean isPlayer) {//checkt gespräch der figur
+    private boolean checkFigures(int x, int y, boolean isPlayer) {//checkt gespräch der figur
         boolean retVal = true;
         for (int i = 0; i < figures.size(); i++) {//figurenarray durchlaufen
             Figure curFig = figures.get(i);//holt nächste figur
@@ -399,10 +408,10 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
                 if ((curFig.getX() == x) && (curFig.getY() == y)) {//wenn kollidieren
                     if (isPlayer) {//wenn die aktuelle checker-figur der spieler selbst ist
                         if (curFig.isBad()) { //figur ist böse
-                            int choice = Talk(curFig, curFig.getTexts()[0], Arrays.copyOfRange(curFig.getOptions(), 0, 2));
+                            int choice = talk(curFig, curFig.getTexts()[0], Arrays.copyOfRange(curFig.getOptions(), 0, 2));
                             if (choice == 0) {
                                 //boolean moveable = curFig.isMoveable();
-                                retVal = Fight(curFig);
+                                retVal = fight(curFig);
                             /*    if (!retVal){
                                     curFig.setMoveable(moveable);
                                 }
@@ -412,36 +421,35 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
                                 retVal = false;
                             }
 
-
                         } else {
                             if (curFig.getNeed().isEmpty()) {//will die fig nichts haben
                                 if (curFig.isFollowing()) {//figur will zum club
-                                    int choice = Talk(curFig, curFig.getTexts()[1], Arrays.copyOfRange(curFig.getOptions(), 2, 4));
+                                    int choice = talk(curFig, curFig.getTexts()[1], Arrays.copyOfRange(curFig.getOptions(), 2, 4));
                                     if (choice == 0) {//spieler hat die option 1 gewählt
-                                        if (player.AddClubMember(curFig)) {//figur zum club hinzufügen
+                                        if (player.addClubMember(curFig)) {//figur zum club hinzufügen
                                             curFig.setDirection(Directions.DOWN);//damit das richtige bild angezeigt wird
                                             curFig.setVisible(false);//figur verschwindet
-                                            d.club.SetFigures(player.getClubmembers());//clubmembers anzeigen
+                                            d.club.setFigures(player.getClubmembers());//clubmembers anzeigen
                                         }
                                     }
                                 } else {
-                                    int choice = Talk(curFig, curFig.getTexts()[1], Arrays.copyOfRange(curFig.getOptions(), 2, 4));
+                                    int choice = talk(curFig, curFig.getTexts()[1], Arrays.copyOfRange(curFig.getOptions(), 2, 4));
                                 }
                             } else {//figur will etwas haben
 
                                 if (player.hasItem(curFig.getNeed()) > -1) {//spieler hat das item
-                                    int choice = Talk(curFig, curFig.getTexts()[0], Arrays.copyOfRange(curFig.getOptions(), 0, 2));
+                                    int choice = talk(curFig, curFig.getTexts()[0], Arrays.copyOfRange(curFig.getOptions(), 0, 2));
                                     if (choice == 1) {
-                                        player.RemoveItem(curFig.getNeed());
+                                        player.removeItem(curFig.getNeed());
                                         curFig.setNeed("");
                                         if (!curFig.getGive().isEmpty()) {//biber gibt etwas her
                                             Item curItem = new Item(0, 0, curFig.getGive());//curitem ist schlüssel
-                                            player.AddItem(curItem);//spieler bekommt schlüssel
+                                            player.addItem(curItem);//spieler bekommt schlüssel
                                         }
-                                        d.inventory.SetItems(player.getBackpack());//wird im rucksack angezeigt
+                                        d.inventory.setItems(player.getBackpack());//wird im rucksack angezeigt
                                     }
                                 } else {//spieler hat das item nicht
-                                    Talk(curFig, curFig.getTexts()[0], Arrays.copyOfRange(curFig.getOptions(), 0, 1));
+                                    talk(curFig, curFig.getTexts()[0], Arrays.copyOfRange(curFig.getOptions(), 0, 1));
                                 }
                             }
                         }
@@ -452,7 +460,7 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
         return retVal;
     }
 
-    private int Talk(Figure curFig, String message, String[] options) {
+    private int talk(Figure curFig, String message, String[] options) {
         int retVal = -1;
 
         if ((!message.isEmpty()) && (options.length > 0)) {
@@ -484,19 +492,23 @@ public class Level extends Component {//component wird für JOptionPane.showOpti
         return retVal;
     }
 
-    private boolean Fight(Figure badFig) {
+    private boolean fight(Figure badFig) {
         boolean retVal = false;
 
         Fight fight = new Fight(player,badFig);
         fight.setVisible(true);
-        d.club.SetFigures(player.getClubmembers());
+        d.club.setFigures(player.getClubmembers());
         if (fight.retVal == 1){ //spieler hat gewonnen
             retVal = true;
         }
         return retVal;
     }
 
+    /***
+     *
+     * @return true if player is dead
+     */
     public boolean noLife() {
-        return (player.getLive() < 1);
+        return (player.getLife() < 1);
     }
 }

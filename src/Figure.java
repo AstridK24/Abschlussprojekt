@@ -19,8 +19,8 @@ public class Figure {
     private String name;//name der figur
     private String need = "";//braucht
     private String give = "";//gibt
-    private String[] text = {"",""};//texte die die figur sagen kann
-    private String[] option = {"","","",""};//antwortmöglichkeiten
+    private String[] text = {"", ""};//texte die die figur sagen kann
+    private String[] option = {"", "", "", ""};//antwortmöglichkeiten
 
     private int width;//breite der figur
     private int height;//höhe der figur
@@ -34,7 +34,7 @@ public class Figure {
     private int backpackMax = 5; // maximale anzahl der items die im rucksack sein dürfen
     private int clubmembersMax = 4; // maximale anzahl der figuren die dem spieler im club folgen können
     private int gold = 0;//kohle
-    private int live = 1;//energie - herzen
+    private int life = 1;//energie - herzen
     private int power = 1;//kraft beim kampf
 
     private boolean vanish = false;//verschwindet
@@ -46,7 +46,6 @@ public class Figure {
     private Directions direction = Directions.DOWN;//richtung in die die figur gerade schaut
 
     //////////////////////////////////
-
     public Figure(int x, int y, String fileName) {
         width = 64;//64px breit
         height = 64;//64px hoch
@@ -58,7 +57,7 @@ public class Figure {
     }
     /////////////////////////////////
 
-    private BufferedImage ReadImage(String fileName) {//holt das bild
+    private BufferedImage readImage(String fileName) {//holt das bild
         BufferedImage img = null;
         try {
             img = ImageIO.read(new File(fileName));
@@ -71,14 +70,19 @@ public class Figure {
         return img;
     }
 
-    public void LoadImages(String name) {
+    /***
+     *
+     * @param name of file of figure without direction tag
+     * load figure images with directions
+     */
+    public void loadImages(String name) {
         imgs.clear();
         String direction = "hlrv";//richtungen der figur
         for (int i = 0; i < direction.length(); i++) {
             for (int j = 1; j < 4; j++) {
                 String id = Character.toString(direction.charAt(i)) + j;
                 String fileName = name + " " + id + ".png";
-                BufferedImage curImg = ReadImage(fileName);
+                BufferedImage curImg = readImage(fileName);
                 imgs.put(id, curImg);
             }
         }
@@ -102,19 +106,19 @@ public class Figure {
                                 name = value;
                                 break;
                             case "image":
-                                LoadImages(value);
+                                loadImages(value);
                                 break;
                             case "visible"://sichtbar
                                 visible = value.equals("1");
                                 break;
                             case "live"://energieherzen
-                                live  = Integer.parseInt(value);
+                                life = Integer.parseInt(value);
                                 break;
                             case "bad"://gut - böse
                                 bad = value.equals("1");
                                 break;
                             case "moveable"://beweglich
-                                moveable =value.equals("1");
+                                moveable = value.equals("1");
                                 break;
                             case "xlo"://breite li o
                                 xLo = Integer.parseInt(value);
@@ -175,14 +179,25 @@ public class Figure {
 
     }
 
+    /***
+     * clears all clubmembers from list
+     */
     public void clearClubmembers() {
         clubmembers.clear();
     }
 
+    /***
+     * clears all items from list
+     */
     public void clearBackpack() {
         backpack.clear();
     }
 
+    /***
+     *
+     * @return image depending on current figure direction
+     * returns image depending on current figure direction v1-3, h1-3, l1-3, r1-3
+     */
     public Image getImage() {
         String id = "v1";
         switch (direction) {
@@ -202,21 +217,28 @@ public class Figure {
         Image curImg = imgs.get(id);
 
 
-
         return curImg;
     }
 
-    public void MakeStep() {
+    /***
+     * animates figure
+     */
+    public void makeStep() {
         step = step + 1;
         if (step > 3) {
             step = 1;
         }
     }
 
-    public boolean AddItem(Item item){ // items in rucksack geben, liefert false wenn rucksack schon voll ist
+    /***
+     *
+     * @param item adds item to list
+     * @return true if backpack was not full
+     */
+    public boolean addItem(Item item) { // items in rucksack geben, liefert false wenn rucksack schon voll ist
         boolean retVal = false;
-        
-        if (backpack.size() < backpackMax){
+
+        if (backpack.size() < backpackMax) {
             retVal = true;
             backpack.add(item);
         }
@@ -224,19 +246,29 @@ public class Figure {
         return retVal;
     }
 
-    public boolean RemoveItem(String itemName) {//item aus rucksack löschen
+    /***
+     *
+     * @param itemName removes item from backpack
+     * @return true if item was found and removed
+     */
+    public boolean removeItem(String itemName) {//item aus rucksack löschen
         boolean retVal = false;
         int index = hasItem(itemName);
         if (index > -1) {
-           backpack.remove(index);
+            backpack.remove(index);
         }
         return retVal;
     }
 
-    public boolean AddClubMember(Figure figure){ // items in rucksack geben, liefert false wenn rucksack schon voll ist
+    /***
+     *
+     * @param figure adds figure to list
+     * @return true if club was not full
+     */
+    public boolean addClubMember(Figure figure) { // items in rucksack geben, liefert false wenn rucksack schon voll ist
         boolean retVal = false;
 
-        if (clubmembers.size() < clubmembersMax){
+        if (clubmembers.size() < clubmembersMax) {
             retVal = true;
             clubmembers.add(figure);
         }
@@ -244,23 +276,32 @@ public class Figure {
         return retVal;
     }
 
-    public boolean RemoveClubMember(String memberName){
+    /***
+     *
+     * @param memberName removes member from club
+     * @return true if member was found and removed
+     */
+    public boolean removeClubMember(String memberName) {
         boolean retVal = false;
         int index = -1;
-        for (int i = 0; i < clubmembers.size(); i++){
-            if (clubmembers.get(i).getName().equalsIgnoreCase(memberName))
-            {
+        for (int i = 0; i < clubmembers.size(); i++) {
+            if (clubmembers.get(i).getName().equalsIgnoreCase(memberName)) {
                 index = i;
             }
         }
 
-        if (index > -1){
+        if (index > -1) {
             retVal = true;
             clubmembers.remove(index);
         }
-        return  retVal;
+        return retVal;
     }
 
+    /***
+     *
+     * @param itemName searches item in list
+     * @return -1 if not found else index if found
+     */
     public int hasItem(String itemName) {
         int retVal = -1;
         for (int i = 0; i < backpack.size(); i++) {
@@ -273,117 +314,242 @@ public class Figure {
     }
 
 
+    /***
+     *
+     * @return x position of figure
+     */
     public int getX() {
         return x;
     }
 
+    /***
+     *
+     * @return y position of figure
+     */
     public int getY() {
         return y;
     }
 
+    /***
+     *
+     * @return x position of the upper left corner of the rectangle in which the figure may move on the board
+     */
     public int getxLo() {
         return xLo;
     }
 
+    /***
+     *
+     * @return y position of the upper left corner of the rectangle in which the figure may move on the board
+     */
     public int getyLo() {
         return yLo;
     }
 
+    /***
+     *
+     * @return x position of the lower right corner of the rectangle in which the figure may move on the board
+     */
     public int getxRu() {
         return xRu;
     }
 
+    /***
+     *
+     * @return y position of the lower right corner of the rectangle in which the figure may move on the board
+     */
     public int getyRu() {
         return yRu;
     }
 
+    /***
+     *
+     * @return texts that the figure can say
+     */
     public String[] getTexts() {
         return text;
     }
 
+    /***
+     *
+     * @return options that the player can select
+     */
     public String[] getOptions() {
         return option;
     }
 
+    /***
+     *
+     * @return itemname of the item that the figure needs
+     */
     public String getNeed() {
         return need;
     }
 
-    public int getLive() {
-        return live;
+    /***
+     *
+     * @return value of lifepoints
+     */
+    public int getLife() {
+        return life;
     }
 
-    public int getPower() { return power; }
-
-    public int getGold() {
-        return gold;
+    /***
+     *
+     * @return value of powerpoints
+     */
+    public int getPower() {
+        return power;
     }
 
+    /***
+     *
+     * @return v
+     */
+    //public int getGold() {
+    //    return gold;
+    //}
+
+    /***
+     *
+     * @return name of figure
+     */
     public String getName() {
         return name;
     }
 
+    /***
+     *
+     * @param need name of item
+     * set name of item the figure needs, if empty, the figures need nothing
+     */
     public void setNeed(String need) {
         this.need = need;
     }
 
+    /***
+     *
+     * @param moveable true or false
+     * set if the figure is moveable or not
+     */
     public void setMoveable(boolean moveable) {
         this.moveable = moveable;
     }
 
-    public void setLive(int live) {
-        this.live = live;
+    /***
+     *
+     * @param life lifepoints
+     * set lifepoints of the figure
+     */
+    public void setLife(int life) {
+        this.life = life;
     }
 
+    /***
+     *
+     * @param imgs list of images
+     * sets the images of the figure
+     */
     public void setImgs(HashMap<String, BufferedImage> imgs) {
         this.imgs = imgs;
     }
 
-    public void setGold(int gold) {
-        this.gold = gold;
-    }
+    /***
+     *
+     * @param gold
+     */
+    //public void setGold(int gold) {
+    //    this.gold = gold;
+    //}
 
+    /***
+     *
+     * @param power powerpoints
+     * set the powerpoints of the figures
+     */
     public void setPower(int power) {
         this.power = power;
     }
 
+    /***
+     *
+     * @return name of item that the figure gives
+     */
     public String getGive() {
         return give;
     }
 
+    /***
+     *
+     * @return list of items in the backpack
+     */
     public ArrayList<Item> getBackpack() {
         return backpack;
     }
 
+    /***
+     *
+     * @return list of figures in the club
+     */
     public ArrayList<Figure> getClubmembers() {
         return clubmembers;
     }
 
+    /***
+     *
+     * @param x new x position of figure
+     * @param y new y position of figure
+     * moves figure to pos x-y
+     */
     public void setXY(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
+    /***
+     *
+     * @return true if figure can move
+     */
     public boolean isMoveable() {
         return moveable;
     }
 
+    /***
+     *
+     * @return true if figure is bad and will fight
+     */
     public boolean isBad() {
         return bad;
     }
 
+    /***
+     *
+     * @return true if figure is visible on board
+     */
     public boolean isVisible() {
         return visible;
     }
 
+    /***
+     *
+     * @return true is figure can join to club
+     */
     public boolean isFollowing() {
         return following;
     }
 
+    /***
+     *
+     * @param direction direction of figure
+     */
     public void setDirection(Directions direction) {
         this.direction = direction;
     }
 
+    /***
+     *
+     * @param visible true if figure is visible on board
+     */
     public void setVisible(boolean visible) {
         this.visible = visible;
     }

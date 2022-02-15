@@ -1,36 +1,230 @@
-whhtwwwwwwwwwwwwwwhhh
-whwwwwwwwwwwhhhhhhfhh
-whhhhhhwwwwwhhhhhwwwh
-whwwwwhwwwwwwwwwwwwhh
-whwwwwhwwwwwwhhhhhwih
-whwwwwhwwwwwwhhhhhwhh
-whwwwwhwwwwwwhhhhhwhh
-whhhhhhhhhhhwhhhhhwhh
-whwwwwwwahwwwwwwwhwhh
-wwwwwwhwwwwahhhhwwwih
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FZZZZZZZKZZZZZHZZZZZZZZKKHHZZZZZZZZZZZZZZHZZZZKZZZZZZZF
+FZZZZZZZKZZZZZHZZZZZZZZKKHHZZZZZZZZZZZZZZHZZZZKZZZZZZZF
+FZZZZZHZZZZZZZZZZZKZZHZZZKZZZZZZZZZZZZKZZZZZZZZZZZZZZZF
+FZZZZKZZZZZZZHZZZZZZZHZZZZKZHHKZZZZZZZZZZZZZZZHZZZZZZZF
+FHHHZZZFFFFFFZZZZZZFFFFFFZZZZFFFFFFZZZZZZFFFFFFZZZZHHHF
+FFFFFFFFhhhhhFFZZZFFhhhhhFFFFhhhhhhFFZZZFFhhhhhFFFFFFFF
+fhhhhhhhwwwwwwFFFFzzzzzzzzzzzzzzzzzzFFFFwhhhhhwhhhhhhhf
+fwhwwwwwwhhhwwfyyyyyyyyyyyyyyyyyyyyyyyyfwhhhhhwhhwhhhhf
+fwwwwhhhhhwwwwfyyyyyyyyyyyyyyyyyyyyyyyyfwwhhhwwhhwwwhhf
+fwwhhhhhhwwwwwfyyyyyyyyyyyyyyyyyyyyyyyyfwhhwwwhhwwhhhhf
+fwhhhhhhhwwwwwffffffffffffffffffffffffffwhhhhwwwwhhhhhf
+fwwwwwhhhhhhhwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwhhf
+fhhhhhhhxxxxxxxxxxxhhhhhhhhhhhhhhhxxxxxxhhhhhhhhhhhxxhf
+fhhhhhhxxyyffffyyyxxhhhhhhhhhhhhhhxxxxxxxxxhhhxxxhhxxxf
+fhhhhxxxyyfyyyyfyyyxxxhhhhhhhhhhhhxxabxxhhxhhhxhhhhxhhf
+fhhhxxzyyyfyyyyfyyyzzxxhhhhhhhhhhhxxcdxxhxxhxxxxhhhxhhf
+fhhhhxxxyyfyyyyfyyxxxxhxxxxhhhhhhhxxxxxxhxhhxhhxhhhxhhf
+fhhhxxzyyyfyyyyfyyyzzxxxhxxxhhxxxxxxhhhhhxxxxhhxxxxxhhf
+fhhhxxzyyyyffffyyyyxxxhhhhhxxxxxhhhhhhhhhhhhhhhhhhhhhhf
+fhhhhxxxyyyyyyyyyyxxhhhhhhhhhxhhhhhhhhhhhhhhhhhhhhhhhhf
+fhhwwwxxxxxxxxxxxxxxhhhhhhhhxxxhhhhhhhhhhhhhhhhhhhhhhhf
+fwwwhhhhhhhhhwwwwwwwwwwwwwwwwwwwwwwhhhhhhhhhhhhwwwwwhhf
+fwhwwwwhhwwwhhhhhhhhhhwwwhhhhhhhhwwwwwhhhhhhhwwwwwwwhhf
+fwhhhhhhhhhhhhhhhhwwwwwwwwwhhhhhhwwwwwwhhhhhhhhhhhhwhhf
+fwwwwwwwwhhhhhhhhhhhhhhhhhwwwhhhhhwwwwwwwwwhhhhhhhhwhhf
+fwwhhwwwhhhhhwwwwwwwwwwwwwwwwhhhhhhhhhhhwwwwwhhhhhhwhhf
+fhwwwwhhhwwwwwhhhhhhhhhhhhhhhhhwwhwwwwwwwhhhwwwhhhwwwhf
+fhhwwhhhhhwwhhhhhhhhhhhwwwwwwwwwwwwwhhhhhhhhhhwwwhhhwhf
+fwwwhhhhhhhwhh6666hhhhhhwhhhhhhhhhwww6666hhhhhwwwwwwwhf
+66666666wwwww6633366wwwww66666wwwww6633366wwwww66666666
+6333333666666334333666666333336666663343336666663333336
+6333433333333333333333433333333333333353333333343333336
+6333333333533353333333443333333333343333333353333333336
+6333353333333343333333334343333333333333333333343333336
+6333333354533333333333433343335453333333333453335534336
+6666666666666666666666666666666666666666666666666666666
 
-player=5,0
-figure = 4, 4, file/figure/mj1.txt
-figure = 4, 4, file/figure/mj2.txt
-figure = 4, 4, file/figure/schwan.txt
-figure = 4, 4, file/figure/surfer.txt
-item = 2, 3, file/items/teich1.txt
-item = 3, 3, file/items/teich2.txt
-item = 4, 3, file/items/teich3.txt
-item = 5, 3, file/items/teich4.txt
-item = 2, 4, file/items/teich5.txt
-item = 3, 4, file/items/teich6.txt
-item = 4, 4, file/items/teich7.txt
-item = 5, 4, file/items/teich8.txt
-item = 2, 5, file/items/teich9.txt
-item = 3, 5, file/items/teich10.txt
-item = 4, 5, file/items/teich11.txt
-item = 5, 5, file/items/teich12.txt
-item = 2, 6, file/items/teich13.txt
-item = 3, 6, file/items/teich14.txt
-item = 4, 6, file/items/teich15.txt
-item = 5, 6, file/items/teich16.txt
-item = 5, 3, file/items/seerose.txt
-item = 5, 4, file/items/seerose.txt
-item = 5, 6, file/items/seerose.txt
+player=26,18
+xplayer=6,2
+xplayer=6,34
+figure = 37, 17, file/figure/biber2.txt
+figure = 8, 25, file/figure/feind3.txt
+figure = 51, 25, file/figure/feind4.txt
+figure = 10, 20, file/figure/kam.txt
+figure = 32, 30, file/figure/goku.txt
+figure = 6, 8, file/figure/flash.txt
+item = 50, 23, file/items/hammer.txt
+item = 34, 17, file/items/tuerblau2.txt
+item = 34, 16, file/items/tuerrosa2.txt
+item = 8, 25, file/items/tuer2.txt
+item = 5, 1, file/items/tele2.txt
+item = 3, 35, file/items/tele2.txt
+item = 5, 25, file/items/tele2.txt
+item = 49, 23, file/items/tele2.txt
+
+
+item = 11,15,file/items/teich1.txt
+item = 12,15,file/items/teich2.txt
+item = 13,15,file/items/teich3.txt
+item = 14,15,file/items/teich4.txt
+item = 11, 16, file/items/teich5.txt
+item = 12, 16, file/items/teich6.txt
+item = 13, 16, file/items/teich7.txt
+item = 14, 16, file/items/teich8.txt
+item = 11, 17, file/items/teich9.txt
+item = 12, 17, file/items/teich10.txt
+item = 13, 17, file/items/teich11.txt
+item = 14, 17, file/items/teich12.txt
+item = 11, 18, file/items/teich13.txt
+item = 12, 18, file/items/teich14.txt
+item = 13, 18, file/items/teich15.txt
+item = 14, 18, file/items/teich16.txt
+item = 13, 15, file/items/seerose.txt
+item = 12, 16, file/items/seerose.txt
+item = 13, 17, file/items/seerose.txt
+figure = 12, 16, file/figure/surfer.txt
+figure = 12, 16, file/figure/schwan.txt
+figure = 22, 9, file/figure/schafweiss.txt
+figure = 22, 9, file/figure/schafweiss.txt
+figure = 22, 9, file/figure/schafweiss.txt
+figure = 22, 9, file/figure/schafweiss.txt
+figure = 22, 9, file/figure/schmetterling2.txt
+figure = 22, 9, file/figure/schmetterling2.txt
+figure = 22, 9, file/figure/bock.txt
+figure = 12,20, file/figure/eichhoernchen.txt
+figure = 12,20, file/figure/eichhoernchen.txt
+figure = 12,20, file/figure/eichhoernchen.txt
+figure = 41,12, file/figure/eichhoernchen.txt
+figure = 41,12, file/figure/eichhoernchen.txt
+figure = 41,12, file/figure/eichhoernchen.txt
+
+
+item = 21, 13, file/items/pilz.txt
+item = 24, 16, file/items/pilz4.txt
+item = 23, 15, file/items/baum3.txt
+item = 26, 17, file/items/baumgelb2.txt
+item = 27, 15, file/items/baumgelb3.txt
+item = 27, 16, file/items/baum2.txt
+item = 27, 17, file/items/baumgelb3.txt
+item = 28, 15, file/items/baum3.txt
+item = 28, 16, file/items/baumgelb2.txt
+item = 28, 17, file/items/baum3.txt
+item = 29, 15, file/items/baum1.txt
+item = 29, 16, file/items/baum3.txt
+item = 29, 17, file/items/baumgelb1.txt
+item = 30, 16, file/items/baumgelb2.txt
+item = 30, 15, file/items/baum1.txt
+item = 30, 17, file/items/baum2.txt
+item = 31, 16, file/items/baumgelb1.txt
+item = 31, 15, file/items/baum3.txt
+item = 32, 16, file/items/baumgelb2.txt
+item = 32, 15, file/items/baum1.txt
+item = 32, 17, file/items/baum2.txt
+item = 33, 16, file/items/baumgelb1.txt
+item = 33, 15, file/items/baum3.txt
+item = 32, 14, file/items/baum1.txt
+item = 32, 13, file/items/baum2.txt
+item = 33, 13, file/items/baumgelb1.txt
+item = 23, 14, file/items/baum1.txt
+item = 25, 13, file/items/baum2.txt
+item = 29, 13, file/items/baumgelb1.txt
+item = 29, 29, file/items/baumgelb2.txt
+item = 20, 27, file/items/baum1.txt
+item = 34, 26, file/items/baum2.txt
+item = 7, 28, file/items/baumgelb1.txt
+item = 41, 22, file/items/baum3.txt
+item = 8, 22, file/items/baum1.txt
+item = 9, 22, file/items/baum2.txt
+item = 46, 19, file/items/baumgelb1.txt
+item = 44, 21, file/items/baum1.txt
+item = 44, 24, file/items/baum2.txt
+item = 43, 11, file/items/baumgelb1.txt
+item = 3, 19, file/items/baumgelb1.txt
+item = 7, 15, file/items/blume5.txt
+item = 8, 16, file/items/blume5.txt
+item = 17, 15, file/items/blume5.txt
+item = 9, 15, file/items/blume5.txt
+item = 9, 17, file/items/blume5.txt
+item = 16, 20, file/items/blume5.txt
+
+
+item = 24, 22, file/items/loch.txt
+item = 25, 22, file/items/stachelnormal.txt
+item = 23, 22, file/items/stachelnormal.txt
+item = 24, 12, file/items/stachelnormal.txt
+item = 25, 12, file/items/stachelnormal.txt
+item = 23, 12, file/items/stachelnormal.txt
+item = 24, 29, file/items/stachelnormal.txt
+item = 25, 29, file/items/stachelnormal.txt
+item = 23, 29, file/items/loch.txt
+
+rosa
+figure = 4, 2, file/figure/pegasus.txt
+figure = 10, 2, file/figure/hase.txt
+figure = 14, 2, file/figure/waschbaer.txt
+figure = 24, 2, file/figure/einhorn.txt
+figure = 43, 2, file/figure/schafrosa.txt
+figure = 43, 2, file/figure/schafrosa.txt
+figure = 43, 2, file/figure/schafrosa.txt
+figure = 43, 2, file/figure/schafrosa.txt
+item = 2, 1, file/items/münze1.txt
+item = 13, 2, file/items/münze1.txt
+item = 24, 3, file/items/münze1.txt
+item = 34, 4, file/items/münze1.txt
+item = 48, 5, file/items/münze1.txt
+item = 43, 1, file/items/münze5.txt
+item = 33, 2, file/items/münze5.txt
+item = 23, 3, file/items/münze5.txt
+item = 13, 5, file/items/münze5.txt
+item = 53, 1, file/items/münze10.txt
+item = 28, 5, file/items/münze10.txt
+item = 4, 5, file/items/münze10.txt
+item = 50, 3, file/items/karotte.txt
+item = 1, 1, file/items/paprika.txt
+item = 14, 4, file/items/herzvoll.txt
+item = 18, 5, file/items/weintraube2.txt
+item = 5, 3, file/items/uhr.txt
+item = 47, 1, file/items/kraft7.txt
+item = 16, 6, file/items/kraft6.txt
+item = 50, 4, file/items/blume1.txt
+item = 1, 2, file/items/blume2.txt
+item = 14, 5, file/items/blume3.txt
+item = 18, 4, file/items/blume4.txt
+item = 5, 2, file/items/blume5.txt
+item = 47, 2, file/items/blume6.txt
+item = 16, 5, file/items/blume7.txt
+item = 16, 4, file/items/blume8.txt
+
+blau
+figure = 19, 34, file/figure/drache.txt
+figure = 10, 34, file/figure/hase.txt
+figure = 14, 34, file/figure/braunerbaer.txt
+figure = 24, 34, file/figure/minotaur.txt
+figure = 19, 34, file/figure/schafblau.txt
+figure = 43, 34, file/figure/schafblau.txt
+figure = 19, 34, file/figure/schafblau.txt
+figure = 43, 34, file/figure/schafblau.txt
+item = 2, 31, file/items/münze1.txt
+item = 13, 32, file/items/münze1.txt
+item = 24, 33, file/items/münze1.txt
+item = 34, 34, file/items/münze1.txt
+item = 48, 34, file/items/münze1.txt
+item = 43, 32, file/items/münze5.txt
+item = 33, 32, file/items/münze5.txt
+item = 23, 32, file/items/münze5.txt
+item = 13, 35, file/items/münze5.txt
+item = 53, 32, file/items/münze10.txt
+item = 28, 35, file/items/münze10.txt
+item = 4, 35, file/items/münze10.txt
+item = 50, 34, file/items/karotte.txt
+item = 2, 32, file/items/paprika.txt
+item = 14, 31, file/items/herzvoll.txt
+item = 18, 35, file/items/weintraube2.txt
+item = 5, 33, file/items/uhr.txt
+item = 47, 35, file/items/kraft7.txt
+item = 16, 30, file/items/kraft6.txt
+item = 50, 34, file/items/blume1.txt
+item = 1, 32, file/items/blume2.txt
+item = 14, 35, file/items/blume3.txt
+item = 18, 34, file/items/blume4.txt
+item = 5, 32, file/items/blume5.txt
+item = 47, 33, file/items/blume6.txt
+item = 16, 35, file/items/blume7.txt
+item = 16, 33, file/items/blume8.txt
+
+
+
+
 

@@ -17,6 +17,7 @@ public class Status extends JPanel {
     int power;
     int time;*/
 
+    /////////////////////////////////
     public Status() {
 
         pointLabel.setFont(new Font("Serif", Font.PLAIN, 24));
@@ -29,11 +30,18 @@ public class Status extends JPanel {
         add(liveLabel);
         add(powerLabel);
         add(timeLabel);
-
-
     }
+    /////////////////////////////////
 
-    public void SetStatus(int point, int live, int power, int time) {
+    /***
+     *
+     * @param point value of points of player
+     * @param live value of life of player
+     * @param power value of power of player
+     * @param time value of time of player
+     * sets values to display
+     */
+    public void setStatus(int point, int live, int power, int time) {
        pointLabel.setText("Punkte x "+point);
         liveLabel.setText("Leben x "+live);
         powerLabel.setText("Kraft x "+power);
@@ -41,5 +49,4 @@ public class Status extends JPanel {
         repaint();
 
     }
-
 }

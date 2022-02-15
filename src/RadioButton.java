@@ -76,6 +76,10 @@ public class RadioButton extends JFrame {//rb figurenauswahl
 
         buttonOK.addActionListener(new ActionListener() {//aktion
 
+            /***
+             *
+             * @param event
+             */
             @Override
             public void actionPerformed(ActionEvent event) {
                 String selectedOption = "";
@@ -103,6 +107,10 @@ public class RadioButton extends JFrame {//rb figurenauswahl
     ///////////////////
 
     class RadioButtonActionListener implements ActionListener {
+        /***
+         *
+         * @param event
+         */
         @Override
         public void actionPerformed(ActionEvent event) {
             JRadioButton button = (JRadioButton) event.getSource();

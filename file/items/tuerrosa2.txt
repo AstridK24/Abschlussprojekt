@@ -1,0 +1,6 @@
+name = tuerrosa
+image = img/item/tuerrosa.png
+visible = 1
+tele=36,2
+vip=lisa
+vip=jasmin

@@ -1,0 +1,6 @@
+name = tuerblau
+image = img/item/tuerblau.png
+visible = 1
+tele=29,33
+vip=ken
+vip=fred

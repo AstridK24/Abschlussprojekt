@@ -1,6 +1,11 @@
 500 Astrid
+41 Lisa
 11 ferkel
 11 meister max
 10 asdasd
+8 4
+6 l
 1 max
-1 max
+0 ä
+0 k
+8 4

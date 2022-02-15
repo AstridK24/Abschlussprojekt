@@ -47,18 +47,17 @@ public class GameMain extends JFrame {
                         public void windowClosed(WindowEvent e) {
                             System.out.println(radioButton.selected);//spielfigur
 
-                            board = new Board(radioButton.selected,enterName);
+                            board = new Board(radioButton.selected, enterName);
 
-                            board.addComponentListener ( new ComponentAdapter()
-                            {
-                                public void componentHidden ( ComponentEvent e )
-                                {
-                                    JOptionPane.showMessageDialog(null,"Du hast leider verloren. GAME OVER");
+                            board.addComponentListener(new ComponentAdapter() {
+                                public void componentHidden(ComponentEvent e) {
+                                    JOptionPane.showMessageDialog(null, "Du hast leider verloren. GAME OVER");
 
                                     gameStart.setEnabled(true);//startknopf wieder aktivieren
                                     middle.setVisible(true);
                                 }
-                            } );
+                            });
+
 
                             add(board);
                             revalidate();
@@ -74,6 +73,10 @@ public class GameMain extends JFrame {
         JMenuItem gameEnd = new JMenuItem("Verlassen");//zweiter untertitel
 
         gameEnd.addActionListener(new ActionListener() {//aktion
+            /***
+             *
+             * @param e actionevent
+             */
             @Override
             public void actionPerformed(ActionEvent e) {
                 int dialogButton = JOptionPane.YES_NO_OPTION;//ja-nein fenster
@@ -91,6 +94,10 @@ public class GameMain extends JFrame {
 
         JMenuItem gameInstructions = new JMenuItem("Spielanleitung");     //spielanleitungbutton
         gameInstructions.addActionListener(new ActionListener() {//aktion
+            /***
+             *
+             * @param e actionevent
+             */
             @Override
             public void actionPerformed(ActionEvent e) {
                 Desktop desktop = Desktop.getDesktop();

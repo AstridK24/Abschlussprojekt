@@ -1,12 +1,12 @@
 name = Michael der Biber
 image = img/figuren/biber2/biber2
-text1=<html>Hallo, ich bin Michael der Biber<br>>Mein Bruder hat mir von dir erzählt<br>Ich brauche dringend neinen Hammer<br>>Bitte bring ihn mir</html>
+text1=<html>Hallo, ich bin Michael der Biber<br>Mein Bruder hat mir von dir erzählt<br>Ich brauche dringend meinen Hammer<br>Bitte bring ihn mir</html>
 option1=Okay, ich suche für dich den Hammer.
 option2=Ich habe den Hammer für dich.
 text2=Danke für den Hammer.
 option3=Viel Spass damit!
 need=hammer
-give=file/items/hammer.txt
+give=file/items/schluessel.txt
 live=1
 strength=1
 moveable=0
