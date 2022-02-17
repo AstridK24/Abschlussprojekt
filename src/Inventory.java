@@ -91,5 +91,6 @@ public class Inventory extends JTable {
         }
         model.setRowCount(rows);//12 reihen
         model.setColumnCount(2);//2 spalten
+        setBackground(new Color(121, 241, 121));
     }
 }

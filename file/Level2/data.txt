@@ -24,7 +24,7 @@ fwwwhhhhhhhhhwwwwwwwwwwwwwwwwwwwwwwhhhhhhhhhhhhwwwwwhhf
 fwhwwwwhhwwwhhhhhhhhhhwwwhhhhhhhhwwwwwhhhhhhhwwwwwwwhhf
 fwhhhhhhhhhhhhhhhhwwwwwwwwwhhhhhhwwwwwwhhhhhhhhhhhhwhhf
 fwwwwwwwwhhhhhhhhhhhhhhhhhwwwhhhhhwwwwwwwwwhhhhhhhhwhhf
-fwwhhwwwhhhhhwwwwwwwwwwwwwwwwhhhhhhhhhhhwwwwwhhhhhhwhhf
+fwwhhwwhhhhhhwwwwwwwwwwwwwwwwhhhhhhhhhhhwwwwwhhhhhhwhhf
 fhwwwwhhhwwwwwhhhhhhhhhhhhhhhhhwwhwwwwwwwhhhwwwhhhwwwhf
 fhhwwhhhhhwwhhhhhhhhhhhwwwwwwwwwwwwwhhhhhhhhhhwwwhhhwhf
 fwwwhhhhhhhwhh6666hhhhhhwhhhhhhhhhwww6666hhhhhwwwwwwwhf
@@ -35,6 +35,7 @@ fwwwhhhhhhhwhh6666hhhhhhwhhhhhhhhhwww6666hhhhhwwwwwwwhf
 6333353333333343333333334343333333333333333333343333336
 6333333354533333333333433343335453333333333453335534336
 6666666666666666666666666666666666666666666666666666666
+
 
 player=26,18
 xplayer=6,2
@@ -139,6 +140,17 @@ item = 9, 15, file/items/blume5.txt
 item = 9, 17, file/items/blume5.txt
 item = 16, 20, file/items/blume5.txt
 
+item = 11,30,file/items/melone.txt
+item = 25,28,file/items/kraft1.txt
+item = 5,23,file/items/karotte.txt
+item = 50,29,file/items/herzvoll.txt
+item = 52,13,file/items/kraft2.txt
+item = 12,9,file/items/banane.txt
+item = 28, 25, file/items/münze10.txt
+item = 45, 30, file/items/münze10.txt
+item = 41, 9, file/items/münze10.txt
+item = 18, 16, file/items/münze10.txt
+item = 40, 14, file/items/münze10.txt
 
 item = 24, 22, file/items/loch.txt
 item = 25, 22, file/items/stachelnormal.txt

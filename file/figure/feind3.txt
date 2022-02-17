@@ -12,3 +12,7 @@ live=2
 strength=2
 gold=5
 follow=0
+xLO = 6
+yLO = 25
+xRU = 8
+yRU = 25

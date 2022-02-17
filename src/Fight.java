@@ -98,14 +98,16 @@ public class Fight extends JDialog {
         //int size2 = 800;
 
         JPanel panelEnemy = new JPanel(new BorderLayout());
-        panelEnemy.setBackground(Color.CYAN);
+        //panelEnemy.setBackground(Color.CYAN);
+        panelEnemy.setBackground(new Color(121, 241, 121));
         panelEnemy.setPreferredSize(new Dimension(200, 150));
         panelEnemy.add(enemyName, BorderLayout.NORTH);
         panelEnemy.add(enemyLive, BorderLayout.CENTER);
         panelEnemy.add(enemyPower, BorderLayout.SOUTH);
 
         JPanel panelPlayer = new JPanel(new BorderLayout());
-        panelPlayer.setBackground(Color.CYAN);
+        //panelPlayer.setBackground(Color.CYAN);
+        panelPlayer.setBackground(new Color(121, 241, 121));
         panelPlayer.setPreferredSize(new Dimension(200, 150));
         panelPlayer.add(playerName, BorderLayout.NORTH);
         panelPlayer.add(playerLive, BorderLayout.CENTER);

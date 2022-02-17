@@ -9,16 +9,13 @@ public class Tile {//kacheln
     private int width;//breite der zelle
     private int height;//höhe der zelle
     private boolean walkable;//begehbar
-    private boolean dangerous;//gefährlich
 
 /////////////////////////////////////////////////////////////////////
-    public Tile(String fileName, boolean walkable, boolean dangerous) {//konstruktor
-
+    public Tile(String fileName, boolean walkable) {//konstruktor
         width = 64;//breite
         height = 64;//höhe
         img = readImage(fileName);//bildpfad
         this.walkable = walkable;//begehbar
-        this.dangerous = dangerous;//gefährlich
     }
 //////////////////////////////////////////////////////////////////
 
@@ -26,7 +23,7 @@ public class Tile {//kacheln
         BufferedImage img = null;
         try {
             img = ImageIO.read(new File(fileName));
-        } catch (IOException e) {
+        } catch (IOException e) { //datei nicht gefunden - erzeuge schwarzes rechteck
             img = new BufferedImage(width,height,BufferedImage.TYPE_INT_ARGB);
             Graphics g = img.getGraphics();
             g.setColor(Color.black);//zelle schwarz
@@ -59,21 +56,5 @@ public class Tile {//kacheln
         this.walkable = walkable;
     }
 
-  /*  *//***
-     *
-     * @return
-     *//*
-    public boolean isDangerous() {//gefährlich
-        return dangerous;
-    }
-
-    *//***
-     *
-     * @param dangerous
-     *//*
-    public void setDangerous(boolean dangerous) {
-        this.dangerous = dangerous;
-    }
-*/
 }
 

@@ -179,19 +179,7 @@ public class Figure {
 
     }
 
-    /***
-     * clears all clubmembers from list
-     */
-    public void clearClubmembers() {
-        clubmembers.clear();
-    }
 
-    /***
-     * clears all items from list
-     */
-    public void clearBackpack() {
-        backpack.clear();
-    }
 
     /***
      *
@@ -230,6 +218,7 @@ public class Figure {
         }
     }
 
+
     /***
      *
      * @param item adds item to list
@@ -258,6 +247,20 @@ public class Figure {
             backpack.remove(index);
         }
         return retVal;
+    }
+
+    /***
+     * clears all clubmembers from list
+     */
+    public void clearClubmembers() {
+        clubmembers.clear();
+    }
+
+    /***
+     * clears all items from list
+     */
+    public void clearBackpack() {
+        backpack.clear();
     }
 
     /***

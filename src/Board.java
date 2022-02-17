@@ -36,7 +36,7 @@ public class Board extends JPanel /*implements KeyListener*/ { //spielfeld
         d.status = new Status();
         d.time = 1000;
         d.points = 0;
-        level = new Level("file/Level2", d);
+        level = new Level("file/Level3", d);
 
         setLayout(new BorderLayout());
         JPanel backGround = new JPanel();
@@ -155,34 +155,34 @@ public class Board extends JPanel /*implements KeyListener*/ { //spielfeld
         String pathRosa = "img/mapRosa/";
         String pathBlau = "img/mapBlau/";
 
-        d.tiles.put("w", new Tile(path + "steinweg.png", true, false));
-        d.tiles.put("W", new Tile(pathRosa + "wegrosa.png", true, false));
-        d.tiles.put("1", new Tile(pathBlau + "wegblau.png", true, false));
-        d.tiles.put("x", new Tile(path + "wegStein.png", true, false));
-        d.tiles.put("y", new Tile(path + "wiese2.png", true, false));
-        d.tiles.put("z", new Tile(path + "wiese3.png", true, false));
-        d.tiles.put("Y", new Tile(pathRosa + "wieserosa.png", true, false));
-        d.tiles.put("Z", new Tile(pathRosa + "wieserosa2.png", true, false));
-        d.tiles.put("2", new Tile(pathBlau + "wieseblau.png", true, false));
-        d.tiles.put("3", new Tile(pathBlau + "wieseblau2.png", true, false));
+        d.tiles.put("w", new Tile(path + "steinweg.png", true));
+        d.tiles.put("W", new Tile(pathRosa + "wegrosa.png", true));
+        d.tiles.put("1", new Tile(pathBlau + "wegblau.png", true));
+        d.tiles.put("x", new Tile(path + "wegStein.png", true));
+        d.tiles.put("y", new Tile(path + "wiese2.png", true));
+        d.tiles.put("z", new Tile(path + "wiese3.png", true));
+        d.tiles.put("Y", new Tile(pathRosa + "wieserosa.png", true));
+        d.tiles.put("Z", new Tile(pathRosa + "wieserosa2.png", true));
+        d.tiles.put("2", new Tile(pathBlau + "wieseblau.png", true));
+        d.tiles.put("3", new Tile(pathBlau + "wieseblau2.png", true));
 
-        d.tiles.put("h", new Tile(path + "strauch3.png", false, false));
-        d.tiles.put("H", new Tile(pathRosa + "baumrosa.png", false, false));
-        d.tiles.put("K", new Tile(pathRosa + "kugellila.png", false, false));
-        d.tiles.put("4", new Tile(pathBlau + "baumblau.png", false, false));
-        d.tiles.put("5", new Tile(pathBlau + "kugelblau.png", false, false));
-        d.tiles.put("f", new Tile(path + "felsen3.png", false, false));
-        d.tiles.put("F", new Tile(pathRosa + "felsenlila.png", false, false));
-        d.tiles.put("S", new Tile(pathRosa + "stachellila.png", false, false));
-        d.tiles.put("T", new Tile(pathRosa + "wasserrosa.png", false, false));
-        d.tiles.put("6", new Tile(pathBlau + "felsenblau.png", false, false));
-        d.tiles.put("7", new Tile(pathBlau + "stachelblau.png", false, false));
-        d.tiles.put("8", new Tile(pathBlau + "wasserblau.png", false, false));
+        d.tiles.put("h", new Tile(path + "strauch3.png", false));
+        d.tiles.put("H", new Tile(pathRosa + "baumrosa.png", false));
+        d.tiles.put("K", new Tile(pathRosa + "kugellila.png", false));
+        d.tiles.put("4", new Tile(pathBlau + "baumblau.png", false));
+        d.tiles.put("5", new Tile(pathBlau + "kugelblau.png", false));
+        d.tiles.put("f", new Tile(path + "felsen3.png", false));
+        d.tiles.put("F", new Tile(pathRosa + "felsenlila.png", false));
+        d.tiles.put("S", new Tile(pathRosa + "stachellila.png", false));
+        d.tiles.put("T", new Tile(pathRosa + "wasserrosa.png", false));
+        d.tiles.put("6", new Tile(pathBlau + "felsenblau.png", false));
+        d.tiles.put("7", new Tile(pathBlau + "stachelblau.png", false));
+        d.tiles.put("8", new Tile(pathBlau + "wasserblau.png", false));
 
-        d.tiles.put("a", new Tile(path + "h1.png", false, false));
-        d.tiles.put("b", new Tile(path + "h2.png", false, false));
-        d.tiles.put("c", new Tile(path + "h3.png", false, false));
-        d.tiles.put("d", new Tile(path + "h4.png", false, false));
+        d.tiles.put("a", new Tile(path + "h1.png", false));
+        d.tiles.put("b", new Tile(path + "h2.png", false));
+        d.tiles.put("c", new Tile(path + "h3.png", false));
+        d.tiles.put("d", new Tile(path + "h4.png", false));
     }
 
     private void setHighscore() {

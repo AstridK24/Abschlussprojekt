@@ -33,7 +33,7 @@ public class RadioButton extends JFrame {//rb figurenauswahl
     ///////////////////////////
     public RadioButton() {//konstrukter
         super("Wähle deine Spielfigur aus");//fenstertitel
-
+        getContentPane().setBackground(new Color(121, 241, 121));
         ButtonGroup group = new ButtonGroup();//rb gruppieren bzw nur einer wählbar
         group.add(lisa);
         group.add(ken);
@@ -101,6 +101,7 @@ public class RadioButton extends JFrame {//rb figurenauswahl
         });
 
         pack();
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
     }

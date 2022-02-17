@@ -1,47 +1,42 @@
 hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-hyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyh
-hyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyh
-hyyyyyyyyyyyyyyyyyyyyyyhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhyyyyyyyyyyyyyyyyyyyyyyh
-hyyyyyyyyyyyyyyyyyyyyyyhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhyyyyyyyyyyyyyyyyyyyyyyh
-hyyyyyyyyyyyyyyyyyyyyyyhwwhwwwhhhwwwhwhwwwwwwwwwwwwhhhhyyyyyyyyyyyyyyyyyyyyyyh
-hyyyyyyyyyyyyyyyyyyyyyyhwwhwwwhwhwwwhwhwhhhhhhhhhwwhhhhyyyyyyyyyyyyyyyyyyyyyyh
-hyyyyyyyyyyyyyyyyyyyyyyhwwhwwwhwhwwwhwhwwwwwwwwhhwwhhhhhhhhhhhhhhhhhhhhhhhhhhh
-hyyyyyyyyfyyyyyyyyyyyyyhwwhhwwhwhwwhhhhhhhhhhhhhhwwhhhhhhhhhhhhhhhhhhhhhhhhhhh
-hyyyyyyyfffyyyyyyyyyyyyhwwwhwwhwhwwwwwwwwwwwwwwwwwwhhhwwwwwwwwwwwwwwwwwwwwwwhh
-hyyyyyyffyffyyyyyyyyyyyhwfwhwwhhhwwwwwwhhhhhhhhhhhhhhwwwwwwwwwwwwwwwwwwwwwwwhh
-hyyyyyfffyfffyyyyyyyyyyhwfwhwwhhhhhhhwwhhwwwwwwwwwwwwwwhhhhwwhhhwwhhhwwhhhwwhh
-hyyyyyyyyyyyyyyyyyyyyyyhwfwhwwwwwwwwwwwwwwwwwwwwwwwwwhhhhhhwwhwhwwhhhwwhwhwwhh
-hyyyyyyyyyyyyyyyyyyyyyyhwfwhwwwwwwwwwwwwwwwhhhhhhhhhhhhhhhhwwhwhwwhhhwwhwhwwhh
-hyyyyyyyyyyyyyyyyyyyyyyhwwwhhhhhhhhhhhhhhhhhhhwwwwwwwwwwwwwwwhwhwwhhwwhhwhwwhh
+hZZZZZZ5ZZZ33333333333yy4yyyyHyy4yyyHyyyyy4yyyyyHyyZZZZZZZ5ZZZZ33333333333333h
+hZZZKZ33333333333yyHyyyyyy4yyyyyyyHyyyyyyyyyHyyyyyyyyyyZZZZZZZZZZZZZZ3K333333h
+F6F6F6F6F6F6F6F6F6F6F6W1W1W1W1W1W1W1W1W1W1W1W1W1W1W1W1W6F6F6F6F6F6F6F6F6F6F6F6
+hyyyyyyyyyyyyyfyyyyyyyF6F6F6F6F6F6F6F6F6F6F6F6F6F6F6F6Fyyyyyyyyyyyyyyyyyyyyyyh
+hyyyyyyyyyyyyyfyyyyyyyyhwwhwwwhhhwwwhwhwwwwwwwwwwwwhhhhyyyyyyyyyyyyyyyyyyyyyyh
+hyyyyyyyyyyyyyfyyyyyyyyhwwhwwwhwhwwwhwhwhhhhhhhhhwwhhhhyyyyyyyyyyyyyyyyyyyyyyh
+hyyyyyyyyyyyyyfyyyyyyyyhwwhwwwhwhwwwhwhwwwwwwwwhhwwhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hyyyyyyyyfyyyyfyyyyyyyyhwwhhwwhwhwwhhhhhhhhhhhhhhwwhhhhhhhhhhhhhhhhhhhhhhhhhhh
+hyyyyyyyfffyyyfyyyyyyyyhwwwhwwhwhwwwwwwwwwwwwwwwwwwhhhwwwwwwwwwwwwwwwwwwwwwwhh
+hyyyyyyffyffyyfyyyyyyyyhwfwhwwhhhwwwwwwhhhhhhhhhhhhhhwwwwwwwwwwwwwwwwwwwwwwwhh
+hyyyyyfffyfffyfyyyyyyyyhwfwhwwhhhhhhhwwhhwwwwwwwwwwwwwwhhhhwwhhhwwhhhwwhhhwwhh
+hyyyyyyyyyyyyyfyyyyyyyyhwfwhwwwwwwwwwwwwwwwwwwwwwwwwwhhhhhhwwhwhwwhhhwwhwhwwhh
+hyyyyyyyyyyyyyfyyyyyyyyhwfwhwwwwwwwwwwwwwwwhhhhhhhhhhhhhhhhwwhwhwwhhhwwhwhwwhh
+hyyyyyyyyyyyyyfyyyyyyyyhwwwhhhhhhhhhhhhhhhhhhhwwwwwwwwwwwwwwwhwhwwhhwwhhwhwwhh
 hhhhhhhhhhhhhhhhhhhhhhhhwwwhwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwhwhwwhhwwhhwhwwhh
 hhhhhhhhhhhhhhhhhhhhhhhhhhhhwwwwwwwwwwwwwwwwwwwwwhhhhhhhhhhhhhhhwwhhwwhhwhwwhh
 hyyyyyyywwwwwwwwwwwwwwwwwwwwwwhhhhhhhhhhhhhhhhhhhhhhwwwwwwwwwwwwwwhhwwhhwhwwhh
 hyyyyyyywwwwwwwwwwwwwwwwwwwwwwhwwhwwwwwwwwwwwwwwwwwwwwwhhhhhhhhhhhhhwwhhwhwwhh
-hyyyyyyyyyhhhhhhhhhhhhhhhhhhhhhwwhwhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhwwhhwhwwhh
-hyyyyyyyyyhhhwwwwwwwwwwwwwwwwwhwwhwhhhwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwhhwhwwhh
+hyyyabyyyyhhhhhhhhhhhhhhhhhhhhhwwhwhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhwwhhwhwwhh
+hyyycdyyyyhhhwwwwwwwwwwwwwwwwwhwwhwhhhwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwhhwhwwhh
 hyyyyyyyyyhhhwhhhhhhhhhhhhhhhwhwwhwhfhwwhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhwhwwhh
-hhhhhhhhhhhhhwhhwwwwwwwwwwwwwwhwwhwhfhwwhehwwwwwwwwwwwwwwwwwwwwwwwwwwwhhwhwwhh
+hhhhhhhhhhhhhwhhwwwwwwwwwwwwwwhwwhwhfhwwhwhwwwwwwwwwwwwwwwwwwwwwwwwwwwhhwhwwhh
 hhhhhhhhhhhhhwhhhhhhhhhhhhhhhhhhhhwhfhwwhwhwwhhhhhhhhhhhhhhhhhhhhhhhhhhhhhwwhh
 hhhwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwhhhwwhwhwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwhh
 hhhwwhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhwwhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhwwhh
 hhhwwhhhwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwffffffffffffffffffffffffffffffffffwwhh
 hhhwwhhhwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwfffwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwhh
-hhhwwhhhwwwwwwwwhhfffffffffffffffffffffffffwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwhh
-hhhwwhhhhhhhhhhhhhfwwwwwwwwwwwwwwwwwwwwwwwwwwfffffffffffffffffffffffffffffwwhh
-hhhwwwwwwwwhhhhhhhfwwffffffffffffffffffffffffffffyyyyyyyyyyyyyyyyyyyyfffffwwhh
-hhhwwwwwwwwhhhhhhhfwwffffffffffffffffffffffffffffyyyyyyyyyyyyyyyyyyyyfffffwwhh
-hhhhhhwwwwwhhhhhhhfwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwyyyyyyyyyyyyyyyyyyyyfffffwwhh
-hhhhhhhhhhhhhhhhhhfwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwyyyyyyyyyyyyyyyyyyyyfffffwwhh
-hwwhhhhhhhhhhhhhhhfffffffffffffffffffffffffffffffyyyyyyyyyyyyyyyyyyyyfffffwwhh
+hhhwwhhhwwwwwwwwhhfffffffffffffffffffffffffwwwwwwwwwwwwwwwwffffffwwwwwwwwwwwhh
+hhhwwhhhhhhhhhhhhhfwwwwwwwwwwwwwwwwwwwwwwwwwwffffffffffffffyyyyyyfffffffffwwhh
+hhhwwwwwwwwhhhhhhhfwwffffffffffffffffffffffffffffyyyyyyyyyyyffffyyyyyfffffwwhh
+hhhwwwwwwwwhhhhhhhfwwffffffffffffffffffffffffffffyyyyyyyyyyfyyyyfyyyyfffffwwhh
+hhhhhhwwwwwhhhhhhhfwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwyyyyyyyyyyfyyyyfyyyyfffffwwhh
+hhhhhhhhhhhhhhhhhhfwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwyyyyyyyyyyfyyyyfyyyyfffffwwhh
+hwwhhhhhhhhhhhhhhhfffffffffffffffffffffffffffffffyyyyyyyyyyfyyyyfyyyyfffffwwhh
 hwwhhwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwffffffffffffffffffffffffwwwwwhh
 hwwhhwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwhh
 hwwhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhwwwwwwwwwwwwwwwwwwwwwwwwwwhhhhhh
 hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-f
-f
-f
-f
-f
 f
 f
 f
@@ -59,5 +54,134 @@ fxxxxxxxxxxxxxxxxxxxxxxxxxxf
 fxxxxxxxxxxxxxxxxxxxxxxxxxxf
 ffffffffffffffffffffffffffff
 
-player=28,6
+player = 28, 6
+xplayer = 53, 31
+figure = 6, 19, file/figure/biber3.txt
+figure = 6, 19, file/figure/thor.txt
+figure = 6, 19, file/figure/supermax.txt
+figure = 6, 19, file/figure/superjenny.txt
+item = 24, 26, file/items/hammer.txt
+item = 67, 31, file/items/stern.txt
+item = 19, 17, file/items/apfel.txt
+figure = 62, 29, file/figure/feind1.txt
+
+kraft und leben
+item = 50, 5, file/items/ananas.txt
+item = 27, 24, file/items/banane.txt
+item = 70, 28, file/items/karotte.txt
+item = 65, 10, file/items/melone.txt
+item = 25, 5, file/items/kraft1.txt
+item = 75, 13, file/items/kraft2.txt
+item = 4, 18, file/items/kraft3.txt
+item = 37, 32, file/items/kraft4.txt
+sonstige tiere
+figure = 26, 9, file/figure/hase.txt
+figure = 64, 9, file/figure/hase.txt
+figure = 42, 12, file/figure/hase.txt
+figure = 53, 31, file/figure/hase.txt
+figure = 22, 35, file/figure/hase.txt
+figure = 26, 9, file/figure/waschbaer.txt
+figure = 64, 9, file/figure/waschbaer.txt
+figure = 42, 12, file/figure/waschbaer.txt
+figure = 65, 31, file/figure/waschbaer.txt
+figure = 22, 35, file/figure/waschbaer.txt
+figure = 55, 28, file/figure/hund.txt
+figure = 22, 24, file/figure/hund.txt
+figure = 57, 22, file/figure/katze.txt
+figure = 22, 20, file/figure/katze.txt
+figure = 65, 31, file/figure/schmetterling.txt
+figure = 53, 31, file/figure/schmetterling2.txt
+figure = 75, 17, file/figure/schmetterling2.txt
+figure = 25, 35, file/figure/schmetterling.txt
+figure = 75, 17, file/figure/eichhoernchen.txt
+figure = 25, 35, file/figure/eichhoernchen.txt
+figure = 68, 27, file/figure/eichhoernchen.txt
+figure = 51, 20, file/figure/eichhoernchen.txt
+figure = 35, 5, file/figure/eichhoernchen.txt
+schafe
+figure = 19, 5, file/figure/schafweiss.txt
+figure = 19, 6, file/figure/schafweiss.txt
+figure = 19, 7, file/figure/schafweiss.txt
+figure = 19, 8, file/figure/schafweiss.txt
+figure = 19, 8, file/figure/schafweiss.txt
+figure = 19, 7, file/figure/schafweiss.txt
+figure = 19, 5, file/figure/schmetterling.txt
+figure = 19, 7, file/figure/schmetterling2.txt
+item = 20, 5, file/items/pilz.txt
+item = 21, 6, file/items/pilz4.txt
+item = 23, 5, file/items/baum3.txt
+item = 22, 7, file/items/baumgelb2.txt
+item = 23, 15, file/items/baumgelb3.txt
+item = 23, 16, file/items/baum2.txt
+item = 22, 17, file/items/baumgelb3.txt
+item = 22, 15, file/items/baum3.txt
+ziegen
+figure = 57, 5, file/figure/ziege.txt
+figure = 58, 5, file/figure/ziege.txt
+figure = 59, 5, file/figure/ziege.txt
+figure = 57, 5, file/figure/ziege.txt
+figure = 58, 5, file/figure/ziege.txt
+figure = 59, 5, file/figure/ziege.txt
+figure = 57, 5, file/figure/schmetterling.txt
+figure = 59, 5, file/figure/schmetterling2.txt
+item = 57, 5, file/items/pilz.txt
+item = 58, 6, file/items/pilz4.txt
+item = 59, 5, file/items/baum3.txt
+item = 60, 4, file/items/baumgelb2.txt
+item = 61, 4, file/items/baumgelb3.txt
+item = 62, 6, file/items/baum2.txt
+item = 63, 6, file/items/baumgelb3.txt
+item = 64, 5, file/items/baum3.txt
+item = 65, 5, file/items/pilz.txt
+item = 70, 6, file/items/pilz4.txt
+item = 67, 6, file/items/baum3.txt
+item = 68, 5, file/items/baumgelb2.txt
+item = 69, 6, file/items/baumgelb3.txt
+teich
+item = 60,31,file/items/teich1.txt
+item = 61,31,file/items/teich2.txt
+item = 62,31,file/items/teich3.txt
+item = 63,31,file/items/teich4.txt
+item = 60, 32, file/items/teich5.txt
+item = 61, 32, file/items/teich6.txt
+item = 62, 32, file/items/teich7.txt
+item = 63, 32, file/items/teich8.txt
+item = 60, 33, file/items/teich9.txt
+item = 61, 33, file/items/teich10.txt
+item = 62, 33, file/items/teich11.txt
+item = 63, 33, file/items/teich12.txt
+item = 60, 34, file/items/teich13.txt
+item = 61, 34, file/items/teich14.txt
+item = 62, 34, file/items/teich15.txt
+item = 63, 34, file/items/teich16.txt
+figure = 60, 32, file/figure/mj1.txt
+figure = 60, 32, file/figure/mj2.txt
+figure = 60, 32, file/figure/schwan.txt
+figure = 60, 32, file/figure/surfer.txt
+figure = 54, 32, file/figure/pegasus.txt
+bäume
+item = 68, 11, file/items/baumgelb3.txt
+item = 54, 8, file/items/baumgelb3.txt
+item = 77, 9, file/items/baumgelb3.txt
+item = 77, 27, file/items/baumgelb3.txt
+item = 38, 8, file/items/baumgelb2.txt
+item = 31, 10, file/items/baumgelb2.txt
+item = 40, 11, file/items/baumgelb2.txt
+item = 63, 11, file/items/baumgelb2.txt
+item = 27, 8, file/items/baumgelb1.txt
+item = 52, 9, file/items/baumgelb1.txt
+item = 33, 11, file/items/baumgelb1.txt
+item = 42, 10, file/items/baumgelb1.txt
+item = 27, 6, file/items/baum3.txt
+item = 35, 6, file/items/baum3.txt
+item = 34, 7, file/items/baum3.txt
+item = 39, 8, file/items/baum3.txt
+item = 34, 37, file/items/baum2.txt
+item = 73, 25, file/items/baum2.txt
+item = 71, 19, file/items/baum2.txt
+item = 58, 12, file/items/baum2.txt
+item = 67, 25, file/items/baum1.txt
+item = 45, 25, file/items/baum1.txt
+item = 17, 29, file/items/baum1.txt
+item = 63, 23, file/items/baum1.txt
 
