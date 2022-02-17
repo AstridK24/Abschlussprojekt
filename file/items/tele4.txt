@@ -1,0 +1,4 @@
+name = tele
+image = img/item/kiste.png
+visible = 1
+tele = 15, 47

@@ -3,7 +3,7 @@ hZZZZZZ5ZZZ33333333333yy4yyyyHyy4yyyHyyyyy4yyyyyHyyZZZZZZZ5ZZZZ33333333333333h
 hZZZKZ33333333333yyHyyyyyy4yyyyyyyHyyyyyyyyyHyyyyyyyyyyZZZZZZZZZZZZZZ3K333333h
 F6F6F6F6F6F6F6F6F6F6F6W1W1W1W1W1W1W1W1W1W1W1W1W1W1W1W1W6F6F6F6F6F6F6F6F6F6F6F6
 hyyyyyyyyyyyyyfyyyyyyyF6F6F6F6F6F6F6F6F6F6F6F6F6F6F6F6Fyyyyyyyyyyyyyyyyyyyyyyh
-hyyyyyyyyyyyyyfyyyyyyyyhwwhwwwhhhwwwhwhwwwwwwwwwwwwhhhhyyyyyyyyyyyyyyyyyyyyyyh
+hyyyyyyyyyyyyyfyyyyyyyyhwwywwwyyywwwhwywwwwwwwwwwwwhhhhyyyyyyyyyyyyyyyyyyyyyyh
 hyyyyyyyyyyyyyfyyyyyyyyhwwhwwwhwhwwwhwhwhhhhhhhhhwwhhhhyyyyyyyyyyyyyyyyyyyyyyh
 hyyyyyyyyyyyyyfyyyyyyyyhwwhwwwhwhwwwhwhwwwwwwwwhhwwhhhhhhhhhhhhhhhhhhhhhhhhhhh
 hyyyyyyyyfyyyyfyyyyyyyyhwwhhwwhwhwwhhhhhhhhhhhhhhwwhhhhhhhhhhhhhhhhhhhhhhhhhhh
@@ -46,11 +46,11 @@ f
 ffffffffffffffffffffffffffff
 fxxxxxxxxxxxxxxxxxxxxxxxxxxf
 fxxxxxxxxxxxxxxxxxxxxxxxxxxf
+ffffffffffffffffffffffffffxf
 fxxxxxxxxxxxxxxxxxxxxxxxxxxf
+fxffffffffffffffffffffffffff
 fxxxxxxxxxxxxxxxxxxxxxxxxxxf
-fxxxxxxxxxxxxxxxxxxxxxxxxxxf
-fxxxxxxxxxxxxxxxxxxxxxxxxxxf
-fxxxxxxxxxxxxxxxxxxxxxxxxxxf
+ffffffffffffffffffffffxfffff
 fxxxxxxxxxxxxxxxxxxxxxxxxxxf
 ffffffffffffffffffffffffffff
 
@@ -58,12 +58,24 @@ player = 28, 6
 xplayer = 53, 31
 figure = 6, 19, file/figure/biber3.txt
 figure = 6, 19, file/figure/thor.txt
-figure = 6, 19, file/figure/supermax.txt
-figure = 6, 19, file/figure/superjenny.txt
+figure = 63, 10, file/figure/supermax.txt
+figure = 50, 32, file/figure/superjenny.txt
 item = 24, 26, file/items/hammer.txt
 item = 67, 31, file/items/stern.txt
 item = 19, 17, file/items/apfel.txt
+item = 13, 53, file/items/tuer3.txt
+item = 20, 33, file/items/tuerrosa3.txt
+item = 58, 34, file/items/tuerblau3.txt
+item = 50, 1, file/items/tele3.txt
+item = 26, 46, file/items/tele3.txt
+item = 50, 30, file/items/tele3.txt
+item = 69, 18, file/items/tele3.txt
+item = 1, 21, file/items/tele3.txt
+item = 7, 21, file/items/tele4.txt
 figure = 62, 29, file/figure/feind1.txt
+figure = 5, 49, file/figure/feind2.txt
+figure = 5, 51, file/figure/feind3.txt
+figure = 5, 53, file/figure/feind4.txt
 
 kraft und leben
 item = 50, 5, file/items/ananas.txt
@@ -74,6 +86,29 @@ item = 25, 5, file/items/kraft1.txt
 item = 75, 13, file/items/kraft2.txt
 item = 4, 18, file/items/kraft3.txt
 item = 37, 32, file/items/kraft4.txt
+münzen und zeit
+item = 66, 34, file/items/uhr.txt
+item = 69, 37, file/items/uhr.txt
+item = 48, 14, file/items/uhr.txt
+item = 37, 7, file/items/uhr.txt
+item = 4, 21, file/items/münze5.txt
+item = 50, 6, file/items/münze5.txt
+item = 25, 32, file/items/münze5.txt
+item = 39, 24, file/items/münze5.txt
+item = 69, 14, file/items/münze5.txt
+item = 10, 17, file/items/münze5.txt
+item = 35, 30, file/items/münze10.txt
+item = 8, 30, file/items/münze10.txt
+item = 45, 35, file/items/münze10.txt
+item = 11, 18, file/items/münze10.txt
+item = 64, 24, file/items/münze10.txt
+item = 40, 5, file/items/münze10.txt
+bonus
+item = 4, 1, file/items/münze10.txt
+item = 75, 2, file/items/münze10.txt
+item = 48, 3, file/items/münze10.txt
+item = 44, 1, file/items/münze10.txt
+item = 23, 3, file/items/münze10.txt
 sonstige tiere
 figure = 26, 9, file/figure/hase.txt
 figure = 64, 9, file/figure/hase.txt
@@ -105,6 +140,16 @@ figure = 19, 7, file/figure/schafweiss.txt
 figure = 19, 8, file/figure/schafweiss.txt
 figure = 19, 8, file/figure/schafweiss.txt
 figure = 19, 7, file/figure/schafweiss.txt
+figure = 8, 5, file/figure/schafrosa.txt
+figure = 8, 5, file/figure/schafrosa.txt
+figure = 8, 5, file/figure/schafrosa.txt
+figure = 8, 5, file/figure/schafrosa.txt
+figure = 8, 5, file/figure/schafrosa.txt
+figure = 8, 5, file/figure/schafblau.txt
+figure = 8, 5, file/figure/schafblau.txt
+figure = 8, 5, file/figure/schafblau.txt
+figure = 8, 5, file/figure/schafblau.txt
+figure = 8, 5, file/figure/schafblau.txt
 figure = 19, 5, file/figure/schmetterling.txt
 figure = 19, 7, file/figure/schmetterling2.txt
 item = 20, 5, file/items/pilz.txt

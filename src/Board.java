@@ -36,7 +36,7 @@ public class Board extends JPanel /*implements KeyListener*/ { //spielfeld
         d.status = new Status();
         d.time = 1000;
         d.points = 0;
-        level = new Level("file/Level3", d);
+        level = new Level("file/Level1", d);
 
         setLayout(new BorderLayout());
         JPanel backGround = new JPanel();

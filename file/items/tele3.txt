@@ -1,0 +1,4 @@
+name = tele
+image = img/item/teleport.png
+visible = 1
+tele = 63, 9
